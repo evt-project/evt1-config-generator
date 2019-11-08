@@ -1,10 +1,62 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 @import './assets/scss/variables';
+@import './assets/scss/mixins';
 
 .btn-light {
-    color: $baseColorDark;
-    background: $baseColorLight;
-    &:hover {
-        background: rgba($baseColorLight, .9);
+  color: $baseColorDark;
+  background: $baseColorLight;
+
+  &:hover {
+    background: rgba($baseColorLight, .9);
+  }
+}
+
+.ng-select {
+  position: relative;
+  display: inline-flex !important;
+  vertical-align: middle;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+
+  &.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
+    border-color: transparent;
+  }
+
+  .ng-select-container {
+    height: 31px !important;
+    min-height: 31px;
+    vertical-align: middle;
+    border-color: transparent;
+    color: $baseColorDark !important;
+    background-color: $baseColorLight !important;
+  }
+
+  .ng-arrow-wrapper {
+    padding-left: 6px;
+
+    .ng-arrow {
+      border-width: 4px 4px 2.5px;
     }
+  }
+
+  .ng-dropdown-panel-items {
+    @include set('box-shadow', '0 0.125rem 0.25rem rgba(0, 0, 0, 0.1)');
+
+    .ng-option.ng-option-marked {
+      background-color: rgba($baseColorDark, .1) !important;
+    }
+
+    .ng-option.ng-option-selected {
+      background-color: $baseColorDark !important;
+      color: $baseColorLight !important;
+    }
+  }
+
+  &.ng-select-opened {
+    .ng-arrow-wrapper .ng-arrow {
+      border-width: 0 4px 4px;
+    }
+  }
+
 }

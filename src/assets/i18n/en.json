@@ -1,5 +1,7 @@
 {
     "appTitle": "EVT 1 configuration generator",
     "save": "Save",
-    "upload": "Upload"
+    "upload": "Upload",
+    "english": "English",
+    "italian": "Italian"
 }

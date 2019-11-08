@@ -10,6 +10,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+import { NgSelectModule } from '@ng-select/ng-select';
+
 import { AppComponent } from './app.component';
 
 // AoT requires an exported function for factories
@@ -34,6 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     FormsModule,
     FontAwesomeModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

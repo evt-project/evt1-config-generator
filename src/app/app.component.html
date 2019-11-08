@@ -4,13 +4,24 @@
     <span>{{ 'appTitle' | translate }}</span>
   </a>
   <div>
-    <button type="button" class="btn btn-light mr-2">
+    <button type="button" class="btn btn-sm btn-light mr-2">
       <fa-icon icon="upload"></fa-icon>
       {{'upload' | translate}}
     </button>
-    <button type="button" class="btn btn-light">
+    <button type="button" class="btn btn-sm btn-light mr-2">
       <fa-icon icon="download"></fa-icon>
       {{'save' | translate}}
     </button>
+    <ng-select 
+      [items]="availableLanguages"
+      bindLabel="label" bindValue="code" [clearable]="false"
+      [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
+      <ng-template ng-label-tmp let-item="item">
+          {{item.label | translate}}
+      </ng-template>
+      <ng-template ng-option-tmp let-item="item">
+          {{item.label | translate}}
+      </ng-template>
+    </ng-select>
   </div>
 </nav>
