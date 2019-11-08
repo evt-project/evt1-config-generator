@@ -1,0 +1,69 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/variables';
+
+.sidebar {
+  position: fixed;
+  top: 48px;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include set('box-shadow', 'inset -1px 0 0 rgba(0, 0, 0, .1)');
+  background-color: rgba($baseColorLight, .2);
+
+  .btn-transparent {
+    border-radius: 0;
+    color: $baseColorDark;
+    background: transparent;
+
+    &:hover {
+      background: rgba($baseColorDark, .1);
+    }
+  }
+
+  .list-group-item {
+    .nav-link {
+      font-weight: 500;
+      color: $baseColorDark;
+
+      &.active {
+        color: $baseColorLight;
+        background-color: $baseColorDark;
+        cursor: default;
+      }
+
+      &:not(.active):hover {
+        background-color: rgba($baseColorDark, .1);
+      }
+    }
+
+    background-color: transparent;
+  }
+}
+
+::ng-deep {
+  .collapse.show {
+    background: rgba($baseColorLight, .2);
+  }
+
+  .accordion>.card .card-header,
+  .accordion>.card .card-body {
+    padding: 0;
+  }
+
+  .card {
+    border-bottom: 0;
+    border-top: 0;
+  }
+
+  .card-header {
+    border: 0;
+    background-color: rgba($baseColorLight, .2);
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

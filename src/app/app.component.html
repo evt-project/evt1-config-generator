@@ -1,4 +1,4 @@
-<nav class="navbar justify-content-between temp-header">
+<nav class="navbar fixed-top flex-md-nowrap pt-1 pb-1 pl-2 pr-2 shadow justify-content-between">
   <a class="navbar-brand">
     <img src="../../assets/images/logo.png" height="30" class="d-inline-block align-top" alt="">
     <span>{{ 'appTitle' | translate }}</span>
@@ -12,16 +12,15 @@
       <fa-icon icon="download"></fa-icon>
       {{'save' | translate}}
     </button>
-    <ng-select 
-      [items]="availableLanguages"
-      bindLabel="label" bindValue="code" [clearable]="false"
+    <ng-select [items]="availableLanguages" bindLabel="label" bindValue="code" [clearable]="false"
       [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
       <ng-template ng-label-tmp let-item="item">
-          {{item.label | translate}}
+        {{item.label | translate}}
       </ng-template>
       <ng-template ng-option-tmp let-item="item">
-          {{item.label | translate}}
+        {{item.label | translate}}
       </ng-template>
     </ng-select>
   </div>
 </nav>
+<app-dashboard></app-dashboard>
