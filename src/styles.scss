@@ -1,0 +1,10 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import './assets/variables';
+
+.btn-light {
+    color: $baseColorDark;
+    background: $baseColorLight;
+    &:hover {
+        background: rgba($baseColorLight, .9);
+    }
+}
