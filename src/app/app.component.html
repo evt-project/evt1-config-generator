@@ -4,7 +4,7 @@
     <span>{{ 'appTitle' | translate }}</span>
   </a>
   <div>
-    <button type="button" class="btn btn-sm btn-light mr-2">
+    <button type="button" class="btn btn-sm btn-light mr-2" (click)="upload()">
       <fa-icon icon="upload"></fa-icon>
       {{'upload' | translate}}
     </button>
@@ -24,3 +24,4 @@
   </div>
 </nav>
 <app-dashboard></app-dashboard>
+<input id="uploadXSL" type="file" class="hidden" accept="application/xsl" (change)="uploadSelectedXSL()"/>

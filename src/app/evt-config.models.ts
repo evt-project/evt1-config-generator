@@ -1,3 +1,9 @@
+export interface EVT1Config {
+    mainData: EditionMainData;
+    tools: EditionTools;
+    advanced: AdvancedConfigs;
+}
+
 export interface EditionMainData {
     imageExt: string;
     webSite: string;
