@@ -1,6 +1,9 @@
 @import '../../assets/scss/mixins';
 @import '../../assets/scss/variables';
 
+main {
+  top: 48px;
+}
 .sidebar {
   position: fixed;
   top: 48px;
@@ -44,26 +47,28 @@
 }
 
 ::ng-deep {
-  .collapse.show {
-    background: rgba($baseColorLight, .2);
-  }
-
-  .accordion>.card .card-header,
-  .accordion>.card .card-body {
-    padding: 0;
-  }
-
-  .card {
-    border-bottom: 0;
-    border-top: 0;
-  }
-
-  .card-header {
-    border: 0;
-    background-color: rgba($baseColorLight, .2);
-
-    &:focus {
-      outline: none;
+  .sidebar {
+    .collapse.show {
+      background: rgba($baseColorLight, .2);
+    }
+  
+    .accordion>.card .card-header,
+    .accordion>.card .card-body {
+      padding: 0;
+    }
+  
+    .card {
+      border-bottom: 0;
+      border-top: 0;
+    }
+  
+    .card-header {
+      border: 0;
+      background-color: rgba($baseColorLight, .2);
+  
+      &:focus {
+        outline: none;
+      }
     }
   }
 }

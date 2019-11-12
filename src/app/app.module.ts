@@ -16,6 +16,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditionMainDataComponent } from './edition-main-data/edition-main-data.component';
 import { CardComponent } from './components/card/card.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
 
@@ -29,6 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     DashboardComponent,
+    EditionMainDataComponent,
     CardComponent,
     FormGroupComponent
   ],

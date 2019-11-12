@@ -1,0 +1,32 @@
+<!-- MAIN INFORMATIONS -->
+<app-card [title]="'editionMainInfo'">
+  <form content>
+    <app-form-group [title]="'editionTitle'" [description]="'editionTitle_desc'">
+      <input class="form-control" placeholder="Edition Title" name="index_title" [(ngModel)]="configs.index_title"
+        (keyup)="updateValue($event)" content>
+    </app-form-group>
+    <app-form-group [title]="'badge'" [description]="'badge_desc'">
+      <div class="form-row align-items-center" content>
+        <div class="col-auto">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="badge" [checked]="configs.badge"
+              [(ngModel)]="configs.badge" name="badge" (change)="updateValueCheckbox($event)" />
+            <label class="form-check-label" for="badge">Activate badge</label>
+          </div>
+        </div>
+        <div class="col-auto">
+          <input class="form-control" placeholder="Badge text" [disabled]="!configs.badge" name="badge_text"
+            [(ngModel)]="configs.badge_text" (keyup)="updateValue($event)" />
+        </div>
+      </div>
+    </app-form-group>
+    <app-form-group [title]="'webSite'" [description]="'webSite_desc'">
+      <input class="form-control" placeholder="External web site" name="webSite" [(ngModel)]="configs.webSite"
+        (keyup)="updateValue($event)" content />
+    </app-form-group>
+    <app-form-group [title]="'welcomeMsg'" [description]="'welcomeMsg_desc'">
+      <textarea content class="form-control" placeholder="Your welcome message" rows="15" name="welcomeMsg"
+        [(ngModel)]="configs.welcomeMsg" (keyup)="updateValue($event)">{{ configs.welcomeMsg }}</textarea>
+    </app-form-group>
+  </form>
+</app-card>
