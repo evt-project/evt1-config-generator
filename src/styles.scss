@@ -65,3 +65,7 @@
   outline: none !important;
   @include set('box-shadow', 'none', '!important');
 }
+
+.hidden {
+  visibility: hidden;
+}

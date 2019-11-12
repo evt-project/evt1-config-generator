@@ -16,6 +16,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CardComponent } from './components/card/card.component';
+import { FormGroupComponent } from './components/form-group/form-group.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,7 +28,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    CardComponent,
+    FormGroupComponent
   ],
   imports: [
     BrowserModule,
