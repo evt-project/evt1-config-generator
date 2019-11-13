@@ -1,7 +1,10 @@
 <div class="form-group">
-    <label class="mb-0">{{ title | translate }}</label>
+    <label class="col-form-label-sm mb-0">{{ title | translate }}</label>
     <small class="form-text text-muted mb-2">
         {{ description | translate }}
+        <div>
+            <ng-content select="[additionalText]"></ng-content>
+        </div>
     </small>
     <ng-content select="[content]"></ng-content>
 </div>
