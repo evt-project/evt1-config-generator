@@ -85,12 +85,12 @@ export class EditionMainDataComponent implements OnInit {
       value: 'Custom',
       prefix: 'custom',
       visible: true
-    })
+    });
     this.evtConfigService.setValue('edition_array', this.configs.edition_array);
   }
 
   onRemoveEditionLevel(index) {
-    this.configs.edition_array.splice(index, 1)
+    this.configs.edition_array.splice(index, 1);
     this.evtConfigService.setValue('edition_array', this.configs.edition_array);
   }
 
@@ -98,7 +98,7 @@ export class EditionMainDataComponent implements OnInit {
     this.availableEditionLevel[event.value] = event.source.checked;
     this.evtConfigService.updateEditionLevelVisibility(event.value, event.source.checked);
     if (this.getEditionSelected() > 1) {
-      this.configs.edition_level_selector = true
+      this.configs.edition_level_selector = true;
       this.updateEditionSelectorVisibility();
     }
   }
