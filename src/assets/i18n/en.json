@@ -59,6 +59,15 @@
     "ppSelectorDocTooltip": "Tooltip on pages option in the relative selector, showing the belonging document",
     "documentNavigation": "Navigation by document within the text",
     "ppSelectorPos": "Position of Page Selector",
-    "imageFrame": "On image frame",
-    "textFrame": "On text frame"
+    "onImageFrame": "On image frame",
+    "onTextFrame": "On text frame",
+    "viewsDesc": "Select which view you want to be available in your edition.",
+    "imageFrame": "Image frame",
+    "bookReader": "Book reader",
+    "defaultRightFrameDesc": "Set default content on first load for text frame choosing between \"Edition Text\" or \"Front Info\".",
+    "editionText": "Edition Text",
+    "frontInfo": "Front Info",
+    "defaultLeftFrameDesc": "Set default content on first load for text frame choosing between \"Image\" or \"Manuscript Info\".",
+    "image": "Image",
+    "manuscriptInfo": "Manuscript Info"
 }

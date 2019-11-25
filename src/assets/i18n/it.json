@@ -61,6 +61,15 @@
     "ppSelectorDocTooltip": "Tooltip al mouseover sul selettore delle pagine, che mostra il documento di appartenenza",
     "documentNavigation": "Navigazione per documenti all'interno del testo del documento",
     "ppSelectorPos": "Posizione del selettore di pagina",
-    "imageFrame": "Nel pannello immagine",
-    "textFrame": "Nel pannello del testo"
+    "onImageFrame": "Nel pannello immagine",
+    "onTextFrame": "Nel pannello del testo",
+    "viewsDesc": "Seleziona le viste da rendere disponibili nella tua edizione.",
+    "imageFrame": "Pannello immagine",
+    "bookReader": "Vista doppia",
+    "defaultRightFrameDesc": "Imposta il contenuto da mostrare inizialmente per il pannello del testo, scegliendo tra \"Testo dell'edizione\" o \"Contenuti introduttivi\".",
+    "editionText": "Testo dell'edizione",
+    "frontInfo": "Contenuti introduttivi",
+    "defaultLeftFrameDesc":"Imposta il contenuto da mostrare inizialmente per il pannello dell'immagine, scegliendo tra \"Immagine\" o \"Informazioni sul manoscritto\".",
+    "image": "Immagine",
+    "manuscriptInfo": "Informazioni sul manoscritto"
 }

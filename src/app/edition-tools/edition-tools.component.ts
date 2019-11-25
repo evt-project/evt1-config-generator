@@ -21,20 +21,22 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     document_navigation: false,
     pp_selector_pos: 'left',
 
+    image_frame: true,
+    double_view: true,
+
+    left_frame_default_content: 'image',
+    right_frame_default_content: 'info',
+
     viscoll_button: false,
     viscoll_scheme_path: '',
     viscoll_image_list_path: '',
 
-    image_frame: true,
-    double_view: true,
     regesto: false,
     frontInfo: true,
     msDesc: true,
     headerInfo: true,
     bibliography: true,
     translation: true,
-    left_frame_default_content: 'image',
-    right_frame_default_content: 'info',
 
 
     search: true,
