@@ -1,0 +1,76 @@
+<ng-container *ngTemplateOutlet="imageTools"></ng-container>
+<ng-container *ngTemplateOutlet="navigation"></ng-container>
+<ng-template #imageTools>
+  <app-card [title]="'imageTools'" class="mb-3 d-block">
+    <form content>
+      <app-form-group [description]="'imageToolsDesc'">
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="txtimg_link_button" [checked]="configs.txtimg_link_button"
+            [(ngModel)]="configs.txtimg_link_button" name="txtimg_link_button" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="txtimg_link_button">{{'txtimgLinkButton' | translate }}</label>
+        </div>
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="hs_button" [checked]="configs.hs_button"
+            [(ngModel)]="configs.hs_button" name="hs_button" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3" for="hs_button">{{'hsButton' | translate }}</label>
+        </div>
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="mag_button" [checked]="configs.mag_button"
+            [(ngModel)]="configs.mag_button" name="mag_button" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3" for="mag_button">{{'magButton' | translate }}</label>
+        </div>
+      </app-form-group>
+    </form>
+  </app-card>
+</ng-template>
+
+<ng-template #navigation>
+  <app-card [title]="'navigation'" class="mb-3 d-block">
+    <form content>
+      <app-form-group [description]="'navigationDesc'">
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="thumbs_button" [checked]="configs.thumbs_button"
+            [(ngModel)]="configs.thumbs_button" name="thumbs_button" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="thumbs_button">{{'thumbsButton' | translate }}</label>
+        </div>
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="pp_selector_doc_grouping"
+            [checked]="configs.pp_selector_doc_grouping" [(ngModel)]="configs.pp_selector_doc_grouping"
+            name="pp_selector_doc_grouping" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="pp_selector_doc_grouping">{{'ppSelectorDocGrouping' | translate }}</label>
+        </div>
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="pp_selector_doc_tooltip"
+            [checked]="configs.pp_selector_doc_tooltip" [(ngModel)]="configs.pp_selector_doc_tooltip"
+            name="pp_selector_doc_tooltip" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="pp_selector_doc_tooltip">{{'ppSelectorDocTooltip' | translate }}</label>
+        </div>
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="document_navigation" [checked]="configs.document_navigation"
+            [(ngModel)]="configs.document_navigation" name="document_navigation"
+            (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="document_navigation">{{'documentNavigation' | translate }}</label>
+        </div>
+        <div class="form-check pl-0" content>
+          <label class="col-form-label-sm form-check-label mr-3"
+            for="document_navigation">{{'ppSelectorPos' | translate }}</label>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-sm btn-secondary" [class.active]="configs.pp_selector_pos === 'left'">
+              <input type="radio" name="options" id="left" autocomplete="off" [checked]="configs.pp_selector_pos === 'left'"
+                [(ngModel)]="configs.pp_selector_pos" (change)="updateValueCheckbox($event)"> {{'imageFrame' | translate}}
+            </label>
+            <label class="btn btn-sm btn-secondary" [class.active]="configs.pp_selector_pos === 'right'">
+              <input type="radio" name="options" id="right" autocomplete="off" [checked]="configs.pp_selector_pos === 'right'"
+              [(ngModel)]="configs.pp_selector_pos" (change)="updateValueCheckbox($event)"> {{'textFrame' | translate}}
+            </label>
+          </div>
+        </div>
+      </app-form-group>
+    </form>
+  </app-card>
+</ng-template>

@@ -50,5 +50,17 @@
     "imagesExtension_warning": "Tutte le immagini devono essere nello stesso formato (jpg, png, ...).",
     "fbThumb": "Anteprima condivisione",
     "fbThumb_desc": "Puoi anche indicare l'URL dell'immagine che appare quando qualcuno condivide il contenuto su Facebook.",
-    "fbThumb_warning": "Scrivi qui il nome del file con la sua estensione e metti l'immagine nella cartella"
+    "fbThumb_warning": "Scrivi qui il nome del file con la sua estensione e metti l'immagine nella cartella",
+    "imageTools_subtitle": "Seleziona quali strumenti vuoi rendere disponibili nella tua edizione digitale.",
+    "txtimgLinkButton": "Collegamento Testo-Immagine",
+    "hsButton": "Hot Spots",
+    "magButton": "Lente d'ingrandimento",
+    "navigationDesc": "Seleziona gli sctrumenit che vuoi rendere disponibili nella tua edizione digitale.",
+    "thumbsButton": "Miniature",
+    "ppSelectorDocGrouping": "Pagine raggruppate per documento nel relativo selettore",
+    "ppSelectorDocTooltip": "Tooltip al mouseover sul selettore delle pagine, che mostra il documento di appartenenza",
+    "documentNavigation": "Navigazione per documenti all'interno del testo del documento",
+    "ppSelectorPos": "Posizione del selettore di pagina",
+    "imageFrame": "Nel pannello immagine",
+    "textFrame": "Nel pannello del testo"
 }

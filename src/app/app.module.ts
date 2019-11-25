@@ -19,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditionMainDataComponent } from './edition-main-data/edition-main-data.component';
 import { CardComponent } from './components/card/card.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
+import { EditionToolsComponent } from './edition-tools/edition-tools.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,7 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     EditionMainDataComponent,
     CardComponent,
-    FormGroupComponent
+    FormGroupComponent,
+    EditionToolsComponent
   ],
   imports: [
     BrowserModule,
