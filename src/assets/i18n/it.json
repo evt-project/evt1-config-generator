@@ -71,5 +71,10 @@
     "frontInfo": "Contenuti introduttivi",
     "defaultLeftFrameDesc":"Imposta il contenuto da mostrare inizialmente per il pannello dell'immagine, scegliendo tra \"Immagine\" o \"Informazioni sul manoscritto\".",
     "image": "Immagine",
-    "manuscriptInfo": "Informazioni sul manoscritto"
+    "manuscriptInfo": "Informazioni sul manoscritto",
+    "prefatoryMatterDesc": "Seleziona quali materiali introduttivi vuoi includere nella tua edizione digitale.",
+    "headerInfo": "Informazioni globali (<teiHeader>)",
+    "msDesc": "Descriptione del manoscritto",
+    "textPrefatoryMatter": "Informazioni sul documento",
+    "regesto": "Regesto"
 }

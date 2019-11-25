@@ -69,5 +69,10 @@
     "frontInfo": "Front Info",
     "defaultLeftFrameDesc": "Set default content on first load for text frame choosing between \"Image\" or \"Manuscript Info\".",
     "image": "Image",
-    "manuscriptInfo": "Manuscript Info"
+    "manuscriptInfo": "Manuscript Info",
+    "prefatoryMatterDesc": "Select which prefatory matter(s) you want to be available in your edition.",
+    "headerInfo": "Header information (<teiHeader>)",
+    "msDesc": "Manuscript description",
+    "textPrefatoryMatter": "Document information",
+    "regesto": "Regesto"
 }

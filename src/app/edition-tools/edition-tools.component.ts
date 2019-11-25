@@ -27,14 +27,15 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     left_frame_default_content: 'image',
     right_frame_default_content: 'info',
 
+    headerInfo: true,
+    msDesc: true,
+    regesto: false,
+    frontInfo: true,
+
     viscoll_button: false,
     viscoll_scheme_path: '',
     viscoll_image_list_path: '',
 
-    regesto: false,
-    frontInfo: true,
-    msDesc: true,
-    headerInfo: true,
     bibliography: true,
     translation: true,
 
@@ -54,6 +55,14 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     lists: []
   };
 
+  public supportConfig: {
+    textPrefatoryMatter?: boolean,
+    textPrefatoryMatterType: 'regesto' | 'front'
+  } = {
+      textPrefatoryMatter: true,
+      textPrefatoryMatterType: 'front'
+    };
+
   private subscription: Subscription;
 
   constructor(private evtConfigService: EvtConfigService) {
@@ -70,6 +79,12 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
       if (this.configs.hasOwnProperty(key)) {
         this.configs[key] = this.evtConfigService.getProperty(key);
       }
+    }
+    this.supportConfig.textPrefatoryMatter = this.configs.frontInfo || this.configs.regesto;
+    if (this.configs.frontInfo) {
+      this.supportConfig.textPrefatoryMatterType = 'front';
+    } else if (this.configs.regesto) {
+      this.supportConfig.textPrefatoryMatterType = 'regesto';
     }
   }
 
@@ -99,6 +114,13 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
 
   updateProperty(propertyName) {
     this.evtConfigService.setValue(propertyName, this.configs[propertyName]);
+  }
+
+  updatePrefatoryMatterConfigs() {
+    this.configs.frontInfo = this.supportConfig.textPrefatoryMatter && this.supportConfig.textPrefatoryMatterType === 'front';
+    this.configs.regesto = this.supportConfig.textPrefatoryMatter && this.supportConfig.textPrefatoryMatterType === 'regesto';
+    this.updateProperty('frontInfo');
+    this.updateProperty('regesto');
   }
 
   ngOnDestroy() {
