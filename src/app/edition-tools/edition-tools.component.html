@@ -3,6 +3,7 @@
 <ng-container *ngTemplateOutlet="views"></ng-container>
 <ng-container *ngTemplateOutlet="prefatoryMatter"></ng-container>
 <ng-container *ngTemplateOutlet="search"></ng-container>
+<ng-container *ngTemplateOutlet="viscoll"></ng-container>
 
 <ng-template #imageTools>
   <app-card [title]="'imageTools'" class="mb-3 d-block">
@@ -186,18 +187,46 @@
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="search" [checked]="configs.search"
             [(ngModel)]="configs.search" name="search" (change)="updateValueCheckbox($event)" />
-          <label class="col-form-label-sm form-check-label ml-3"
-            for="search">{{'search' | translate }}</label>
+          <label class="col-form-label-sm form-check-label ml-3" for="search">{{'searchEngine' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="virtual_keyboard_search" [checked]="configs.virtual_keyboard_search"
-            [(ngModel)]="configs.virtual_keyboard_search" name="virtual_keyboard_search" (change)="updateValueCheckbox($event)" />
-          <label class="col-form-label-sm form-check-label ml-3" for="virtual_keyboard_search">{{'virtualKeyboardSearch' | translate }}</label>
-          <small class="mb-3 d-block">
+          <input class="inline-label" type="checkbox" id="virtual_keyboard_search"
+            [checked]="configs.virtual_keyboard_search" [(ngModel)]="configs.virtual_keyboard_search"
+            name="virtual_keyboard_search" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="virtual_keyboard_search">{{'virtualKeyboardSearch' | translate }}</label>
+          <small class="mb-3 d-block text-muted">
             <strong>{{ 'warning' | translate }}!</strong> {{ 'virtualKeyboardSearch_warning' | translate }}
             <code>config/keyboard_config.xml</code>
           </small>
         </div>
+      </app-form-group>
+    </form>
+  </app-card>
+</ng-template>
+
+<ng-template #viscoll>
+  <app-card [title]="'viscoll'" class="mb-3 d-block">
+    <form content>
+      <app-form-group [description]="'viscollDesc'">
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="viscoll" [checked]="configs.viscoll_button"
+            [(ngModel)]="configs.viscoll_button" name="viscoll" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3" for="viscoll">{{'viscollEnabled' | translate }}</label>
+        </div>
+        <div content *ngIf="configs.viscoll_button">
+          <small class="form-text text-muted"><strong>{{'warning' | translate}}!</strong></small>
+          <small class="form-text text-muted mb-2"
+            [innerHTML]="'viscollInstructions' | translate:{link: 'https://github.com/leoba/VisColl', collationLink: 'http://138.197.87.173:8080/xproc-z/visualize-collation/'}"></small>
+        </div>
+      </app-form-group>
+      <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollSchemePath'" [description]="'viscollSchemePathDesc'">
+        <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate" name="viscoll_scheme_path"
+          [(ngModel)]="configs.viscoll_scheme_path" (keyup)="updateValue($event)" content>
+      </app-form-group>
+      <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollImageListPath'" [description]="'viscollImageListPathDesc'">
+        <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate" name="viscoll_image_list_path"
+          [(ngModel)]="configs.viscoll_image_list_path" (keyup)="updateValue($event)" content>
       </app-form-group>
     </form>
   </app-card>

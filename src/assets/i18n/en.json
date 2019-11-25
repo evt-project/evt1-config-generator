@@ -47,8 +47,11 @@
     "imagesExtension_desc": "Indicate the extension of images you will use in this digital edition.",
     "imagesExtension_warning": "All images must be in the same format (jpg, png, ...).",
     "fbThumb": "Sharing preview",
+    "fbImage": "Path to image for social sharing",
     "fbThumb_desc": "You can also indicate the URL of the image that appears when someone shares the content on Facebook.",
     "fbThumb_warning": "Just write here the name of file with its extension, and put the image in the folder",
+    "customLabel": "Custom label",
+    "customPrefix": "Custom prefix",
     "imageToolsDesc": "Select which tools you want to be available in your edition.",
     "txtimgLinkButton": "Image-Text Linking",
     "hsButton": "Hot Spots",
@@ -80,5 +83,13 @@
     "searchDesc": "Select which tools you want to be available in your edition.",
     "searchEngine": "Internal search engine",
     "virtualKeyboardSearch": "Virtual keyboard for search",
-    "virtualKeyboardSearch_warning": "You should customize the letters in the file"
+    "virtualKeyboardSearch_warning": "You should customize the letters in the file",
+    "viscollDesc": "Indicate if you want to enable Viscoll feature",
+    "viscollEnabled": "Viscoll enabled",
+    "viscollInstructions": "In order to let Viscoll work properly, you need to prepare the collation scheme and the image list, as it is explained in the points 1 and 2 of Viscoll documentation (<a href=\"{{link}}\" target=\"_blank\">{{link}}</a>). First create your collation model, then prepare the image list as indicated (or just have an encoded xml TEI file containing a facsimile section) and process it at <a href=\"{{collationLink}}\" target=\"_blank\">{{collationLink}}</a>",
+    "viscollSchemePath": "Path to xml file containing viscoll scheme",
+    "viscollSchemePathDesc": "If you need to use an online resource, put the complete URL (e.g: http://www.mysite.com/viscollScheme.xml) here. Otherwise put the file in data/input_data/text folder and just put the relative path starting from that folder here.",
+    "viscollImageListPath": "Path to xml file containing viscoll images list",
+    "viscollImageListPathDesc": "If you need to use an online resource, put the entire path (e.g: http://www.mysite.com/viscollImagelist.xml) here. Otherwise put the file in data/input_data/text folder and just put the relative path starting from that folder here.",
+    "insertPathHere": "Insert path here"
 }

@@ -7,7 +7,7 @@
   <app-card [title]="'editionMainInfo'" class="mb-3 d-block">
     <form content>
       <app-form-group [title]="'editionTitle'" [description]="'editionTitle_desc'">
-        <input class="form-control form-control-sm" placeholder="Edition Title" name="index_title"
+        <input class="form-control form-control-sm" [placeholder]="'editionTitle' | translate" name="index_title"
           [(ngModel)]="configs.index_title" (keyup)="updateValue($event)" content>
       </app-form-group>
       <app-form-group [title]="'badge'" [description]="'badge_desc'">
@@ -20,17 +20,17 @@
             </div>
           </div>
           <div class="col-auto">
-            <input class="form-control form-control-sm" placeholder="Badge text" [disabled]="!configs.badge"
+            <input class="form-control form-control-sm" [placeholder]="'badge' | translate" [disabled]="!configs.badge"
               name="badge_text" [(ngModel)]="configs.badge_text" (keyup)="updateValue($event)" />
           </div>
         </div>
       </app-form-group>
       <app-form-group [title]="'webSite'" [description]="'webSite_desc'">
-        <input class="form-control form-control-sm" placeholder="External web site" name="webSite"
+        <input class="form-control form-control-sm" [placeholder]="'webSite' | translate" name="webSite"
           [(ngModel)]="configs.webSite" (keyup)="updateValue($event)" content />
       </app-form-group>
       <app-form-group [title]="'welcomeMsg'" [description]="'welcomeMsg_desc'">
-        <textarea content class="form-control form-control-sm" placeholder="Your welcome message" rows="15"
+        <textarea content class="form-control form-control-sm" [placeholder]="'welcomeMsg' | translate" rows="15"
           name="welcomeMsg" [(ngModel)]="configs.welcomeMsg"
           (keyup)="updateValue($event)">{{ configs.welcomeMsg }}</textarea>
       </app-form-group>
@@ -39,7 +39,7 @@
           <strong>{{ 'warning' | translate }}!</strong> {{ 'fbThumb_warning' | translate }}
           <code>data/input_data/images</code>
         </span>
-        <input class="form-control form-control-sm" placeholder="Image for FB sharing" name="fb_thumb"
+        <input class="form-control form-control-sm" [placeholder]="'fbImage' | translate" name="fb_thumb"
           [(ngModel)]="configs.fb_thumb" (keyup)="updateValue($event)" content />
       </app-form-group>
     </form>
@@ -66,12 +66,12 @@
               </div>
             </div>
             <div class="col-4">
-              <input class="form-control form-control-sm" placeholder="Custom Label" name="edLevelName_{{i}}"
+              <input class="form-control form-control-sm" [placeholder]="'customLabel' | translate" name="edLevelName_{{i}}"
                 [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.label"
                 (keyup)="updateEditionLevelLabel($event, editionLevel.value)" />
             </div>
             <div class="col-2">
-              <input class="form-control form-control-sm" placeholder="Custom Prefix" name="edLevelPrefix_{{i}}"
+              <input class="form-control form-control-sm" [placeholder]="'customPrefix' | translate" name="edLevelPrefix_{{i}}"
                 [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.prefix"
                 (keyup)="updateEditionLevelPrefix($event, editionLevel.value)" />
             </div>
@@ -131,7 +131,7 @@
         <span class="mb-3 d-block" additionalText>
           <strong>{{ 'warning' | translate }}!</strong> {{ 'imagesExtension_warning' | translate }}
         </span>
-        <input class="form-control form-control-sm" placeholder="Images extension" name="imageExt"
+        <input class="form-control form-control-sm" [placeholder]="'imagesExtension' | translate" name="imageExt"
           [(ngModel)]="configs.imageExt" (keyup)="updateValue($event)" content />
       </app-form-group>
     </form>
