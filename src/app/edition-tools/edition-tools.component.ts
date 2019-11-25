@@ -28,20 +28,20 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     right_frame_default_content: 'info',
 
     headerInfo: true,
+    bibliography: true,
     msDesc: true,
     regesto: false,
     frontInfo: true,
+
+    search: true,
+    virtual_keyboard_search: true,
 
     viscoll_button: false,
     viscoll_scheme_path: '',
     viscoll_image_list_path: '',
 
-    bibliography: true,
     translation: true,
 
-
-    search: true,
-    virtual_keyboard_search: true,
     bottom_navbar: false,
     bottom_navbar_initial_status: 'closed',
     prose_verses_toggler: false,

@@ -2,6 +2,7 @@
 <ng-container *ngTemplateOutlet="navigation"></ng-container>
 <ng-container *ngTemplateOutlet="views"></ng-container>
 <ng-container *ngTemplateOutlet="prefatoryMatter"></ng-container>
+<ng-container *ngTemplateOutlet="search"></ng-container>
 
 <ng-template #imageTools>
   <app-card [title]="'imageTools'" class="mb-3 d-block">
@@ -140,6 +141,12 @@
               for="headerInfo">{{'headerInfo' | translate }}</label>
           </div>
           <div class="form-check pl-0">
+            <input class="inline-label" type="checkbox" id="bibliography" [checked]="configs.bibliography"
+              [(ngModel)]="configs.bibliography" name="bibliography" (change)="updateValueCheckbox($event)" />
+            <label class="col-form-label-sm form-check-label ml-3"
+              for="bibliography">{{'bibliography' | translate }}</label>
+          </div>
+          <div class="form-check pl-0">
             <input class="inline-label" type="checkbox" id="msDesc" [checked]="configs.msDesc"
               [(ngModel)]="configs.msDesc" name="msDesc" (change)="updateValueCheckbox($event)" />
             <label class="col-form-label-sm form-check-label ml-3" for="msDesc">{{'msDesc' | translate }}</label>
@@ -150,20 +157,46 @@
               name="textPrefatoryMatter" (change)="updatePrefatoryMatterConfigs()" />
             <label class="col-form-label-sm form-check-label ml-3"
               for="textPrefatoryMatter">{{'textPrefatoryMatter' | translate }}</label>
-            <ng-container *ngIf="supportConfig.textPrefatoryMatter">
-              <div class="btn-group btn-group-toggle ml-3" ngbRadioGroup name="textPrefatoryMatterType"
-                [(ngModel)]="supportConfig.textPrefatoryMatterType">
-                <label ngbButtonLabel class="btn-sm btn-primary">
-                  <input ngbButton type="radio" value="front" (change)="updatePrefatoryMatterConfigs()">
-                  {{'frontInfo' | translate}}
-                </label>
-                <label ngbButtonLabel class="btn-sm btn-primary">
-                  <input ngbButton type="radio" value="regesto" (change)="updatePrefatoryMatterConfigs()">
-                  {{'regesto' | translate}}
-                </label>
-              </div>
-            </ng-container>
           </div>
+        </div>
+      </app-form-group>
+      <app-form-group [description]="'textPrefatoryMatterDesc'" *ngIf="supportConfig.textPrefatoryMatter">
+        <div class="form-check pl-0" content>
+          <div class="btn-group btn-group-toggle ml-3" ngbRadioGroup name="textPrefatoryMatterType"
+            [(ngModel)]="supportConfig.textPrefatoryMatterType">
+            <label ngbButtonLabel class="btn-sm btn-primary">
+              <input ngbButton type="radio" value="front" (change)="updatePrefatoryMatterConfigs()">
+              {{'frontInfo' | translate}}
+            </label>
+            <label ngbButtonLabel class="btn-sm btn-primary">
+              <input ngbButton type="radio" value="regesto" (change)="updatePrefatoryMatterConfigs()">
+              {{'regesto' | translate}}
+            </label>
+          </div>
+        </div>
+      </app-form-group>
+    </form>
+  </app-card>
+</ng-template>
+
+<ng-template #search>
+  <app-card [title]="'search'" class="mb-3 d-block">
+    <form content>
+      <app-form-group [description]="'searchDesc'">
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="search" [checked]="configs.search"
+            [(ngModel)]="configs.search" name="search" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="search">{{'search' | translate }}</label>
+        </div>
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="virtual_keyboard_search" [checked]="configs.virtual_keyboard_search"
+            [(ngModel)]="configs.virtual_keyboard_search" name="virtual_keyboard_search" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3" for="virtual_keyboard_search">{{'virtualKeyboardSearch' | translate }}</label>
+          <small class="mb-3 d-block">
+            <strong>{{ 'warning' | translate }}!</strong> {{ 'virtualKeyboardSearch_warning' | translate }}
+            <code>config/keyboard_config.xml</code>
+          </small>
         </div>
       </app-form-group>
     </form>

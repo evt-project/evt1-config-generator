@@ -72,7 +72,13 @@
     "manuscriptInfo": "Manuscript Info",
     "prefatoryMatterDesc": "Select which prefatory matter(s) you want to be available in your edition.",
     "headerInfo": "Header information (<teiHeader>)",
-    "msDesc": "Manuscript description",
-    "textPrefatoryMatter": "Document information",
-    "regesto": "Regesto"
+    "bibliography": "Bibliography (<listBibl>)",
+    "msDesc": "Manuscript description (<msDesc>)",
+    "textPrefatoryMatter": "Document information (<front>)",
+    "regesto": "Regesto",
+    "textPrefatoryMatterDesc": "Choose your type of prefatory matter for the main text.",
+    "searchDesc": "Select which tools you want to be available in your edition.",
+    "searchEngine": "Internal search engine",
+    "virtualKeyboardSearch": "Virtual keyboard for search",
+    "virtualKeyboardSearch_warning": "You should customize the letters in the file"
 }

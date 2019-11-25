@@ -74,7 +74,13 @@
     "manuscriptInfo": "Informazioni sul manoscritto",
     "prefatoryMatterDesc": "Seleziona quali materiali introduttivi vuoi includere nella tua edizione digitale.",
     "headerInfo": "Informazioni globali (<teiHeader>)",
-    "msDesc": "Descriptione del manoscritto",
-    "textPrefatoryMatter": "Informazioni sul documento",
-    "regesto": "Regesto"
+    "bibliography": "Bibliografia (<listBibl>)",
+    "msDesc": "Descrizione del manoscritto (<msDesc>)",
+    "textPrefatoryMatter": "Informazioni sul documento (<front>)",
+    "regesto": "Regesto",
+    "textPrefatoryMatterDesc": "Scegli la tua tipologia di materiale introduttivo per il documento",
+    "searchDesc": "Seleziona quali strumenti vuoi rendere disponibili nella tua edizione.",
+    "searchEngine": "Motore di ricerca interno",
+    "virtualKeyboardSearch": "Tastiera virtuale per la ricerca", 
+    "virtualKeyboardSearch_warning": "La personalizzazione delle lettere va fatta direttamente nel file"
 }
