@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EditionMainData } from '../evt-config.models';
 import { EvtConfigService } from '../services/evt-config.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edition-main-data',
   templateUrl: './edition-main-data.component.html',
   styleUrls: ['./edition-main-data.component.scss']
 })
-export class EditionMainDataComponent implements OnInit {
-  subscription: any;
+export class EditionMainDataComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
 
   configs: EditionMainData = {
     index_title: 'CodexViewer',
@@ -58,8 +59,8 @@ export class EditionMainDataComponent implements OnInit {
   }
 
   updateValueCheckbox(event) {
-    const propertyName = event.source.name;
-    const value = event.checked;
+    const propertyName = event.target.name;
+    const value = event.target.checked;
     this.evtConfigService.setValue(propertyName, value);
   }
 
@@ -71,7 +72,7 @@ export class EditionMainDataComponent implements OnInit {
 
   updateSupportValueCheckbox(event) {
     const propertyName = event.source.name;
-    const value = event.checked;
+    const value = event.target.checked;
     this.evtConfigService.setSupportValue(propertyName, value);
   }
 
@@ -124,8 +125,12 @@ export class EditionMainDataComponent implements OnInit {
   updateEditionLevelLabel(event, editionLevel) {
     this.evtConfigService.updateEditionLevelLabel(editionLevel, event.target.value);
   }
+
   updateEditionLevelPrefix(event, editionLevel) {
     this.evtConfigService.updateEditionLevelPrefix(editionLevel, event.target.value);
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
