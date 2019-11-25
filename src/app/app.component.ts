@@ -51,4 +51,8 @@ export class AppComponent {
       reader.readAsBinaryString(blob);
     }
   }
+
+  download() {
+    console.log(this.evtConfigService.getConfigData());
+  }
 }
