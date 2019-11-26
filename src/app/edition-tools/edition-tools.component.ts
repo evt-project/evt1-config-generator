@@ -42,9 +42,8 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     viscoll_scheme_path: '',
     viscoll_image_list_path: '',
 
-    translation: true,
-
     prose_verses_toggler: false,
+
     lang_tooltip: false,
     list_person: true,
     list_place: true,

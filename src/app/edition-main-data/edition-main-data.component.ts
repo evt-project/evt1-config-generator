@@ -20,7 +20,8 @@ export class EditionMainDataComponent implements OnInit, OnDestroy {
     welcomeMsg: '',
     fb_thumb: 'thumb_fb.jpg',
     edition_array: [],
-    edition_level_selector: true
+    edition_level_selector: true,
+    translation: false
   };
 
   supportConfigs = {

@@ -19,6 +19,7 @@ export interface EditionMainData {
         visible: boolean;
     }>; // This info will be used to create xslt variable edition_array and ed_name1, ed_name2, etc.
     edition_level_selector: boolean;
+    translation: boolean;
 }
 
 export interface EditionTools {
@@ -29,7 +30,6 @@ export interface EditionTools {
     msDesc: boolean;
     headerInfo: boolean;
     bibliography: boolean;
-    translation: boolean;
     left_frame_default_content: string;
     right_frame_default_content: string;
     txtimg_link_button: boolean;
