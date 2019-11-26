@@ -239,11 +239,11 @@ export class EvtConfigService {
         }],
         edition_level_selector: true,
         imageExt: 'jpg',
-        fb_thumb: 'thumb_fb.jpg'
+        fb_thumb: 'thumb_fb.jpg',
+        translation: false,
       },
       tools: {
         // ADDITIONAL CONTENTS
-        translation: false,
         // TOOLS
         txtimg_link_button: true,
         hs_button: true,
