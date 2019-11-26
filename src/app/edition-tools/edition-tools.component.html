@@ -4,6 +4,7 @@
 <ng-container *ngTemplateOutlet="prefatoryMatter"></ng-container>
 <ng-container *ngTemplateOutlet="search"></ng-container>
 <ng-container *ngTemplateOutlet="viscoll"></ng-container>
+<ng-container *ngTemplateOutlet="poetry"></ng-container>
 
 <ng-template #imageTools>
   <app-card [title]="'imageTools'" class="mb-3 d-block">
@@ -256,3 +257,17 @@
     </form>
   </app-card>
 </ng-template>
+
+<ng-template #poetry>
+    <app-card [title]="'poetry'" class="mb-3 d-block">
+      <form content>
+        <app-form-group [description]="'poetryDesc'">
+          <div class="form-check pl-0" content>
+            <input class="inline-label" type="checkbox" id="prose_verses_toggler" [checked]="configs.prose_verses_toggler"
+              [(ngModel)]="configs.prose_verses_toggler" name="prose_verses_toggler" (change)="updateValueCheckbox($event)" />
+            <label class="col-form-label-sm form-check-label ml-3" for="prose_verses_toggler">{{'proseVersesToggler' | translate }}</label>
+          </div>
+        </app-form-group>
+      </form>
+    </app-card>
+  </ng-template>

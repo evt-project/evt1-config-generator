@@ -85,14 +85,16 @@
     "regesto": "Regesto",
     "textPrefatoryMatterDesc": "Scegli la tua tipologia di materiale introduttivo per il documento",
     "searchDesc": "Seleziona quali strumenti vuoi rendere disponibili nella tua edizione.",
-    "searchEngine": "Motore di ricerca interno",
+    "searchEngine": "Abilita motore di ricerca interno",
     "virtualKeyboardSearch": "Tastiera virtuale per la ricerca",
     "virtualKeyboardSearch_warning": "La personalizzazione delle lettere va fatta direttamente nel file",
-    "viscollEnabled": "Viscoll abilitato",
+    "viscollEnabled": "Abilita Viscoll",
     "viscollInstructions": "Per far funzionare correttamente Viscoll, è necessario preparare lo schema di collazione e la lista di immagini, come indicato nei punti 1 e 2 della documentazione ufficiale di Viscoll (<a href=\"{{link}}\" target=\"_blank\">{{link}}</a>). Prima creare il modello di collazione, poi preparare la lista di immagini come indicato (o utilizzare un file xml TEI contenente una sezione <facsimile>) e processarla all'indirizzo <a href=\"{{collationLink}}\" target=\"_blank\">{{collationLink}}</a>",
     "viscollSchemePath": "Percorso al file xml contenente lo schema viscoll",
     "viscollSchemePathDesc": "Se si usa una risorsa online, inserire il percorso completo (ex. http://www.ilmiosito.it/schemaViscoll.xml). Altrimenti copiare il file nella cartella data/input_data/text e inserire qui solo percorso relativo a partire da quella cartella.",
     "viscollImageListPath": "Percorso al file xml contenente la lista delle immagini",
     "viscollImageListPathDesc": "Se si usa una risorsa online, inserire il percorso completo (ex. http://www.ilmiosito.it/viscollImagelist.xml). Altrimenti copiare il file nella cartella data/input_data/text e inserire qui solo percorso relativo a partire da quella cartella.",
-    "insertPathHere": "Inserire qui il percorso al file"
+    "insertPathHere": "Inserire qui il percorso al file",
+    "poetryDesc": "Indica quali strumenti poetici vuoi abilitare per la tua edizione digitale",
+    "proseVersesToggler": "Visualizzazione versi/prosa"
 }

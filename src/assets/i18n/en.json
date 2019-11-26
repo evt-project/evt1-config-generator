@@ -85,7 +85,7 @@
     "regesto": "Regesto",
     "textPrefatoryMatterDesc": "Choose your type of prefatory matter for the main text.",
     "searchDesc": "Select which tools you want to be available in your edition.",
-    "searchEngine": "Internal search engine",
+    "searchEngine": "Enable internal search engine",
     "virtualKeyboardSearch": "Virtual keyboard for search",
     "virtualKeyboardSearch_warning": "You should customize the letters in the file",
     "viscollDesc": "Indicate if you want to enable Viscoll feature",
@@ -95,5 +95,7 @@
     "viscollSchemePathDesc": "If you need to use an online resource, put the complete URL (e.g: http://www.mysite.com/viscollScheme.xml) here. Otherwise put the file in data/input_data/text folder and just put the relative path starting from that folder here.",
     "viscollImageListPath": "Path to xml file containing viscoll images list",
     "viscollImageListPathDesc": "If you need to use an online resource, put the entire path (e.g: http://www.mysite.com/viscollImagelist.xml) here. Otherwise put the file in data/input_data/text folder and just put the relative path starting from that folder here.",
-    "insertPathHere": "Insert path here"
+    "insertPathHere": "Insert path here",
+    "poetryDesc": "Indicate which poetry tools you want to enable for your digital edition",
+    "proseVersesToggler": "Lines/Prose visualization"
 }
