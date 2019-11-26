@@ -63,7 +63,7 @@
         </div>
         <div class="form-check pl-0" content>
           <label class="col-form-label-sm form-check-label mr-3"
-            for="document_navigation">{{'ppSelectorPos' | translate }}</label>
+            for="pp_selector_pos">{{'ppSelectorPos' | translate }}</label>
           <div class="btn-group btn-group-toggle" ngbRadioGroup name="pp_selector_pos"
             [(ngModel)]="configs.pp_selector_pos">
             <label ngbButtonLabel class="btn-sm btn-primary">
@@ -76,6 +76,28 @@
             </label>
           </div>
         </div>
+        <div class="form-check pl-0" content>
+          <input class="inline-label" type="checkbox" id="bottom_navbar"
+            [checked]="configs.bottom_navbar" [(ngModel)]="configs.bottom_navbar"
+            name="bottom_navbar" (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="bottom_navbar">{{'bottomNavbar' | translate }}</label>
+        </div>
+        <div class="form-check pl-0" content *ngIf="configs.bottom_navbar">
+            <label class="col-form-label-sm form-check-label mr-3"
+              for="bottom_navbar_initial_status">{{'bottomNavbarInitialStatus' | translate }}</label>
+            <div class="btn-group btn-group-toggle" ngbRadioGroup name="bottom_navbar_initial_status"
+              [(ngModel)]="configs.bottom_navbar_initial_status">
+              <label ngbButtonLabel class="btn-sm btn-primary">
+                <input ngbButton type="radio" value="closed" (change)="updateValue($event)">
+                {{'closed' | translate}}
+              </label>
+              <label ngbButtonLabel class="btn-sm btn-primary">
+                <input ngbButton type="radio" value="opened" (change)="updateValue($event)">
+                {{'opened' | translate}}
+              </label>
+            </div>
+          </div>
       </app-form-group>
     </form>
   </app-card>
@@ -220,13 +242,16 @@
             [innerHTML]="'viscollInstructions' | translate:{link: 'https://github.com/leoba/VisColl', collationLink: 'http://138.197.87.173:8080/xproc-z/visualize-collation/'}"></small>
         </div>
       </app-form-group>
-      <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollSchemePath'" [description]="'viscollSchemePathDesc'">
-        <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate" name="viscoll_scheme_path"
-          [(ngModel)]="configs.viscoll_scheme_path" (keyup)="updateValue($event)" content>
+      <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollSchemePath'"
+        [description]="'viscollSchemePathDesc'">
+        <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate"
+          name="viscoll_scheme_path" [(ngModel)]="configs.viscoll_scheme_path" (keyup)="updateValue($event)" content>
       </app-form-group>
-      <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollImageListPath'" [description]="'viscollImageListPathDesc'">
-        <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate" name="viscoll_image_list_path"
-          [(ngModel)]="configs.viscoll_image_list_path" (keyup)="updateValue($event)" content>
+      <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollImageListPath'"
+        [description]="'viscollImageListPathDesc'">
+        <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate"
+          name="viscoll_image_list_path" [(ngModel)]="configs.viscoll_image_list_path" (keyup)="updateValue($event)"
+          content>
       </app-form-group>
     </form>
   </app-card>

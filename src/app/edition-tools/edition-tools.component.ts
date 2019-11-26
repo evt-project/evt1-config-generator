@@ -20,6 +20,8 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     pp_selector_doc_tooltip: false,
     document_navigation: false,
     pp_selector_pos: 'left',
+    bottom_navbar: false,
+    bottom_navbar_initial_status: 'closed',
 
     image_frame: true,
     double_view: true,
@@ -42,8 +44,6 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
 
     translation: true,
 
-    bottom_navbar: false,
-    bottom_navbar_initial_status: 'closed',
     prose_verses_toggler: false,
     lang_tooltip: false,
     list_person: true,
