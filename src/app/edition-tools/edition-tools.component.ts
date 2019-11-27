@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EditionTools, ListItemConfig } from '../evt-config.models';
+import { EditionTools, ListItemConfig, ListConfig } from '../evt-config.models';
 import { EvtConfigService } from '../services/evt-config.service';
 import { Subscription } from 'rxjs';
 
@@ -122,15 +122,8 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     this.updateProperty('regesto');
   }
 
-  addAttribute(item: ListItemConfig) {
-    if (!item.attributes) {
-      item.attributes = [];
-    }
-    item.attributes.push({ key: '', value: '' });
-  }
-
-  removeAttribute(item: ListItemConfig, indexAttr) {
-    item.attributes.splice(indexAttr, 1);
+  updateListsValue(newListsConfig: ListConfig) {
+    // this.evtConfigService.setValue('lists', newListsConfig);
   }
 
   ngOnDestroy() {
