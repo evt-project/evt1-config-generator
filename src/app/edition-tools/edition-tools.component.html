@@ -307,14 +307,7 @@
           <label class="col-form-label-sm form-check-label ml-3" for="list_gloss">{{'listGloss' | translate }}</label>
         </div>
       </app-form-group>
-      <app-form-group [title]="'entitiesSelector'" [description]="'entitiesSelectorDesc'">
-        <div class="mb-3 d-block text-muted" additionalText>
-          <strong>{{ 'warning' | translate }}!</strong> {{ 'entitiesSelector_warning' | translate }}
-        </div>
-        <div class="form-check pl-0" content>
-          <app-entities-lists-config></app-entities-lists-config>
-        </div>
-      </app-form-group>
+      <app-entities-lists-config></app-entities-lists-config>
     </div>
   </app-card>
 </ng-template>
