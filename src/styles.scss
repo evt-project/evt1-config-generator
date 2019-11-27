@@ -5,12 +5,18 @@
 .btn-light {
   color: $baseColorDark;
   background: $baseColorLight;
+  border-color: #dae0e5;
 
-  &:hover {
+  &:hover:not([disabled]) {
     background: rgba($baseColorLight, .9);
   }
 }
 
+.input-group {
+  .btn-light[disabled] {
+    border-color: #dae0e5;
+  }
+}
 .ng-select {
   position: relative;
   display: inline-flex !important;

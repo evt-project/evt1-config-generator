@@ -11,11 +11,23 @@
     padding-left: 31px;
 }
 
+.list-detail-attribute {
+    padding-left: 62px;
+}
+
 ::ng-deep .listsConfigs {
+    .card {
+        margin-bottom: 0.2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+    }
 
     .card-header,
     .card-body {
         padding: 0 !important;
+    }
+
+    .list-header.disabled.opened {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
 }
 

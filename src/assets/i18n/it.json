@@ -108,8 +108,11 @@
     "namedEntitiesLists": "Liste di entità nominate",
     "entitiesSelector": "Selettore di entità",
     "entitiesSelectorDesc": "È possibile personalizzare gli elementi che compariranno nell'elenco dei filtri che selezionano particolari paroli o gruppi di parole. Per rimuovere un elemento basta eliminare tutto l'elemento di interesse. Per aggiungere un elemento alla lista basta sapere che il tag fa riferimento alla classe data all'elemento html con il quale sono state marcate le parole \"particolari\" da selezionare.",
+    "entitiesSelector_warning": "L'etichetta deve corrispondere ad una chiave dei file di traduzione!",
     "enableGroup": "Abilita gruppo",
-    "setAttributes": "Imposta attributi",
+    "addAttribute": "Aggiunti attributo",
     "enable": "Abilita",
-    "disable": "Disabilita"
+    "disable": "Disabilita",
+    "insertTagNameHere": "Nome del tag",
+    "insertLabelHere": "Etichetta associata"
 }

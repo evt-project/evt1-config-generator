@@ -108,9 +108,12 @@
     "namedEntities": "Named entities",
     "entitiesSelector": "Entities selector",
     "entitiesSelectorDesc": "It is possibile to personalize the elements in the filter select element that will select and highlight particular (groups of) words. In order to remove an element from the list in the application just remove the element itself. In order to add a new element to the list you simply need to know that the tag corresponds to the class name that has be given to the html element referring to the particular words to be selected.",
+    "entitiesSelector_warning": "The label musth match a key in the traslation files!",
     "namedEntitiesLists": "Lists of named entitites",
     "enableGroup": "Enable group",
-    "setAttributes": "Set attributes",
+    "addAttribute": "Add attribute",
     "enable": "Enable",
-    "disable": "Disable"
+    "disable": "Disable",
+    "insertTagNameHere": "Tag name",
+    "insertLabelHere": "Associated label"
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EditionTools } from '../evt-config.models';
+import { EditionTools, ListItemConfig } from '../evt-config.models';
 import { EvtConfigService } from '../services/evt-config.service';
 import { Subscription } from 'rxjs';
 
@@ -120,6 +120,17 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     this.configs.regesto = this.supportConfig.textPrefatoryMatter && this.supportConfig.textPrefatoryMatterType === 'regesto';
     this.updateProperty('frontInfo');
     this.updateProperty('regesto');
+  }
+
+  addAttribute(item: ListItemConfig) {
+    if (!item.attributes) {
+      item.attributes = [];
+    }
+    item.attributes.push({ key: '', value: '' });
+  }
+
+  removeAttribute(item: ListItemConfig, indexAttr) {
+    item.attributes.splice(indexAttr, 1);
   }
 
   ngOnDestroy() {

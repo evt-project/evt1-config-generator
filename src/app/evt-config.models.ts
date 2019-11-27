@@ -57,16 +57,20 @@ export interface EditionTools {
     list_gloss: boolean;
     list_doc: boolean;
 
-    lists: Array<{
-        groupLabel: string;
-        active: boolean;
-        items: Array<{
-            tag: string;
-            label?: string;
-            attributes?: Array<{ key: string; value: any }>
-            active: boolean;
-        }>;
-    }>;
+    lists: ListConfig[];
+}
+
+export interface ListConfig {
+    groupLabel: string;
+    active: boolean;
+    items: ListItemConfig[];
+}
+
+export interface ListItemConfig {
+    tag: string;
+    label?: string;
+    attributes?: Array<{ key: string; value: any }>;
+    active: boolean;
 }
 
 export interface AdvancedConfigs {
