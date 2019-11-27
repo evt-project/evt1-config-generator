@@ -1,10 +1,12 @@
-<div class="form-group">
-    <label class="col-form-label-sm mb-0" *ngIf="title">{{ title | translate }}</label>
-    <small class="form-text text-muted mb-2" *ngIf="description">
-        {{ description | translate }}
-        <div>
-            <ng-content select="[additionalText]"></ng-content>
-        </div>
-    </small>
-    <ng-content select="[content]"></ng-content>
-</div>
+<form>
+    <div class="form-group">
+        <label class="col-form-label-sm mb-0" *ngIf="title">{{ title | translate }}</label>
+        <small class="form-text text-muted mb-2" *ngIf="description">
+            {{ description | translate }}
+            <div>
+                <ng-content select="[additionalText]"></ng-content>
+            </div>
+        </small>
+        <ng-content select="[content]"></ng-content>
+    </div>
+</form>

@@ -8,7 +8,7 @@
 
 <ng-template #imageTools>
   <app-card [title]="'imageTools'" class="mb-3 d-block">
-    <form content>
+    <div content>
       <app-form-group [description]="'imageToolsDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="txtimg_link_button" [checked]="configs.txtimg_link_button"
@@ -27,17 +27,16 @@
           <label class="col-form-label-sm form-check-label ml-3" for="mag_button">{{'magButton' | translate }}</label>
         </div>
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
 
 <ng-template #navigation>
   <app-card [title]="'navigation'" class="mb-3 d-block">
-    <form content>
-      <app-form-group [description]="'navigationDesc'">
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="thumbs_button" [checked]="configs.thumbs_button"
-            [(ngModel)]="configs.thumbs_button" name="thumbs_button" (change)="updateValueCheckbox($event)" />
+    <app-form-group content [description]="'navigationDesc'">
+      <div class="form-check pl-0" content>
+        <input class="inline-label" type="checkbox" id="thumbs_button" [checked]="configs.thumbs_button"
+          [(ngModel)]="configs.thumbs_button" name="thumbs_button" (change)="updateValueCheckbox($event)" />
           <label class="col-form-label-sm form-check-label ml-3"
             for="thumbs_button">{{'thumbsButton' | translate }}</label>
         </div>
@@ -54,14 +53,13 @@
             name="pp_selector_doc_tooltip" (change)="updateValueCheckbox($event)" />
           <label class="col-form-label-sm form-check-label ml-3"
             for="pp_selector_doc_tooltip">{{'ppSelectorDocTooltip' | translate }}</label>
-        </div>
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="document_navigation" [checked]="configs.document_navigation"
-            [(ngModel)]="configs.document_navigation" name="document_navigation"
-            (change)="updateValueCheckbox($event)" />
-          <label class="col-form-label-sm form-check-label ml-3"
-            for="document_navigation">{{'documentNavigation' | translate }}</label>
-        </div>
+      </div>
+      <div class="form-check pl-0" content>
+        <input class="inline-label" type="checkbox" id="document_navigation" [checked]="configs.document_navigation"
+          [(ngModel)]="configs.document_navigation" name="document_navigation" (change)="updateValueCheckbox($event)" />
+        <label class="col-form-label-sm form-check-label ml-3"
+          for="document_navigation">{{'documentNavigation' | translate }}</label>
+      </div>
         <div class="form-check pl-0" content>
           <label class="col-form-label-sm form-check-label mr-3"
             for="pp_selector_pos">{{'ppSelectorPos' | translate }}</label>
@@ -75,15 +73,14 @@
               <input ngbButton type="radio" value="right" (change)="updateValue($event)">
               {{'onTextFrame' | translate}}
             </label>
-          </div>
         </div>
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="bottom_navbar"
-            [checked]="configs.bottom_navbar" [(ngModel)]="configs.bottom_navbar"
-            name="bottom_navbar" (change)="updateValueCheckbox($event)" />
-          <label class="col-form-label-sm form-check-label ml-3"
-            for="bottom_navbar">{{'bottomNavbar' | translate }}</label>
-        </div>
+      </div>
+      <div class="form-check pl-0" content>
+        <input class="inline-label" type="checkbox" id="bottom_navbar" [checked]="configs.bottom_navbar"
+          [(ngModel)]="configs.bottom_navbar" name="bottom_navbar" (change)="updateValueCheckbox($event)" />
+        <label class="col-form-label-sm form-check-label ml-3"
+          for="bottom_navbar">{{'bottomNavbar' | translate }}</label>
+      </div>
         <div class="form-check pl-0" content *ngIf="configs.bottom_navbar">
             <label class="col-form-label-sm form-check-label mr-3"
               for="bottom_navbar_initial_status">{{'bottomNavbarInitialStatus' | translate }}</label>
@@ -97,16 +94,15 @@
                 <input ngbButton type="radio" value="opened" (change)="updateValue($event)">
                 {{'opened' | translate}}
               </label>
-            </div>
-          </div>
-      </app-form-group>
-    </form>
+        </div>
+      </div>
+    </app-form-group>
   </app-card>
 </ng-template>
 
 <ng-template #views>
   <app-card [title]="'views'" class="mb-3 d-block">
-    <form content>
+    <div content>
       <app-form-group [description]="'viewsDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="image_frame" [checked]="configs.image_frame"
@@ -149,13 +145,13 @@
           </div>
         </div>
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
 
 <ng-template #prefatoryMatter>
   <app-card [title]="'prefatoryMatter'" class="mb-3 d-block">
-    <form content>
+    <div content>
       <app-form-group [description]="'prefatoryMatterDesc'">
         <div content>
           <div class="form-check pl-0">
@@ -199,13 +195,13 @@
           </div>
         </div>
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
 
 <ng-template #search>
   <app-card [title]="'search'" class="mb-3 d-block">
-    <form content>
+    <div content>
       <app-form-group [description]="'searchDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="search" [checked]="configs.search"
@@ -224,13 +220,13 @@
           </small>
         </div>
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
 
 <ng-template #viscoll>
   <app-card [title]="'viscoll'" class="mb-3 d-block">
-    <form content>
+    <div content>
       <app-form-group [description]="'viscollDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="viscoll" [checked]="configs.viscoll_button"
@@ -254,20 +250,22 @@
           name="viscoll_image_list_path" [(ngModel)]="configs.viscoll_image_list_path" (keyup)="updateValue($event)"
           content>
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
 
 <ng-template #poetry>
     <app-card [title]="'poetry'" class="mb-3 d-block">
-      <form content>
+    <div content>
         <app-form-group [description]="'poetryDesc'">
           <div class="form-check pl-0" content>
             <input class="inline-label" type="checkbox" id="prose_verses_toggler" [checked]="configs.prose_verses_toggler"
-              [(ngModel)]="configs.prose_verses_toggler" name="prose_verses_toggler" (change)="updateValueCheckbox($event)" />
-            <label class="col-form-label-sm form-check-label ml-3" for="prose_verses_toggler">{{'proseVersesToggler' | translate }}</label>
+            [(ngModel)]="configs.prose_verses_toggler" name="prose_verses_toggler"
+            (change)="updateValueCheckbox($event)" />
+          <label class="col-form-label-sm form-check-label ml-3"
+            for="prose_verses_toggler">{{'proseVersesToggler' | translate }}</label>
           </div>
         </app-form-group>
-      </form>
+    </div>
     </app-card>
   </ng-template>

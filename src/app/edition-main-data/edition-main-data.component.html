@@ -5,7 +5,7 @@
 
 <ng-template #editionMainInfo>
   <app-card [title]="'editionMainInfo'" class="mb-3 d-block">
-    <form content>
+    <div content>
       <app-form-group [title]="'editionTitle'" [description]="'editionTitle_desc'">
         <input class="form-control form-control-sm" [placeholder]="'editionTitle' | translate" name="index_title"
           [(ngModel)]="configs.index_title" (keyup)="updateValue($event)" content>
@@ -42,7 +42,7 @@
         <input class="form-control form-control-sm" [placeholder]="'fbImage' | translate" name="fb_thumb"
           [(ngModel)]="configs.fb_thumb" (keyup)="updateValue($event)" content />
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
 
@@ -51,7 +51,7 @@
     <span class="mb-3 d-block" additionalText>
       <strong>{{ 'warning' | translate }}!</strong> {{ 'editionLevels_warning' | translate }}
     </span>
-    <form content>
+    <div content>
       <app-form-group [title]="'editionLevels'">
         <div content>
           <div class="form-row align-items-center mb-2"
@@ -102,13 +102,13 @@
             for="edLevelSelector">{{'showEditionLevelSelector' | translate }}</label>
         </div>
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
 
 <ng-template #additionalContents>
   <app-card class="mb-3 d-block" [title]="'additionalContent'">
-    <form content>
+    <div content>
       <app-form-group [title]="'translation'">
         <span class="mb-3 d-block" additionalText>
           <strong>{{ 'warning' | translate }}!</strong> {{ 'translation_warning' | translate }}
@@ -120,13 +120,13 @@
             for="translation">{{'enableTranslation' | translate }}</label>
         </div>
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
 
 <ng-template #dataFormat>
   <app-card class="mb-3 d-block" [title]="'dataFormat'">
-    <form content>
+    <div content>
       <app-form-group [title]="'imagesExtension'" [description]="'imagesExtension_desc'">
         <span class="mb-3 d-block" additionalText>
           <strong>{{ 'warning' | translate }}!</strong> {{ 'imagesExtension_warning' | translate }}
@@ -134,6 +134,6 @@
         <input class="form-control form-control-sm" [placeholder]="'imagesExtension' | translate" name="imageExt"
           [(ngModel)]="configs.imageExt" (keyup)="updateValue($event)" content />
       </app-form-group>
-    </form>
+    </div>
   </app-card>
 </ng-template>
