@@ -50,55 +50,7 @@
 <ng-template #editionLevels let-configs="configs">
   <app-card class="mb-3 d-block" [title]="'editionLevels'">
     <div content>
-      <app-form-group [description]="'editionLevels_desc'">
-        <span class="mb-3 d-block" additionalText>
-          <strong>{{ 'warning' | translate }}!</strong> {{ 'editionLevels_warning' | translate }}
-        </span>
-        <div content>
-          <div class="form-row align-items-center mb-2"
-            *ngFor="let editionLevel of configs.edition_array; let i = index">
-            <div class="col-4">
-              <div class="form-check pl-0">
-                <input class="inline-label" type="checkbox" id="edLevel_{{i}}" name="edLevel_{{i}}"
-                  [checked]="editionLevel.visible" [(ngModel)]="editionLevel.visible" />
-                <label class="col-form-label-sm form-check-label ml-3"
-                  for="edLevel_{{i}}">{{editionLevel.value | translate}}</label>
-              </div>
-            </div>
-            <div class="col-4">
-              <input class="form-control form-control-sm" [placeholder]="'customLabel' | translate"
-                name="edLevelName_{{i}}" [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.label" />
-            </div>
-            <div class="col-2">
-              <input class="form-control form-control-sm" [placeholder]="'customPrefix' | translate"
-                name="edLevelPrefix_{{i}}" [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.prefix" />
-            </div>
-            <div class="col-2">
-              <button class="btn btn-light" *ngIf="editionLevel.value === 'Custom'" (click)="onRemoveEditionLevel(i)">
-                {{ 'remove' | translate }}
-              </button>
-            </div>
-          </div>
-        </div>
-      </app-form-group>
-      <div class="mb-3">
-        <small class="w-100 d-block">
-          {{ 'newEditionInstructions' | translate }}
-          <code>modules/evt_builder-main.xsl</code>,
-          {{ 'underThe' | translate }} <code>&lt;xsl:if test="$edition_array[2]!=''"&gt;</code>.
-        </small>
-        <button class="btn btn-sm btn-light" (click)="onAddEditionLevel()">
-          {{ 'addNewEdition' | translate }}
-        </button>
-      </div>
-      <app-form-group [title]="'editionLevelSelector'" [description]="'editionLevelSelector_desc'">
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="edLevelSelector" [checked]="configs.edition_level_selector"
-            [(ngModel)]="configs.edition_level_selector" name="edition_level_selector" />
-          <label class="col-form-label-sm form-check-label ml-3"
-            for="edLevelSelector">{{'showEditionLevelSelector' | translate }}</label>
-        </div>
-      </app-form-group>
+      <app-edition-levels-config></app-edition-levels-config>
     </div>
   </app-card>
 </ng-template>

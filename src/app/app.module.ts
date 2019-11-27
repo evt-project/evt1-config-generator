@@ -23,6 +23,7 @@ import { EditionToolsComponent } from './edition-tools/edition-tools.component';
 import { EntitiesListsConfigComponent } from './components/entities-lists-config/entities-lists-config.component';
 import { ListsConfigComponent } from './components/lists-config/lists-config.component';
 import { ViscollConfigComponent } from './components/viscoll-config/viscoll-config.component';
+import { EditionLevelsConfigComponent } from './components/edition-levels-config/edition-levels-config.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EntitiesListsConfigComponent,
     ListsConfigComponent,
     ViscollConfigComponent,
+    EditionLevelsConfigComponent,
   ],
   imports: [
     BrowserModule,
