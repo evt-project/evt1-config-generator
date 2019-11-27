@@ -2,12 +2,12 @@
   <div class="mb-3 d-block text-muted" additionalText>
     <strong>{{ 'warning' | translate }}!</strong> {{ 'entitiesSelector_warning' | translate }}
   </div>
-  <div class="form-check pl-0" content>
-      <ng-container *ngTemplateOutlet="listsAccordion"></ng-container>
+  <div class="form-check pl-0" content *ngIf="lists$ | async as lists">
+      <ng-container *ngTemplateOutlet="listsAccordion;context:{lists:lists}"></ng-container>
   </div>
 </app-form-group>
 
-<ng-template #listsAccordion>
+<ng-template #listsAccordion let-lists="lists">
   <ngb-accordion #a="ngbAccordion" class="listsConfigs" activeIds="list_0">
     <ngb-panel id="list_{{index}}" *ngFor="let list of lists; let index = index" class="mb-3">
       <ng-template ngbPanelHeader let-opened="opened">

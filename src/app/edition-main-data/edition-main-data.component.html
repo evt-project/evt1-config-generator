@@ -1,38 +1,39 @@
-<ng-container *ngTemplateOutlet="editionMainInfo"></ng-container>
-<ng-container *ngTemplateOutlet="editionLevels"></ng-container>
-<ng-container *ngTemplateOutlet="additionalContents"></ng-container>
-<ng-container *ngTemplateOutlet="dataFormat"></ng-container>
+<ng-container *ngIf="configs$ | async as configs">
+  <ng-container *ngTemplateOutlet="editionMainInfo;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="editionLevels;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="additionalContents;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="dataFormat;context:{configs:configs}"></ng-container>
+</ng-container>
 
-<ng-template #editionMainInfo>
+<ng-template #editionMainInfo let-configs="configs">
   <app-card [title]="'editionMainInfo'" class="mb-3 d-block">
     <div content>
       <app-form-group [title]="'editionTitle'" [description]="'editionTitle_desc'">
         <input class="form-control form-control-sm" [placeholder]="'editionTitle' | translate" name="index_title"
-          [(ngModel)]="configs.index_title" (keyup)="updateValue($event)" content>
+          [(ngModel)]="configs.index_title" content>
       </app-form-group>
       <app-form-group [title]="'badge'" [description]="'badge_desc'">
         <div class="form-row align-items-center" content>
           <div class="col-auto">
             <div class="form-check pl-0">
               <input class="inline-label" type="checkbox" id="badge" [checked]="configs.badge"
-                [(ngModel)]="configs.badge" name="badge" (change)="updateValueCheckbox($event)" />
+                [(ngModel)]="configs.badge" name="badge" />
               <label class="col-form-label-sm form-check-label ml-3" for="badge">Activate badge</label>
             </div>
           </div>
           <div class="col-auto">
             <input class="form-control form-control-sm" [placeholder]="'badge' | translate" [disabled]="!configs.badge"
-              name="badge_text" [(ngModel)]="configs.badge_text" (keyup)="updateValue($event)" />
+              name="badge_text" [(ngModel)]="configs.badge_text" />
           </div>
         </div>
       </app-form-group>
       <app-form-group [title]="'webSite'" [description]="'webSite_desc'">
         <input class="form-control form-control-sm" [placeholder]="'webSite' | translate" name="webSite"
-          [(ngModel)]="configs.webSite" (keyup)="updateValue($event)" content />
+          [(ngModel)]="configs.webSite" content />
       </app-form-group>
       <app-form-group [title]="'welcomeMsg'" [description]="'welcomeMsg_desc'">
         <textarea content class="form-control form-control-sm" [placeholder]="'welcomeMsg' | translate" rows="15"
-          name="welcomeMsg" [(ngModel)]="configs.welcomeMsg"
-          (keyup)="updateValue($event)">{{ configs.welcomeMsg }}</textarea>
+          name="welcomeMsg" [(ngModel)]="configs.welcomeMsg">{{ configs.welcomeMsg }}</textarea>
       </app-form-group>
       <app-form-group [title]="'fbThumb'" [description]="'fbThumb_desc'">
         <span class="mb-3 d-block" additionalText>
@@ -40,40 +41,37 @@
           <code>data/input_data/images</code>
         </span>
         <input class="form-control form-control-sm" [placeholder]="'fbImage' | translate" name="fb_thumb"
-          [(ngModel)]="configs.fb_thumb" (keyup)="updateValue($event)" content />
+          [(ngModel)]="configs.fb_thumb" content />
       </app-form-group>
     </div>
   </app-card>
 </ng-template>
 
-<ng-template #editionLevels>
-  <app-card class="mb-3 d-block" [title]="'editionLevels'" [subtitle]="'editionLevels_desc'">
-    <span class="mb-3 d-block" additionalText>
-      <strong>{{ 'warning' | translate }}!</strong> {{ 'editionLevels_warning' | translate }}
-    </span>
+<ng-template #editionLevels let-configs="configs">
+  <app-card class="mb-3 d-block" [title]="'editionLevels'">
     <div content>
-      <app-form-group [title]="'editionLevels'">
+      <app-form-group [description]="'editionLevels_desc'">
+        <span class="mb-3 d-block" additionalText>
+          <strong>{{ 'warning' | translate }}!</strong> {{ 'editionLevels_warning' | translate }}
+        </span>
         <div content>
           <div class="form-row align-items-center mb-2"
             *ngFor="let editionLevel of configs.edition_array; let i = index">
             <div class="col-4">
               <div class="form-check pl-0">
                 <input class="inline-label" type="checkbox" id="edLevel_{{i}}" name="edLevel_{{i}}"
-                  [checked]="editionLevel.visible" [(ngModel)]="editionLevel.visible"
-                  (change)="updateEditionLevels($event)" />
+                  [checked]="editionLevel.visible" [(ngModel)]="editionLevel.visible" />
                 <label class="col-form-label-sm form-check-label ml-3"
                   for="edLevel_{{i}}">{{editionLevel.value | translate}}</label>
               </div>
             </div>
             <div class="col-4">
-              <input class="form-control form-control-sm" [placeholder]="'customLabel' | translate" name="edLevelName_{{i}}"
-                [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.label"
-                (keyup)="updateEditionLevelLabel($event, editionLevel.value)" />
+              <input class="form-control form-control-sm" [placeholder]="'customLabel' | translate"
+                name="edLevelName_{{i}}" [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.label" />
             </div>
             <div class="col-2">
-              <input class="form-control form-control-sm" [placeholder]="'customPrefix' | translate" name="edLevelPrefix_{{i}}"
-                [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.prefix"
-                (keyup)="updateEditionLevelPrefix($event, editionLevel.value)" />
+              <input class="form-control form-control-sm" [placeholder]="'customPrefix' | translate"
+                name="edLevelPrefix_{{i}}" [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.prefix" />
             </div>
             <div class="col-2">
               <button class="btn btn-light" *ngIf="editionLevel.value === 'Custom'" (click)="onRemoveEditionLevel(i)">
@@ -95,9 +93,8 @@
       </div>
       <app-form-group [title]="'editionLevelSelector'" [description]="'editionLevelSelector_desc'">
         <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="edLevelSelector"
-            [checked]="configs.edition_level_selector" [(ngModel)]="configs.edition_level_selector"
-            name="edition_level_selector" (change)="updateValueCheckbox($event)" />
+          <input class="inline-label" type="checkbox" id="edLevelSelector" [checked]="configs.edition_level_selector"
+            [(ngModel)]="configs.edition_level_selector" name="edition_level_selector" />
           <label class="col-form-label-sm form-check-label ml-3"
             for="edLevelSelector">{{'showEditionLevelSelector' | translate }}</label>
         </div>
@@ -106,7 +103,7 @@
   </app-card>
 </ng-template>
 
-<ng-template #additionalContents>
+<ng-template #additionalContents let-configs="configs">
   <app-card class="mb-3 d-block" [title]="'additionalContent'">
     <div content>
       <app-form-group [title]="'translation'">
@@ -115,7 +112,7 @@
         </span>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="translation" name="translation"
-            [checked]="configs.translation" [(ngModel)]="configs.translation" (change)="updateValueCheckbox($event)" />
+            [checked]="configs.translation" [(ngModel)]="configs.translation" />
           <label class="col-form-label-sm form-check-label ml-3"
             for="translation">{{'enableTranslation' | translate }}</label>
         </div>
@@ -124,7 +121,7 @@
   </app-card>
 </ng-template>
 
-<ng-template #dataFormat>
+<ng-template #dataFormat let-configs="configs">
   <app-card class="mb-3 d-block" [title]="'dataFormat'">
     <div content>
       <app-form-group [title]="'imagesExtension'" [description]="'imagesExtension_desc'">
@@ -132,7 +129,7 @@
           <strong>{{ 'warning' | translate }}!</strong> {{ 'imagesExtension_warning' | translate }}
         </span>
         <input class="form-control form-control-sm" [placeholder]="'imagesExtension' | translate" name="imageExt"
-          [(ngModel)]="configs.imageExt" (keyup)="updateValue($event)" content />
+          [(ngModel)]="configs.imageExt" content />
       </app-form-group>
     </div>
   </app-card>

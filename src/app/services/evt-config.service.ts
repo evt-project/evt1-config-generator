@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { EditionMainData, EditionTools, AdvancedConfigs, EVT1Config } from '../evt-config.models';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class EvtConfigService {
   @Output() uploadedConfig: EventEmitter<any> = new EventEmitter();
 
   defaultConfigs: EVT1Config;
-  configs: EVT1Config;
+  configs$ = new BehaviorSubject<EVT1Config>(undefined);
   defaultDataFolder = 'data';
 
   supportConfigs: any = {
@@ -22,7 +22,7 @@ export class EvtConfigService {
 
   constructor() {
     this.setDefaults();
-    this.configs = { ...this.defaultConfigs };
+    this.configs$.next({ ...this.defaultConfigs });
   }
 
   uploadConfig(XSLstring) {
@@ -31,7 +31,7 @@ export class EvtConfigService {
       const xsltProcessor = new XSLTProcessor();
       const xsltDoc = domParser.parseFromString(XSLstring, 'text/xml');
       const xsltStyles = xsltDoc.children[0];
-
+      const newConfig = { ...this.defaultConfigs };
       for (const child of Array.from(xsltStyles.children)) {
         if (child.tagName === 'xsl:param' || child.tagName === 'xsl:variable') {
           const paramName = child.getAttribute('name');
@@ -82,17 +82,21 @@ export class EvtConfigService {
               }
             }
             if (paramName === 'lists') {
-              this.setValue('entitiesSelector', (paramValue.length > 0));
+              this.supportConfigs.entitiesSelector = (paramValue.length > 0);
             }
             if (paramName === 'max_depth') {
               paramValue = this.splitMaxDepthXpath(paramValue);
             }
-            this.setValue(paramName, paramValue);
+            const sectionName = this.findPropertySection(paramName);
+            newConfig[sectionName] = {
+              ...newConfig[sectionName] || {},
+              [paramName]: paramValue
+            };
           }
         }
       }
-      this.uploadedConfig.emit(this.configs);
-      console.log(this.configs);
+      this.configs$.next({ ...newConfig });
+      // this.uploadedConfig.emit(this.configs$);
     } catch (e) {
       console.log(e);
       // this.dialog.open(ErrorMessageDialogComponent, {
@@ -149,25 +153,13 @@ export class EvtConfigService {
   }
 
   getConfigData() {
-    return this.configs;
+    return this.configs$;
   }
 
   getProperty(propertyName: string, sectionName?: string) {
-    if (!sectionName) {
-      sectionName = this.findPropertySection(propertyName);
-    }
-    return this.configs[sectionName][propertyName];
   }
 
   setValue(propertyName: string, value: any, sectionName?: string) {
-    if (!sectionName) {
-      sectionName = this.findPropertySection(propertyName);
-    }
-    if (sectionName) {
-      this.configs[sectionName][propertyName] = value;
-    } else {
-      console.log('Invalid property:', propertyName);
-    }
   }
 
   getSupportProperty(propertyName: string) {
@@ -179,27 +171,27 @@ export class EvtConfigService {
   }
 
   updateEditionLevelVisibility(editionLevelToEdit: string, visibility: boolean) {
-    for (const edition of this.configs.mainData.edition_array) {
-      if (edition.value === editionLevelToEdit) {
-        edition.visible = visibility;
-      }
-    }
+    // for (const edition of this.configs.mainData.edition_array) {
+    //   if (edition.value === editionLevelToEdit) {
+    //     edition.visible = visibility;
+    //   }
+    // }
   }
 
   updateEditionLevelLabel(editionLevelToEdit: string, label: string) {
-    for (const edition of this.configs.mainData.edition_array) {
-      if (edition.value === editionLevelToEdit) {
-        edition.label = label;
-      }
-    }
+    // for (const edition of this.configs.mainData.edition_array) {
+    //   if (edition.value === editionLevelToEdit) {
+    //     edition.label = label;
+    //   }
+    // }
   }
 
   updateEditionLevelPrefix(editionLevelToEdit: string, prefix: string) {
-    for (const edition of this.configs.mainData.edition_array) {
-      if (edition.value === editionLevelToEdit) {
-        edition.prefix = prefix;
-      }
-    }
+    // for (const edition of this.configs.mainData.edition_array) {
+    //   if (edition.value === editionLevelToEdit) {
+    //     edition.prefix = prefix;
+    //   }
+    // }
   }
 
   findPropertySection(propertyName: string) {

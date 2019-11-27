@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EvtConfigService } from './services/evt-config.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -53,6 +54,6 @@ export class AppComponent {
   }
 
   download() {
-    console.log(this.evtConfigService.getConfigData());
+    this.evtConfigService.configs$.pipe(first()).subscribe(configs => console.log(configs));
   }
 }

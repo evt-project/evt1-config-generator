@@ -1,30 +1,32 @@
-<ng-container *ngTemplateOutlet="imageTools"></ng-container>
-<ng-container *ngTemplateOutlet="navigation"></ng-container>
-<ng-container *ngTemplateOutlet="views"></ng-container>
-<ng-container *ngTemplateOutlet="prefatoryMatter"></ng-container>
-<ng-container *ngTemplateOutlet="search"></ng-container>
-<ng-container *ngTemplateOutlet="viscoll"></ng-container>
-<ng-container *ngTemplateOutlet="poetry"></ng-container>
-<ng-container *ngTemplateOutlet="listsNE"></ng-container>
+<ng-container *ngIf="configs$ | async as configs">
+  <ng-container *ngTemplateOutlet="imageTools;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="navigation;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="views;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="prefatoryMatter;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="search;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="viscoll;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="poetry;context:{configs:configs}"></ng-container>
+  <ng-container *ngTemplateOutlet="listsNE;context:{configs:configs}"></ng-container>
+</ng-container>
 
-<ng-template #imageTools>
+<ng-template #imageTools let-configs="configs">
   <app-card [title]="'imageTools'" class="mb-3 d-block">
     <div content>
       <app-form-group [description]="'imageToolsDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="txtimg_link_button" [checked]="configs.txtimg_link_button"
-            [(ngModel)]="configs.txtimg_link_button" name="txtimg_link_button" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.txtimg_link_button" name="txtimg_link_button" />
           <label class="col-form-label-sm form-check-label ml-3"
             for="txtimg_link_button">{{'txtimgLinkButton' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="hs_button" [checked]="configs.hs_button"
-            [(ngModel)]="configs.hs_button" name="hs_button" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.hs_button" name="hs_button" />
           <label class="col-form-label-sm form-check-label ml-3" for="hs_button">{{'hsButton' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="mag_button" [checked]="configs.mag_button"
-            [(ngModel)]="configs.mag_button" name="mag_button" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.mag_button" name="mag_button" />
           <label class="col-form-label-sm form-check-label ml-3" for="mag_button">{{'magButton' | translate }}</label>
         </div>
       </app-form-group>
@@ -32,32 +34,32 @@
   </app-card>
 </ng-template>
 
-<ng-template #navigation>
+<ng-template #navigation let-configs="configs">
   <app-card [title]="'navigation'" class="mb-3 d-block">
     <app-form-group content [description]="'navigationDesc'">
       <div class="form-check pl-0" content>
         <input class="inline-label" type="checkbox" id="thumbs_button" [checked]="configs.thumbs_button"
-          [(ngModel)]="configs.thumbs_button" name="thumbs_button" (change)="updateValueCheckbox($event)" />
+          [(ngModel)]="configs.thumbs_button" name="thumbs_button" />
         <label class="col-form-label-sm form-check-label ml-3"
           for="thumbs_button">{{'thumbsButton' | translate }}</label>
       </div>
       <div class="form-check pl-0" content>
         <input class="inline-label" type="checkbox" id="pp_selector_doc_grouping"
           [checked]="configs.pp_selector_doc_grouping" [(ngModel)]="configs.pp_selector_doc_grouping"
-          name="pp_selector_doc_grouping" (change)="updateValueCheckbox($event)" />
+          name="pp_selector_doc_grouping" />
         <label class="col-form-label-sm form-check-label ml-3"
           for="pp_selector_doc_grouping">{{'ppSelectorDocGrouping' | translate }}</label>
       </div>
       <div class="form-check pl-0" content>
         <input class="inline-label" type="checkbox" id="pp_selector_doc_tooltip"
           [checked]="configs.pp_selector_doc_tooltip" [(ngModel)]="configs.pp_selector_doc_tooltip"
-          name="pp_selector_doc_tooltip" (change)="updateValueCheckbox($event)" />
+          name="pp_selector_doc_tooltip" />
         <label class="col-form-label-sm form-check-label ml-3"
           for="pp_selector_doc_tooltip">{{'ppSelectorDocTooltip' | translate }}</label>
       </div>
       <div class="form-check pl-0" content>
         <input class="inline-label" type="checkbox" id="document_navigation" [checked]="configs.document_navigation"
-          [(ngModel)]="configs.document_navigation" name="document_navigation" (change)="updateValueCheckbox($event)" />
+          [(ngModel)]="configs.document_navigation" name="document_navigation" />
         <label class="col-form-label-sm form-check-label ml-3"
           for="document_navigation">{{'documentNavigation' | translate }}</label>
       </div>
@@ -67,18 +69,18 @@
         <div class="btn-group btn-group-toggle" ngbRadioGroup name="pp_selector_pos"
           [(ngModel)]="configs.pp_selector_pos">
           <label ngbButtonLabel class="btn-sm btn-primary">
-            <input ngbButton type="radio" value="left" (change)="updateValue($event)">
+            <input ngbButton type="radio" value="left">
             {{'onImageFrame' | translate}}
           </label>
           <label ngbButtonLabel class="btn-sm btn-primary">
-            <input ngbButton type="radio" value="right" (change)="updateValue($event)">
+            <input ngbButton type="radio" value="right">
             {{'onTextFrame' | translate}}
           </label>
         </div>
       </div>
       <div class="form-check pl-0" content>
         <input class="inline-label" type="checkbox" id="bottom_navbar" [checked]="configs.bottom_navbar"
-          [(ngModel)]="configs.bottom_navbar" name="bottom_navbar" (change)="updateValueCheckbox($event)" />
+          [(ngModel)]="configs.bottom_navbar" name="bottom_navbar" />
         <label class="col-form-label-sm form-check-label ml-3"
           for="bottom_navbar">{{'bottomNavbar' | translate }}</label>
       </div>
@@ -88,11 +90,11 @@
         <div class="btn-group btn-group-toggle" ngbRadioGroup name="bottom_navbar_initial_status"
           [(ngModel)]="configs.bottom_navbar_initial_status">
           <label ngbButtonLabel class="btn-sm btn-primary">
-            <input ngbButton type="radio" value="closed" (change)="updateValue($event)">
+            <input ngbButton type="radio" value="closed">
             {{'closed' | translate}}
           </label>
           <label ngbButtonLabel class="btn-sm btn-primary">
-            <input ngbButton type="radio" value="opened" (change)="updateValue($event)">
+            <input ngbButton type="radio" value="opened">
             {{'opened' | translate}}
           </label>
         </div>
@@ -101,18 +103,18 @@
   </app-card>
 </ng-template>
 
-<ng-template #views>
+<ng-template #views let-configs="configs">
   <app-card [title]="'views'" class="mb-3 d-block">
     <div content>
       <app-form-group [description]="'viewsDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="image_frame" [checked]="configs.image_frame"
-            [(ngModel)]="configs.image_frame" name="image_frame" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.image_frame" name="image_frame" />
           <label class="col-form-label-sm form-check-label ml-3" for="image_frame">{{'imageFrame' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="double_view" [checked]="configs.double_view"
-            [(ngModel)]="configs.double_view" name="double_view" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.double_view" name="double_view" />
           <label class="col-form-label-sm form-check-label ml-3" for="double_view">{{'bookReader' | translate }}</label>
         </div>
       </app-form-group>
@@ -121,11 +123,11 @@
           <div class="btn-group btn-group-toggle" ngbRadioGroup name="left_frame_default_content"
             [(ngModel)]="configs.left_frame_default_content">
             <label ngbButtonLabel class="btn-sm btn-primary">
-              <input ngbButton type="radio" value="image" (change)="updateValue($event)">
+              <input ngbButton type="radio" value="image">
               {{'image' | translate}}
             </label>
             <label ngbButtonLabel class="btn-sm btn-primary">
-              <input ngbButton type="radio" value="info" (change)="updateValue($event)">
+              <input ngbButton type="radio" value="info">
               {{'manuscriptInfo' | translate}}
             </label>
           </div>
@@ -136,11 +138,11 @@
           <div class="btn-group btn-group-toggle" ngbRadioGroup name="right_frame_default_content"
             [(ngModel)]="configs.right_frame_default_content">
             <label ngbButtonLabel class="btn-sm btn-primary">
-              <input ngbButton type="radio" value="text" (change)="updateValue($event)">
+              <input ngbButton type="radio" value="text">
               {{'editionText' | translate}}
             </label>
             <label ngbButtonLabel class="btn-sm btn-primary">
-              <input ngbButton type="radio" value="info" (change)="updateValue($event)">
+              <input ngbButton type="radio" value="info">
               {{'frontInfo' | translate}}
             </label>
           </div>
@@ -150,26 +152,26 @@
   </app-card>
 </ng-template>
 
-<ng-template #prefatoryMatter>
+<ng-template #prefatoryMatter let-configs="configs">
   <app-card [title]="'prefatoryMatter'" class="mb-3 d-block">
     <div content>
       <app-form-group [description]="'prefatoryMatterDesc'">
         <div content>
           <div class="form-check pl-0">
             <input class="inline-label" type="checkbox" id="headerInfo" [checked]="configs.headerInfo"
-              [(ngModel)]="configs.headerInfo" name="headerInfo" (change)="updateValueCheckbox($event)" />
+              [(ngModel)]="configs.headerInfo" name="headerInfo" />
             <label class="col-form-label-sm form-check-label ml-3"
               for="headerInfo">{{'headerInfo' | translate }}</label>
           </div>
           <div class="form-check pl-0">
             <input class="inline-label" type="checkbox" id="bibliography" [checked]="configs.bibliography"
-              [(ngModel)]="configs.bibliography" name="bibliography" (change)="updateValueCheckbox($event)" />
+              [(ngModel)]="configs.bibliography" name="bibliography" />
             <label class="col-form-label-sm form-check-label ml-3"
               for="bibliography">{{'bibliography' | translate }}</label>
           </div>
           <div class="form-check pl-0">
             <input class="inline-label" type="checkbox" id="msDesc" [checked]="configs.msDesc"
-              [(ngModel)]="configs.msDesc" name="msDesc" (change)="updateValueCheckbox($event)" />
+              [(ngModel)]="configs.msDesc" name="msDesc" />
             <label class="col-form-label-sm form-check-label ml-3" for="msDesc">{{'msDesc' | translate }}</label>
           </div>
           <div class="form-check pl-0">
@@ -200,19 +202,19 @@
   </app-card>
 </ng-template>
 
-<ng-template #search>
+<ng-template #search let-configs="configs">
   <app-card [title]="'search'" class="mb-3 d-block">
     <div content>
       <app-form-group [description]="'searchDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="search" [checked]="configs.search"
-            [(ngModel)]="configs.search" name="search" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.search" name="search" />
           <label class="col-form-label-sm form-check-label ml-3" for="search">{{'searchEngine' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="virtual_keyboard_search"
             [checked]="configs.virtual_keyboard_search" [(ngModel)]="configs.virtual_keyboard_search"
-            name="virtual_keyboard_search" (change)="updateValueCheckbox($event)" />
+            name="virtual_keyboard_search" />
           <label class="col-form-label-sm form-check-label ml-3"
             for="virtual_keyboard_search">{{'virtualKeyboardSearch' | translate }}</label>
           <small class="mb-3 d-block text-muted">
@@ -225,13 +227,13 @@
   </app-card>
 </ng-template>
 
-<ng-template #viscoll>
+<ng-template #viscoll let-configs="configs">
   <app-card [title]="'viscoll'" class="mb-3 d-block">
     <div content>
       <app-form-group [description]="'viscollDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="viscoll" [checked]="configs.viscoll_button"
-            [(ngModel)]="configs.viscoll_button" name="viscoll" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.viscoll_button" name="viscoll" />
           <label class="col-form-label-sm form-check-label ml-3" for="viscoll">{{'viscollEnabled' | translate }}</label>
         </div>
         <div content *ngIf="configs.viscoll_button">
@@ -243,26 +245,24 @@
       <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollSchemePath'"
         [description]="'viscollSchemePathDesc'">
         <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate"
-          name="viscoll_scheme_path" [(ngModel)]="configs.viscoll_scheme_path" (keyup)="updateValue($event)" content>
+          name="viscoll_scheme_path" [(ngModel)]="configs.viscoll_scheme_path" content>
       </app-form-group>
       <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollImageListPath'"
         [description]="'viscollImageListPathDesc'">
         <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate"
-          name="viscoll_image_list_path" [(ngModel)]="configs.viscoll_image_list_path" (keyup)="updateValue($event)"
-          content>
+          name="viscoll_image_list_path" [(ngModel)]="configs.viscoll_image_list_path" content>
       </app-form-group>
     </div>
   </app-card>
 </ng-template>
 
-<ng-template #poetry>
+<ng-template #poetry let-configs="configs">
   <app-card [title]="'poetry'" class="mb-3 d-block">
     <div content>
       <app-form-group [description]="'poetryDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="prose_verses_toggler" [checked]="configs.prose_verses_toggler"
-            [(ngModel)]="configs.prose_verses_toggler" name="prose_verses_toggler"
-            (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.prose_verses_toggler" name="prose_verses_toggler" />
           <label class="col-form-label-sm form-check-label ml-3"
             for="prose_verses_toggler">{{'proseVersesToggler' | translate }}</label>
         </div>
@@ -272,38 +272,38 @@
 </ng-template>
 
 
-<ng-template #listsNE>
+<ng-template #listsNE let-configs="configs">
   <app-card [title]="'listsNE'" class="mb-3 d-block">
     <div content>
       <app-form-group [title]="'namedEntitiesLists'" [description]="'listsNEDesc'">
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="list_person" [checked]="configs.list_person"
-            [(ngModel)]="configs.list_person" name="list_person" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.list_person" name="list_person" />
           <label class="col-form-label-sm form-check-label ml-3" for="list_person">{{'listPerson' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="list_place" [checked]="configs.list_place"
-            [(ngModel)]="configs.list_place" name="list_place" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.list_place" name="list_place" />
           <label class="col-form-label-sm form-check-label ml-3" for="list_place">{{'listPlace' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="list_org" [checked]="configs.list_org"
-            [(ngModel)]="configs.list_org" name="list_org" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.list_org" name="list_org" />
           <label class="col-form-label-sm form-check-label ml-3" for="list_org">{{'listOrg' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="list_doc" [checked]="configs.list_doc"
-            [(ngModel)]="configs.list_doc" name="list_doc" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.list_doc" name="list_doc" />
           <label class="col-form-label-sm form-check-label ml-3" for="list_doc">{{'listDoc' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="list_term" [checked]="configs.list_term"
-            [(ngModel)]="configs.list_term" name="list_term" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.list_term" name="list_term" />
           <label class="col-form-label-sm form-check-label ml-3" for="list_term">{{'listTerm' | translate }}</label>
         </div>
         <div class="form-check pl-0" content>
           <input class="inline-label" type="checkbox" id="list_gloss" [checked]="configs.list_gloss"
-            [(ngModel)]="configs.list_gloss" name="list_gloss" (change)="updateValueCheckbox($event)" />
+            [(ngModel)]="configs.list_gloss" name="list_gloss" />
           <label class="col-form-label-sm form-check-label ml-3" for="list_gloss">{{'listGloss' | translate }}</label>
         </div>
       </app-form-group>
