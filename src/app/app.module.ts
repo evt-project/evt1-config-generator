@@ -21,6 +21,7 @@ import { CardComponent } from './components/card/card.component';
 import { FormGroupComponent } from './components/form-group/form-group.component';
 import { EditionToolsComponent } from './edition-tools/edition-tools.component';
 import { EntitiesListsConfigComponent } from './components/entities-lists-config/entities-lists-config.component';
+import { ListsConfigComponent } from './components/lists-config/lists-config.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CardComponent,
     FormGroupComponent,
     EditionToolsComponent,
-    EntitiesListsConfigComponent
+    EntitiesListsConfigComponent,
+    ListsConfigComponent,
   ],
   imports: [
     BrowserModule,

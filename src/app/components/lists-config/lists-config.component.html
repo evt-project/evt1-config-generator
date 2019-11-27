@@ -1,0 +1,32 @@
+<app-form-group [title]="'namedEntitiesLists'" [description]="'listsNEDesc'" *ngIf="configs$ | async as configs">
+  <div class="form-check pl-0" content>
+    <input class="inline-label" type="checkbox" id="list_person" [checked]="configs.list_person"
+      [(ngModel)]="configs.list_person" name="list_person" />
+    <label class="col-form-label-sm form-check-label ml-3" for="list_person">{{'listPerson' | translate }}</label>
+  </div>
+  <div class="form-check pl-0" content>
+    <input class="inline-label" type="checkbox" id="list_place" [checked]="configs.list_place"
+      [(ngModel)]="configs.list_place" name="list_place" />
+    <label class="col-form-label-sm form-check-label ml-3" for="list_place">{{'listPlace' | translate }}</label>
+  </div>
+  <div class="form-check pl-0" content>
+    <input class="inline-label" type="checkbox" id="list_org" [checked]="configs.list_org"
+      [(ngModel)]="configs.list_org" name="list_org" />
+    <label class="col-form-label-sm form-check-label ml-3" for="list_org">{{'listOrg' | translate }}</label>
+  </div>
+  <div class="form-check pl-0" content>
+    <input class="inline-label" type="checkbox" id="list_doc" [checked]="configs.list_doc"
+      [(ngModel)]="configs.list_doc" name="list_doc" />
+    <label class="col-form-label-sm form-check-label ml-3" for="list_doc">{{'listDoc' | translate }}</label>
+  </div>
+  <div class="form-check pl-0" content>
+    <input class="inline-label" type="checkbox" id="list_term" [checked]="configs.list_term"
+      [(ngModel)]="configs.list_term" name="list_term" />
+    <label class="col-form-label-sm form-check-label ml-3" for="list_term">{{'listTerm' | translate }}</label>
+  </div>
+  <div class="form-check pl-0" content>
+    <input class="inline-label" type="checkbox" id="list_gloss" [checked]="configs.list_gloss"
+      [(ngModel)]="configs.list_gloss" name="list_gloss" />
+    <label class="col-form-label-sm form-check-label ml-3" for="list_gloss">{{'listGloss' | translate }}</label>
+  </div>
+</app-form-group>
