@@ -121,10 +121,6 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
     this.updateProperty('regesto');
   }
 
-  updateListsValue(newListsConfig: ListConfig) {
-    // this.evtConfigService.setValue('lists', newListsConfig);
-  }
-
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
