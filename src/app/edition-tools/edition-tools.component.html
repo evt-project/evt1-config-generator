@@ -230,28 +230,7 @@
 <ng-template #viscoll let-configs="configs">
   <app-card [title]="'viscoll'" class="mb-3 d-block">
     <div content>
-      <app-form-group [description]="'viscollDesc'">
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="viscoll" [checked]="configs.viscoll_button"
-            [(ngModel)]="configs.viscoll_button" name="viscoll" />
-          <label class="col-form-label-sm form-check-label ml-3" for="viscoll">{{'viscollEnabled' | translate }}</label>
-        </div>
-        <div content *ngIf="configs.viscoll_button">
-          <small class="form-text text-muted"><strong>{{'warning' | translate}}!</strong></small>
-          <small class="form-text text-muted mb-2"
-            [innerHTML]="'viscollInstructions' | translate:{link: 'https://github.com/leoba/VisColl', collationLink: 'http://138.197.87.173:8080/xproc-z/visualize-collation/'}"></small>
-        </div>
-      </app-form-group>
-      <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollSchemePath'"
-        [description]="'viscollSchemePathDesc'">
-        <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate"
-          name="viscoll_scheme_path" [(ngModel)]="configs.viscoll_scheme_path" content>
-      </app-form-group>
-      <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollImageListPath'"
-        [description]="'viscollImageListPathDesc'">
-        <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate"
-          name="viscoll_image_list_path" [(ngModel)]="configs.viscoll_image_list_path" content>
-      </app-form-group>
+      <app-viscoll-config></app-viscoll-config>
     </div>
   </app-card>
 </ng-template>
