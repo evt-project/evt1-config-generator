@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { EditionMainData, EditionTools, AdvancedConfigs, EVT1Config } from '../evt-config.models';
 import { Observable, Subject } from 'rxjs';
 
@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class EvtConfigService {
-  uploadedConfig: EventEmitter<any> = new EventEmitter();
+  @Output() uploadedConfig: EventEmitter<any> = new EventEmitter();
 
   defaultConfigs: EVT1Config;
   configs: EVT1Config;
@@ -23,10 +23,6 @@ export class EvtConfigService {
   constructor() {
     this.setDefaults();
     this.configs = { ...this.defaultConfigs };
-  }
-
-  getUploadedConfigEmitter() {
-    return this.uploadedConfig;
   }
 
   uploadConfig(XSLstring) {

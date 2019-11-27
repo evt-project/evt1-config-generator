@@ -36,8 +36,7 @@ export class EditionMainDataComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription = this.evtConfigService.getUploadedConfigEmitter()
-      .subscribe(newConfigs => this.initConfigs());
+    this.subscription = this.evtConfigService.uploadedConfig.subscribe(newConfigs => this.initConfigs());
   }
 
   initConfigs() {
