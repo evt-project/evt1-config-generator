@@ -44,14 +44,14 @@ export class EditionToolsComponent implements OnInit, OnDestroy {
 
     prose_verses_toggler: false,
 
-    lang_tooltip: false,
     list_person: true,
     list_place: true,
     list_org: true,
     list_term: false,
     list_gloss: false,
     list_doc: false,
-    lists: []
+    lists: [],
+    lang_tooltip: false,
   };
 
   public supportConfig: {

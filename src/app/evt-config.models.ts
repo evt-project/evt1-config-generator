@@ -62,7 +62,8 @@ export interface EditionTools {
         active: boolean;
         items: Array<{
             tag: string;
-            attributes: Array<{ key: string; value: any }>
+            label?: string;
+            attributes?: Array<{ key: string; value: any }>
             active: boolean;
         }>;
     }>;

@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
       { name: 'views' },
       { name: 'prefatoryMatter' },
       { name: 'search' },
-      { name: 'namedEntities' },
+      { name: 'listsNE' },
       { name: 'viscoll' },
       { name: 'poetry' }
     ]

@@ -263,7 +263,43 @@ export class EvtConfigService {
         list_term: false,
         list_gloss: false,
         list_doc: false,
-        lists: [], // ['persName', 'placeName', 'roleName', 'measure', 'date', 'orgName'],
+        lists: [{
+          groupLabel: 'NAMED_ENTITIES',
+          active: true,
+          items: [
+            { tag: 'persName', active: true, attributes: [] },
+            { tag: 'placeName', active: true, attributes: [] },
+            { tag: 'orgName', active: true, attributes: [] },
+          ]
+        }, {
+          groupLabel: 'INTERESTING_ELEMENTS',
+          active: true,
+          items: [
+            { tag: 'roleName', active: true, attributes: [] },
+            { tag: 'measure', active: true, attributes: [] },
+            { tag: 'date', active: true, attributes: [] },
+            { tag: 'foreign', active: true, attributes: [] },
+          ]
+        }, {
+          groupLabel: 'STAGES',
+          active: false,
+          items: [
+            { tag: 'setting', active: true, attributes: [] },
+            { tag: 'entrance', active: true, attributes: [] },
+            { tag: 'exit', active: true, attributes: [] },
+            { tag: 'business', active: true, attributes: [] },
+            { tag: 'delivery', active: true, attributes: [] },
+            { tag: 'modifier', active: true, attributes: [] },
+            { tag: 'novelistic', active: true, attributes: [] },
+            { tag: 'mixed', active: true, attributes: [] },
+          ]
+        }, {
+          groupLabel: 'OTHER',
+          active: false,
+          items: [
+            { tag: 'seg', label: 'METAPHOR', active: true, attributes: [{ key: 'type', value: 'metaphor' }] }
+          ]
+        }],
         // TOOLS - VIEWS
         image_frame: true,
         double_view: true,
