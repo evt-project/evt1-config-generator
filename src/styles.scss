@@ -2,16 +2,6 @@
 @import './assets/scss/variables';
 @import './assets/scss/mixins';
 
-.btn-light {
-  color: $baseColorDark;
-  background: $baseColorLight;
-  border-color: #dae0e5;
-
-  &:hover:not([disabled]) {
-    background: rgba($baseColorLight, .9);
-  }
-}
-
 .input-group {
   .btn-light[disabled] {
     border-color: #dae0e5;
@@ -34,8 +24,6 @@
     min-height: 31px;
     vertical-align: middle;
     border-color: transparent;
-    color: $baseColorDark !important;
-    background-color: $baseColorLight !important;
   }
 
   .ng-arrow-wrapper {
@@ -48,15 +36,6 @@
 
   .ng-dropdown-panel-items {
     @include set('box-shadow', '0 0.125rem 0.25rem rgba(0, 0, 0, 0.1)');
-
-    .ng-option.ng-option-marked {
-      background-color: rgba($baseColorDark, .1) !important;
-    }
-
-    .ng-option.ng-option-selected {
-      background-color: $baseColorDark !important;
-      color: $baseColorLight !important;
-    }
   }
 
   &.ng-select-opened {
