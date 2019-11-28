@@ -11,36 +11,13 @@
   <app-card [title]="'prefatoryMatter'" class="mb-3 d-block">
     <app-prefatory-matter-config content></app-prefatory-matter-config>
   </app-card>
-  <ng-container *ngTemplateOutlet="search;context:{configs:configs}"></ng-container>
+  <app-card [title]="'search'" class="mb-3 d-block">
+    <app-search-config content></app-search-config>
+  </app-card>
   <ng-container *ngTemplateOutlet="viscoll;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="poetry;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="listsNE;context:{configs:configs}"></ng-container>
 </ng-container>
-
-<ng-template #search let-configs="configs">
-  <app-card [title]="'search'" class="mb-3 d-block">
-    <div content>
-      <app-form-group [description]="'searchDesc'">
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="search" [checked]="configs.search"
-            [(ngModel)]="configs.search" name="search" />
-          <label class="col-form-label-sm form-check-label ml-3" for="search">{{'searchEngine' | translate }}</label>
-        </div>
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="virtual_keyboard_search"
-            [checked]="configs.virtual_keyboard_search" [(ngModel)]="configs.virtual_keyboard_search"
-            name="virtual_keyboard_search" />
-          <label class="col-form-label-sm form-check-label ml-3"
-            for="virtual_keyboard_search">{{'virtualKeyboardSearch' | translate }}</label>
-          <small class="mb-3 d-block text-muted">
-            <strong>{{ 'warning' | translate }}!</strong> {{ 'virtualKeyboardSearch_warning' | translate }}
-            <code>config/keyboard_config.xml</code>
-          </small>
-        </div>
-      </app-form-group>
-    </div>
-  </app-card>
-</ng-template>
 
 <ng-template #viscoll let-configs="configs">
   <app-card [title]="'viscoll'" class="mb-3 d-block">

@@ -31,6 +31,7 @@ import { ImageToolsConfigComponent } from './components/image-tools-config/image
 import { NavigationConfigComponent } from './components/navigation-config/navigation-config.component';
 import { ViewsConfigComponent } from './components/views-config/views-config.component';
 import { PrefatoryMatterConfigComponent } from './components/prefatory-matter-config/prefatory-matter-config.component';
+import { SearchConfigComponent } from './components/search-config/search-config.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -57,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavigationConfigComponent,
     ViewsConfigComponent,
     PrefatoryMatterConfigComponent,
+    SearchConfigComponent,
   ],
   imports: [
     BrowserModule,

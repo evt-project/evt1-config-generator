@@ -1,0 +1,20 @@
+<ng-container *ngIf="configs$ | async as configs">
+  <app-form-group [description]="'searchDesc'">
+    <div class="form-check pl-0" content>
+      <input class="inline-label" type="checkbox" id="search" [checked]="configs.search" [(ngModel)]="configs.search"
+        name="search" />
+      <label class="col-form-label-sm form-check-label ml-3" for="search">{{'searchEngine' | translate }}</label>
+    </div>
+    <div class="form-check pl-0" content>
+      <input class="inline-label" type="checkbox" id="virtual_keyboard_search"
+        [checked]="configs.virtual_keyboard_search" [(ngModel)]="configs.virtual_keyboard_search"
+        name="virtual_keyboard_search" />
+      <label class="col-form-label-sm form-check-label ml-3"
+        for="virtual_keyboard_search">{{'virtualKeyboardSearch' | translate }}</label>
+      <small class="mb-3 d-block text-muted">
+        <strong>{{ 'warning' | translate }}!</strong> {{ 'virtualKeyboardSearch_warning' | translate }}
+        <code>config/keyboard_config.xml</code>
+      </small>
+    </div>
+  </app-form-group>
+</ng-container>
