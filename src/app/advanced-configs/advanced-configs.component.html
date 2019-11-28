@@ -1,5 +1,5 @@
 <app-card [title]="'pathParameters'" [subtitle]="'pathParametersDesc'" class="mb-3 d-block">
-    <span class="mb-3 d-block" additionalText>
+    <span class="mb-3 d-block alert alert-danger" additionalText>
         <strong>{{ 'warning' | translate }}!</strong> {{ 'pathParameters_warning' | translate }}
     </span>
     <app-path-parameters-config content></app-path-parameters-config>
@@ -8,5 +8,8 @@
     <app-auto-generated-content-config content></app-auto-generated-content-config>
 </app-card>
 <app-card [title]="'xpathExpressions'" [subtitle]="'xPathExpressionsDesc'" class="mb-3 d-block">
+    <span class="mb-3 d-block alert alert-danger" additionalText>
+        <strong>{{ 'warning' | translate }}!</strong> {{ 'pathParameters_warning' | translate }}
+    </span>
     <app-x-path-expressions-config content></app-x-path-expressions-config>
 </app-card>
