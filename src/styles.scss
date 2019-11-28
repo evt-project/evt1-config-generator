@@ -1,7 +1,10 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 @import './assets/scss/variables';
 @import './assets/scss/mixins';
-
+body {
+  height: 100%;
+  overflow: hidden;
+}
 .input-group {
   .btn-light[disabled] {
     border-color: #dae0e5;

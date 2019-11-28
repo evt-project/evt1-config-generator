@@ -1,25 +1,26 @@
-<div class="container-fluid">
+<div class="dashboard-main container-fluid" #mainContainer (scroll)="updateSidebar($event)">
   <div class="row">
     <nav class="col-md-3 d-none d-md-block sidebar">
       <div class="sidebar-sticky">
-        <ngb-accordion #sectionsSidebar="ngbAccordion" activeIds="{{sections[0].name}}">
+        <ngb-accordion #sectionsSidebar="ngbAccordion" [activeIds]="[sections[0].name, sections[1].name]">
           <ngb-panel [id]="section.name" *ngFor="let section of sections">
             <ng-template ngbPanelHeader let-opened="opened">
-              <button class="btn w-100 text-left border-0" [ngClass]="{
+              <button class="btn w-100 text-left border-0 section-header-btn" [ngClass]="{
                   active: currentActive === section.name,
                   'btn-light': currentActive === section.name,
                   'btn-transparent': currentActive !== section.name
                 }" ngbPanelToggle>
                 <fa-icon [icon]="opened ? 'caret-down' : 'caret-right'"></fa-icon>
                 <span class="ml-2">
-                  <a href="#{{section.name}}" (click)="$event.stopPropagation()">{{section.name | translate}}</a>
+                  <a href="#{{section.name}}" (click)="$event.stopPropagation(); activateSection(section.name, section.items[0].name)">
+                    {{section.name | translate}}</a>
                 </span>
               </button>
             </ng-template>
             <ng-template ngbPanelContent>
               <ul class="flex-column list-group list-group-flush ml-3 border-left">
                 <li class="list-group-item p-0 border-0" *ngFor="let item of section.items">
-                  <a href="#{{item.name}}" [ngClass]="{
+                  <a  href="#{{item.name}}" (click)="activateSection(section.name, item.name)" [ngClass]="{
                     active: currentSubSectionActive === item.name,
                     'btn-light': currentSubSectionActive === item.name
                   }" class="nav-link p-1 pl-2">{{item.name | translate}}</a></li>

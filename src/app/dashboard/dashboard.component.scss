@@ -1,8 +1,11 @@
 @import '../../assets/scss/mixins';
 @import '../../assets/scss/variables';
 
-main {
+.dashboard-main {
+  @include calc('height', '100% - 48px');
+  overflow: auto;
   top: 48px;
+  position: fixed;
 }
 
 .sidebar {
@@ -22,10 +25,17 @@ main {
     background: transparent;
   }
 
+  .section-header-btn {
+    font-weight: 500;
+    color: #000;
+    font-size: 0.9rem;
+  }
+
   .list-group-item {
     .nav-link {
-      font-weight: 500;
+      font-weight: 300;
       color: #000;
+      font-size: 0.9rem;
     }
 
     background-color: transparent;
