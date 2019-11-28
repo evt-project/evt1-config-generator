@@ -124,6 +124,13 @@
     "dataPrefix": "Prefisso per i dati",
     "dataPrefix_desc": "Relativo ai file di output e utilizzato per collegare tali file ai file .js e .css di EVT.",
     "textLabel": "Generazione etichetta documento a partire da @xml:id in assenza di @n",
-    "textLabel_warning": "If not selected you need to put your own xslt transformations in <code>{{fileName}}</code>",
-    "enableDefaulTextLabel": "Abilita generazione etichetta documento a partire da @xml:id"
+    "textLabel_warning": "Se deselezionato è necessario inserire il proprio template XSLT nel file <code>{{fileName}}</code>",
+    "enableDefaulTextLabel": "Abilita generazione etichetta documento a partire da @xml:id",
+    "xPathExpressionsDesc": "È possibile modificare le espressioni xPath che indicano il punto di partenza per le trasformazioni XSLT.",
+    "editionContent": "Testo dell'edizione",
+    "editionContent_desc": "Indicare il nodo xml che contiene il testo da trasformare per ogni livello di edizione.",
+    "startSplit": "Punto di partenza per la divisione",
+    "startSplit_desc": "Punto di partenza per la divisione degli elementi contententi elementi <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> e <code>&lt;cb&gt;</code>",
+    "startSplitDepth": "Profondità massima elementi milestone",
+    "startSplitDepth_desc": "Indica la profondità massima dei <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> e <code>&lt;cb&gt;</code> rispetto all'elemento inserito nel campo \"Punto di partenza per la divisione\""
 }

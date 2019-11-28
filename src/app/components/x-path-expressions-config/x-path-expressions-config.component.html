@@ -1,0 +1,10 @@
+<ng-container *ngIf="configs$ | async as configs">
+    <app-form-group [title]="'editionContent'" [description]="'editionContent_desc'">
+        <textarea content class="form-control" [placeholder]="'editionContent' | translate" rows="3" name="ed_content"
+            [(ngModel)]="configs.ed_content">{{configs.ed_content}}</textarea>
+    </app-form-group>
+    <app-form-group [title]="'startSplit'" [description]="'startSplit_desc'">
+        <textarea content class="form-control" [placeholder]="'startSplit' | translate" rows="4" name="start_split"
+            [(ngModel)]="configs.start_split">{{configs.start_split}}</textarea>
+    </app-form-group>
+</ng-container>

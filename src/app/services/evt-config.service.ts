@@ -14,10 +14,7 @@ export class EvtConfigService {
 
   supportConfigs: any = {
     versionsAvailable: false,
-    entitiesSelector: true,
-    max_depth_pb: 'max(//tei:pb/count(ancestor-or-self::node())) - //node()[name()=$start_split]/count(ancestor-or-self::node())',
-    max_depth_lb: 'max(//tei:lb/count(ancestor-or-self::node())) - //node()[name()=$start_split]/count(ancestor-or-self::node())',
-    max_depth_cb: 'max(//tei:cb/count(ancestor-or-self::node())) - //node()[name()=$start_split]/count(ancestor-or-self::node())'
+    entitiesSelector: true
   };
 
   constructor() {
@@ -84,9 +81,6 @@ export class EvtConfigService {
             if (paramName === 'lists') {
               this.supportConfigs.entitiesSelector = (paramValue.length > 0);
             }
-            if (paramName === 'max_depth') {
-              paramValue = this.splitMaxDepthXpath(paramValue);
-            }
             const sectionName = this.findPropertySection(paramName);
             newConfig[sectionName] = {
               ...newConfig[sectionName] || {},
@@ -103,33 +97,6 @@ export class EvtConfigService {
       //   data: 'There was an error in uploading your file. Please check your file and try again.'
       // });
     }
-  }
-
-  private splitMaxDepthXpath(value) {
-    let openingBrackets = 0;
-    try {
-      openingBrackets = value.match(/max\(*max/)[0].match(/\(/g).length;
-    } catch (e) { }
-    const splittedValue = value.split(',');
-    for (let x = 0; x < splittedValue.length; x++) {
-      const xpathMatch = splittedValue[x].match(/max\(\/\/tei:.*\)/);
-      let xpath = xpathMatch ? xpathMatch[0] : '';
-      if (x === splittedValue.length - 1) {
-        const closingBrackets = '\\){' + openingBrackets + '}';
-        const regExpBrackets = new RegExp(closingBrackets, 'g');
-        xpath = xpath.replace(regExpBrackets, '');
-      }
-      xpath = this.removeUnclosedBracketsFromXpathRule(xpath);
-
-      if (xpath.indexOf('tei:pb') >= 0) {
-        this.setSupportValue('max_depth_pb', xpath);
-      } else if (xpath.indexOf('tei:lb') >= 0) {
-        this.setSupportValue('max_depth_lb', xpath);
-      } else if (xpath.indexOf('tei:cb') >= 0) {
-        this.setSupportValue('max_depth_cb', xpath);
-      }
-    }
-    return value;
   }
 
   private removeUnclosedBracketsFromXpathRule(value) {
@@ -320,10 +287,6 @@ export class EvtConfigService {
         ed_content: 'if(//tei:text/tei:group) then(//tei:text/tei:group/name()) else ( //tei:text/name() )',
         // tslint:disable-next-line: max-line-length
         start_split: `if(//tei:text/tei:group) then(//tei:text/tei:group/name()) else(if(count(//tei:body/tei:div[@subtype='edition_text'])>1) then(//tei:body/tei:div[@subtype='edition_text']/name()) else(//tei:text/tei:body/name() ))`,
-        start_split_depth: '//node()[name()=$start_split]/count(ancestor-or-self::node())',
-        max_depth: `max(((max(//tei:pb/count(ancestor-or-self::node())) - //node()[name()=$start_split]/count(ancestor-or-self::node())),
-                      (max(//tei:lb/count(ancestor-or-self::node())) - //node()[name()=$start_split]/count(ancestor-or-self::node())),
-                      (max(//tei:cb/count(ancestor-or-self::node())) - //node()[name()=$start_split]/count(ancestor-or-self::node()))))`,
         evtTxt: ''
       }
     };

@@ -1,9 +1,7 @@
 <form>
     <div class="form-group">
         <label class="col-form-label-sm mb-0" *ngIf="title">{{ title | translate }}</label>
-        <small class="form-text text-muted mb-2" *ngIf="description">
-            {{ description | translate }}
-        </small>
+        <small class="form-text text-muted mb-2" *ngIf="description" [innerHTML]="description | translate"></small>
         <small>
             <ng-content select="[additionalText]"></ng-content>
         </small>

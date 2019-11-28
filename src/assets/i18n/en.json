@@ -126,5 +126,12 @@
     "dataPrefix_desc": "Related to output files, it is used to connect them to EVT's .js and .css files.",
     "textLabel": "Document label generation from @xml:id, when @n not provided",
     "textLabel_warning": "If not selected you need to put your own xslt transformations in <code>{{fileName}}</code>",
-    "enableDefaulTextLabel": "Enable document label generation from @xml:id"
+    "enableDefaulTextLabel": "Enable document label generation from @xml:id",
+    "xPathExpressionsDesc": "It is possible to modify the XPath expression that match the starting point of XSL Transformations.",
+    "editionContent": "Edition main content",
+    "editionContent_desc": "Indicate the path to the xml node that contains all the text to be transformed for each edition level.",
+    "startSplit": "Start split",
+    "startSplit_desc": "Starting point for the split of elements containing <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> and <code>&lt;cb&gt;</code>",
+    "startSplitDepth": "Start split Depth",
+    "startSplitDepth_desc": "Indicate the maximum depth of <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> and <code>&lt;cb&gt;</code> with relatively to the element stated in the field \"Start Split\""
 }

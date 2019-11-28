@@ -79,8 +79,6 @@ export interface AdvancedConfigs {
     dataPrefix: string;
     ed_content: string;
     start_split: string;
-    start_split_depth: string;
-    max_depth: string;
     defaulTextLabel: boolean;
     evtTxt: string;
 }
