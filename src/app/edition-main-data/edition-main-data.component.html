@@ -1,38 +1,12 @@
-<ng-container *ngIf="configs$ | async as configs">
-  <ng-container *ngTemplateOutlet="editionMainInfo;context:{configs:configs}"></ng-container>
-  <ng-container *ngTemplateOutlet="editionLevels;context:{configs:configs}"></ng-container>
-  <ng-container *ngTemplateOutlet="additionalContents;context:{configs:configs}"></ng-container>
-  <ng-container *ngTemplateOutlet="dataFormat;context:{configs:configs}"></ng-container>
-</ng-container>
-
-<ng-template #editionMainInfo let-configs="configs">
-  <app-card [title]="'editionMainInfo'" class="mb-3 d-block">
-    <div content>
-      <app-main-info-config></app-main-info-config>
-    </div>
-  </app-card>
-</ng-template>
-
-<ng-template #editionLevels let-configs="configs">
-  <app-card class="mb-3 d-block" [title]="'editionLevels'">
-    <div content>
-      <app-edition-levels-config></app-edition-levels-config>
-    </div>
-  </app-card>
-</ng-template>
-
-<ng-template #additionalContents let-configs="configs">
-  <app-card class="mb-3 d-block" [title]="'additionalContent'">
-    <div content>
-      <app-translation-config></app-translation-config>
-    </div>
-  </app-card>
-</ng-template>
-
-<ng-template #dataFormat let-configs="configs">
-  <app-card class="mb-3 d-block" [title]="'dataFormat'">
-    <div content>
-      <app-data-format-config></app-data-format-config>
-    </div>
-  </app-card>
-</ng-template>
+<app-card [title]="'editionMainInfo'" class="mb-3 d-block">
+  <app-main-info-config content></app-main-info-config>
+</app-card>
+<app-card class="mb-3 d-block" [title]="'editionLevels'">
+  <app-edition-levels-config content></app-edition-levels-config>
+</app-card>
+<app-card class="mb-3 d-block" [title]="'additionalContent'">
+  <app-translation-config content></app-translation-config>
+</app-card>
+<app-card class="mb-3 d-block" [title]="'dataFormat'">
+  <app-data-format-config content></app-data-format-config>
+</app-card>
