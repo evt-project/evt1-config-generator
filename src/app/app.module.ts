@@ -34,6 +34,7 @@ import { PrefatoryMatterConfigComponent } from './components/prefatory-matter-co
 import { SearchConfigComponent } from './components/search-config/search-config.component';
 import { PoetryConfigComponent } from './components/poetry-config/poetry-config.component';
 import { AdvancedConfigsComponent } from './advanced-configs/advanced-configs.component';
+import { PathParametersConfigComponent } from './components/path-parameters-config/path-parameters-config.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -63,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchConfigComponent,
     PoetryConfigComponent,
     AdvancedConfigsComponent,
+    PathParametersConfigComponent,
   ],
   imports: [
     BrowserModule,

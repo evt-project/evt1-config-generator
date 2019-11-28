@@ -115,5 +115,13 @@
     "enable": "Enable",
     "disable": "Disable",
     "insertTagNameHere": "Tag name",
-    "insertLabelHere": "Associated label"
+    "insertLabelHere": "Associated label",
+    "pathParametersDesc": "It is possible to modify these prefixes so that they point to a custom web site, for instance: \"http://tuosito.it/evtb\".",
+    "pathParameters_warning": "Be very careful when changin these parameters!",
+    "mainPrefix": "Main prefix",
+    "mainPrefix_desc": "Related to index.html, it is used to retrieve EVT's .js and .css file.",
+    "filePrefix": "Files prefix",
+    "filePrefix_desc": "Related to evt_builder-main.xslt and evt_builder-structure.xsl files, it is used to establish the position of data/output_data folder, in which data geerated by XSLT transformation are saved.",
+    "dataPrefix": "Data prefix",
+    "dataPrefix_desc": "Related to output files, it is used to connect them to EVT's .js and .css files."
 }
