@@ -54,6 +54,16 @@ export class AppComponent {
   }
 
   download() {
-    this.evtConfigService.configs$.pipe(first()).subscribe(configs => console.log(configs));
+    this.evtConfigService.generateXSL().subscribe(xslt => {
+      if (xslt) {
+        const a = document.getElementById('downloadXSL');
+        let value = 'data:application/xsl;name=evt_builder-config.xsl;charset=UTF-8,';
+        value += encodeURIComponent(xslt);
+        a.setAttribute('href', value);
+        a.click();
+      } else {
+        console.log('ERROR');
+      }
+    });
   }
 }

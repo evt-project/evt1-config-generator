@@ -53,9 +53,10 @@ export class EvtConfigService {
                     return {
                       tag: i.tagName,
                       attributes: Array.from(i.attributes)
-                        .filter(a => a.nodeName !== 'active')
+                        .filter(a => a.nodeName !== 'active' && a.nodeName !== 'label')
                         .map(a => ({ key: a.nodeName, value: a.nodeValue })),
-                      active: i.getAttribute('active') || false
+                      active: i.getAttribute('active') || false,
+                      label: i.getAttribute('label') || ''
                     };
                   });
                   paramValue.push({
@@ -90,6 +91,7 @@ export class EvtConfigService {
           }
         }
       }
+      console.log({ ...newConfig });
       this.configs$.next({ ...newConfig });
     } catch (e) {
       console.log(e);
@@ -117,6 +119,95 @@ export class EvtConfigService {
       i--;
     }
     return value;
+  }
+
+  generateXSL() {
+    return this.configs$.pipe(
+      first(),
+      map((c) => {
+        if (c !== undefined) {
+          const configs = {
+            ...c.mainData,
+            ...c.tools,
+            ...c.advanced
+          };
+          let xslt = `<?xml version="1.0" encoding="UTF-8"?>
+                  <xsl:stylesheet xpath-default-namespace="http://www.tei-c.org/ns/1.0"
+                   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:eg="http://www.tei-c.org/ns/Examples"
+                   xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+                   xmlns:fn = "http://www.w3.org/2005/xpath-functions"
+                   xmlns:tei = "http://www.tei-c.org/ns/1.0"
+                   xmlns = "http://www.w3.org/1999/xhtml"
+                   exclude-result-prefixes="#all" >
+                   <!-- This file was auto generated using EVT 1 Config Generator Tool http://evt.labcd.unipi.it/evt1-config -->`;
+
+          // Add parameters
+          // <xsl:param name="mainPrefix" select="\'.\'"/>
+          const params = Object.keys(configs);
+          for (const paramName of params) {
+            let paramValue = configs[paramName];
+            switch (paramName) {
+              case `welcomeMsg`:
+              case `evtTxt`:
+                xslt += `<xsl:param name="${paramName}">${configs[paramName]}</xsl:param>`;
+                break;
+              case 'edition_array':
+                let xsltEdition = `<xsl:param name="${paramName}" as="element()*">`;
+                let xsltEditionPrefixs = '';
+                for (let i = 0; i < paramValue.length; i++) {
+                  const editionLevel = paramValue[i];
+                  if (editionLevel.visible) {
+                    xsltEdition += `<edition>${editionLevel.label}</edition>`;
+                  } else {
+                    xsltEdition += `<edition></edition>`;
+                  }
+                  xsltEditionPrefixs += `<xsl:variable name="ed_name${(i + 1)}">${editionLevel.prefix}</xsl:variable>`;
+                }
+                xsltEdition += `</xsl:param>`;
+                xslt += xsltEdition + xsltEditionPrefixs;
+                break;
+              case 'lists':
+                xslt += `<xsl:param name="${paramName}" as="element()*">`;
+                (paramValue as ListConfig[]).forEach(list => {
+                  xslt += `<group label="${list.groupLabel}" active="${list.active}">`;
+                  list.items.forEach(item => {
+                    xslt += `<${item.tag} active="${item.active}"`;
+                    if (item.label) {
+                      xslt += ` label="${item.label}"`;
+                    }
+                    (item.attributes || []).forEach(attr => {
+                      xslt += ` ${attr.key}="${attr.value}"`;
+                    });
+                    xslt += `/>`;
+                  });
+                  xslt += `</group>`;
+                });
+                xslt += `</xsl:param>`;
+                break;
+              case 'start_split':
+              case 'ed_content':
+                xslt += `<xsl:param name="${paramName}" select="${paramValue}"/>`;
+                break;
+              default:
+                if (typeof (paramValue) === 'boolean') {
+                  paramValue = paramValue + '()';
+                } else if (typeof (paramValue) === 'object') {
+                  paramValue = '\'' + paramValue + '\'';
+                } else {
+                  paramValue = '\'' + paramValue + '\'';
+                }
+                xslt += `<xsl:param name="${paramName}" select="${paramValue}"/>`;
+            }
+          }
+
+          xslt += `</xsl:stylesheet>`;
+          return xslt;
+        } else {
+          return '';
+        }
+      }));
   }
 
   findPropertySection(propertyName: string) {
