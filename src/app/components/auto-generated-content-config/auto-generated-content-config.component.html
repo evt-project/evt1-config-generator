@@ -1,0 +1,14 @@
+<ng-container *ngIf="configs$ | async as configs">
+  <app-form-group [title]="'textLabel'">
+    <span class="mb-3 d-block" additionalText>
+      <strong>{{ 'warning' | translate }}!</strong> 
+      <span class="ml-1" [innerHTML]="'textLabel_warning' | translate:{fileName: 'modules/elements/evt_builder-generate-text_label.xsl'}"></span>
+    </span>
+    <div class="form-check pl-0" content>
+      <input class="inline-label" type="checkbox" id="defaulTextLabel" name="defaulTextLabel" [checked]="configs.defaulTextLabel"
+        [(ngModel)]="configs.defaulTextLabel" />
+      <label class="col-form-label-sm form-check-label ml-3"
+        for="defaulTextLabel">{{'enableDefaulTextLabel' | translate }}</label>
+    </div>
+  </app-form-group>
+</ng-container>

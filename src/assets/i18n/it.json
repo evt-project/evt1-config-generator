@@ -122,5 +122,8 @@
     "filePrefix": "Prefisso per i file",
     "filePrefix_desc": "Relativo ai file evt_builder-main.xslt e evt_builder-structure.xsl e utilizzato per stabilire la posizione della cartella data/output_data in cui salvare i dati generati dalle trasformazioni.",
     "dataPrefix": "Prefisso per i dati",
-    "dataPrefix_desc": "Relativo ai file di output e utilizzato per collegare tali file ai file .js e .css di EVT."
+    "dataPrefix_desc": "Relativo ai file di output e utilizzato per collegare tali file ai file .js e .css di EVT.",
+    "textLabel": "Generazione etichetta documento a partire da @xml:id in assenza di @n",
+    "textLabel_warning": "If not selected you need to put your own xslt transformations in <code>{{fileName}}</code>",
+    "enableDefaulTextLabel": "Abilita generazione etichetta documento a partire da @xml:id"
 }

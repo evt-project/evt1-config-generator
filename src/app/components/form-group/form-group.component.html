@@ -3,9 +3,9 @@
         <label class="col-form-label-sm mb-0" *ngIf="title">{{ title | translate }}</label>
         <small class="form-text text-muted mb-2" *ngIf="description">
             {{ description | translate }}
-            <div>
-                <ng-content select="[additionalText]"></ng-content>
-            </div>
+        </small>
+        <small>
+            <ng-content select="[additionalText]"></ng-content>
         </small>
         <ng-content select="[content]"></ng-content>
     </div>
