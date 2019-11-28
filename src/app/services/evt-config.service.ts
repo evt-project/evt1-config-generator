@@ -86,7 +86,7 @@ export class EvtConfigService {
             const sectionName = this.findPropertySection(paramName);
             newConfig[sectionName] = {
               ...newConfig[sectionName] || {},
-              [paramName]: paramValue
+              [paramName]: typeof paramValue === 'string' ? decodeURIComponent(escape(paramValue)) : paramValue
             };
           }
         }
