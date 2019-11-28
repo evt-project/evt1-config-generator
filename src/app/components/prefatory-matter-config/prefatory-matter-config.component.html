@@ -1,0 +1,44 @@
+<ng-container *ngIf="configs$ | async as configs">
+  <app-form-group [description]="'prefatoryMatterDesc'">
+    <div content>
+      <div class="form-check pl-0">
+        <input class="inline-label" type="checkbox" id="headerInfo" [checked]="configs.headerInfo"
+          [(ngModel)]="configs.headerInfo" name="headerInfo" />
+        <label class="col-form-label-sm form-check-label ml-3" for="headerInfo">{{'headerInfo' | translate }}</label>
+      </div>
+      <div class="form-check pl-0">
+        <input class="inline-label" type="checkbox" id="bibliography" [checked]="configs.bibliography"
+          [(ngModel)]="configs.bibliography" name="bibliography" />
+        <label class="col-form-label-sm form-check-label ml-3"
+          for="bibliography">{{'bibliography' | translate }}</label>
+      </div>
+      <div class="form-check pl-0">
+        <input class="inline-label" type="checkbox" id="msDesc" [checked]="configs.msDesc" [(ngModel)]="configs.msDesc"
+          name="msDesc" />
+        <label class="col-form-label-sm form-check-label ml-3" for="msDesc">{{'msDesc' | translate }}</label>
+      </div>
+      <div class="form-check pl-0">
+        <input class="inline-label" type="checkbox" id="textPrefatoryMatter"
+          [checked]="supportConfig.textPrefatoryMatter" [(ngModel)]="supportConfig.textPrefatoryMatter"
+          name="textPrefatoryMatter" (change)="updatePrefatoryMatterConfigs()" />
+        <label class="col-form-label-sm form-check-label ml-3"
+          for="textPrefatoryMatter">{{'textPrefatoryMatter' | translate }}</label>
+      </div>
+    </div>
+  </app-form-group>
+  <app-form-group [description]="'textPrefatoryMatterDesc'" *ngIf="supportConfig.textPrefatoryMatter">
+    <div class="form-check pl-0" content>
+      <div class="btn-group btn-group-toggle ml-3" ngbRadioGroup name="textPrefatoryMatterType"
+        [(ngModel)]="supportConfig.textPrefatoryMatterType">
+        <label ngbButtonLabel class="btn-sm btn-primary">
+          <input ngbButton type="radio" value="front" (change)="updatePrefatoryMatterConfigs()">
+          {{'frontInfo' | translate}}
+        </label>
+        <label ngbButtonLabel class="btn-sm btn-primary">
+          <input ngbButton type="radio" value="regesto" (change)="updatePrefatoryMatterConfigs()">
+          {{'regesto' | translate}}
+        </label>
+      </div>
+    </div>
+  </app-form-group>
+</ng-container>
