@@ -1,14 +1,14 @@
 <ng-container *ngIf="configs$ | async as configs">
     <app-form-group [title]="'mainPrefix'" [description]="'mainPrefix_desc'">
-        <input class="form-control form-control-sm" [placeholder]="'mainPrefix' | translate" name="mainPrefix"
+        <input type="text" class="form-control form-control-sm" [placeholder]="'mainPrefix' | translate" name="mainPrefix"
             [(ngModel)]="configs.mainPrefix" content>
     </app-form-group>
     <app-form-group [title]="'filePrefix'" [description]="'filePrefix_desc'">
-        <input class="form-control form-control-sm" [placeholder]="'filePrefix' | translate" name="filePrefix"
+        <input type="text" class="form-control form-control-sm" [placeholder]="'filePrefix' | translate" name="filePrefix"
             [(ngModel)]="configs.filePrefix" content>
     </app-form-group>
     <app-form-group [title]="'dataPrefix'" [description]="'dataPrefix_desc'">
-        <input class="form-control form-control-sm" [placeholder]="'dataPrefix' | translate" name="dataPrefix"
+        <input type="text" class="form-control form-control-sm" [placeholder]="'dataPrefix' | translate" name="dataPrefix"
             [(ngModel)]="configs.dataPrefix" content>
     </app-form-group>
 </ng-container>
