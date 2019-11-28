@@ -1,5 +1,7 @@
 <ng-container *ngIf="configs$ | async as configs">
-  <ng-container *ngTemplateOutlet="imageTools;context:{configs:configs}"></ng-container>
+  <app-card [title]="'imageTools'" class="mb-3 d-block">
+    <app-image-tools-config content></app-image-tools-config>
+  </app-card>
   <ng-container *ngTemplateOutlet="navigation;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="views;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="prefatoryMatter;context:{configs:configs}"></ng-container>
@@ -8,31 +10,6 @@
   <ng-container *ngTemplateOutlet="poetry;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="listsNE;context:{configs:configs}"></ng-container>
 </ng-container>
-
-<ng-template #imageTools let-configs="configs">
-  <app-card [title]="'imageTools'" class="mb-3 d-block">
-    <div content>
-      <app-form-group [description]="'imageToolsDesc'">
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="txtimg_link_button" [checked]="configs.txtimg_link_button"
-            [(ngModel)]="configs.txtimg_link_button" name="txtimg_link_button" />
-          <label class="col-form-label-sm form-check-label ml-3"
-            for="txtimg_link_button">{{'txtimgLinkButton' | translate }}</label>
-        </div>
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="hs_button" [checked]="configs.hs_button"
-            [(ngModel)]="configs.hs_button" name="hs_button" />
-          <label class="col-form-label-sm form-check-label ml-3" for="hs_button">{{'hsButton' | translate }}</label>
-        </div>
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="mag_button" [checked]="configs.mag_button"
-            [(ngModel)]="configs.mag_button" name="mag_button" />
-          <label class="col-form-label-sm form-check-label ml-3" for="mag_button">{{'magButton' | translate }}</label>
-        </div>
-      </app-form-group>
-    </div>
-  </app-card>
-</ng-template>
 
 <ng-template #navigation let-configs="configs">
   <app-card [title]="'navigation'" class="mb-3 d-block">

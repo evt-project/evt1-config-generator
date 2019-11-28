@@ -27,6 +27,7 @@ import { EditionLevelsConfigComponent } from './components/edition-levels-config
 import { MainInfoConfigComponent } from './components/main-info-config/main-info-config.component';
 import { TranslationConfigComponent } from './components/translation-config/translation-config.component';
 import { DataFormatConfigComponent } from './components/data-format-config/data-format-config.component';
+import { ImageToolsConfigComponent } from './components/image-tools-config/image-tools-config.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainInfoConfigComponent,
     TranslationConfigComponent,
     DataFormatConfigComponent,
+    ImageToolsConfigComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<ng-container *ngIf="configs$ | async as configs">
+	<app-form-group [description]="'imageToolsDesc'">
+		<div class="form-check pl-0" content>
+			<input class="inline-label" type="checkbox" id="txtimg_link_button" [checked]="configs.txtimg_link_button"
+				[(ngModel)]="configs.txtimg_link_button" name="txtimg_link_button" />
+			<label class="col-form-label-sm form-check-label ml-3"
+				for="txtimg_link_button">{{'txtimgLinkButton' | translate }}</label>
+		</div>
+		<div class="form-check pl-0" content>
+			<input class="inline-label" type="checkbox" id="hs_button" [checked]="configs.hs_button"
+				[(ngModel)]="configs.hs_button" name="hs_button" />
+			<label class="col-form-label-sm form-check-label ml-3" for="hs_button">{{'hsButton' | translate }}</label>
+		</div>
+		<div class="form-check pl-0" content>
+			<input class="inline-label" type="checkbox" id="mag_button" [checked]="configs.mag_button"
+				[(ngModel)]="configs.mag_button" name="mag_button" />
+			<label class="col-form-label-sm form-check-label ml-3" for="mag_button">{{'magButton' | translate }}</label>
+		</div>
+	</app-form-group>
+</ng-container>
