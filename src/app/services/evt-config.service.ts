@@ -730,11 +730,11 @@ export class EvtConfigService {
       case 'editionNew':
         return `<!-- EN: To add a new edition it is necessary to add a new line here and -forcedly- a
                 declaration concerning output file in the modules/evt_builder-main.xsl file,
-                under the <xsl:if test="$edition_array[2]!=''" condition> 
+                under the <xsl:if test="$edition_array[2]!=''" condition>
                 For instance: <edition>New_edition</edition> -->
                 <!-- IT: Per aggiungere una nuova edizione, bisognerà inserire una nuova riga qui e -necessariamente-
                 la dichiarazione per i file di output nel file modules/evt_builder-main.xsl,
-                sotto la condizione <xsl:if test="$edition_array[2]!=''"> 
+                sotto la condizione <xsl:if test="$edition_array[2]!=''">
                 Esempio: <edition>Nuova_edizione</edition> Add by FS -->`;
       default:
         return '';
