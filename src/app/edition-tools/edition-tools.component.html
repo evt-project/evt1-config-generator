@@ -2,6 +2,9 @@
   <app-card [title]="'imageTools'" class="mb-3 d-block">
     <app-image-tools-config content></app-image-tools-config>
   </app-card>
+  <app-card [title]="'navigation'" class="mb-3 d-block">
+    <app-navigation-config content></app-navigation-config>
+  </app-card>
   <ng-container *ngTemplateOutlet="navigation;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="views;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="prefatoryMatter;context:{configs:configs}"></ng-container>
@@ -10,75 +13,6 @@
   <ng-container *ngTemplateOutlet="poetry;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="listsNE;context:{configs:configs}"></ng-container>
 </ng-container>
-
-<ng-template #navigation let-configs="configs">
-  <app-card [title]="'navigation'" class="mb-3 d-block">
-    <app-form-group content [description]="'navigationDesc'">
-      <div class="form-check pl-0" content>
-        <input class="inline-label" type="checkbox" id="thumbs_button" [checked]="configs.thumbs_button"
-          [(ngModel)]="configs.thumbs_button" name="thumbs_button" />
-        <label class="col-form-label-sm form-check-label ml-3"
-          for="thumbs_button">{{'thumbsButton' | translate }}</label>
-      </div>
-      <div class="form-check pl-0" content>
-        <input class="inline-label" type="checkbox" id="pp_selector_doc_grouping"
-          [checked]="configs.pp_selector_doc_grouping" [(ngModel)]="configs.pp_selector_doc_grouping"
-          name="pp_selector_doc_grouping" />
-        <label class="col-form-label-sm form-check-label ml-3"
-          for="pp_selector_doc_grouping">{{'ppSelectorDocGrouping' | translate }}</label>
-      </div>
-      <div class="form-check pl-0" content>
-        <input class="inline-label" type="checkbox" id="pp_selector_doc_tooltip"
-          [checked]="configs.pp_selector_doc_tooltip" [(ngModel)]="configs.pp_selector_doc_tooltip"
-          name="pp_selector_doc_tooltip" />
-        <label class="col-form-label-sm form-check-label ml-3"
-          for="pp_selector_doc_tooltip">{{'ppSelectorDocTooltip' | translate }}</label>
-      </div>
-      <div class="form-check pl-0" content>
-        <input class="inline-label" type="checkbox" id="document_navigation" [checked]="configs.document_navigation"
-          [(ngModel)]="configs.document_navigation" name="document_navigation" />
-        <label class="col-form-label-sm form-check-label ml-3"
-          for="document_navigation">{{'documentNavigation' | translate }}</label>
-      </div>
-      <div class="form-check pl-0" content>
-        <label class="col-form-label-sm form-check-label mr-3"
-          for="pp_selector_pos">{{'ppSelectorPos' | translate }}</label>
-        <div class="btn-group btn-group-toggle" ngbRadioGroup name="pp_selector_pos"
-          [(ngModel)]="configs.pp_selector_pos">
-          <label ngbButtonLabel class="btn-sm btn-primary">
-            <input ngbButton type="radio" value="left">
-            {{'onImageFrame' | translate}}
-          </label>
-          <label ngbButtonLabel class="btn-sm btn-primary">
-            <input ngbButton type="radio" value="right">
-            {{'onTextFrame' | translate}}
-          </label>
-        </div>
-      </div>
-      <div class="form-check pl-0" content>
-        <input class="inline-label" type="checkbox" id="bottom_navbar" [checked]="configs.bottom_navbar"
-          [(ngModel)]="configs.bottom_navbar" name="bottom_navbar" />
-        <label class="col-form-label-sm form-check-label ml-3"
-          for="bottom_navbar">{{'bottomNavbar' | translate }}</label>
-      </div>
-      <div class="form-check pl-0" content *ngIf="configs.bottom_navbar">
-        <label class="col-form-label-sm form-check-label mr-3"
-          for="bottom_navbar_initial_status">{{'bottomNavbarInitialStatus' | translate }}</label>
-        <div class="btn-group btn-group-toggle" ngbRadioGroup name="bottom_navbar_initial_status"
-          [(ngModel)]="configs.bottom_navbar_initial_status">
-          <label ngbButtonLabel class="btn-sm btn-primary">
-            <input ngbButton type="radio" value="closed">
-            {{'closed' | translate}}
-          </label>
-          <label ngbButtonLabel class="btn-sm btn-primary">
-            <input ngbButton type="radio" value="opened">
-            {{'opened' | translate}}
-          </label>
-        </div>
-      </div>
-    </app-form-group>
-  </app-card>
-</ng-template>
 
 <ng-template #views let-configs="configs">
   <app-card [title]="'views'" class="mb-3 d-block">
