@@ -8,41 +8,7 @@
 <ng-template #editionMainInfo let-configs="configs">
   <app-card [title]="'editionMainInfo'" class="mb-3 d-block">
     <div content>
-      <app-form-group [title]="'editionTitle'" [description]="'editionTitle_desc'">
-        <input class="form-control form-control-sm" [placeholder]="'editionTitle' | translate" name="index_title"
-          [(ngModel)]="configs.index_title" content>
-      </app-form-group>
-      <app-form-group [title]="'badge'" [description]="'badge_desc'">
-        <div class="form-row align-items-center" content>
-          <div class="col-auto">
-            <div class="form-check pl-0">
-              <input class="inline-label" type="checkbox" id="badge" [checked]="configs.badge"
-                [(ngModel)]="configs.badge" name="badge" />
-              <label class="col-form-label-sm form-check-label ml-3" for="badge">Activate badge</label>
-            </div>
-          </div>
-          <div class="col-auto">
-            <input class="form-control form-control-sm" [placeholder]="'badge' | translate" [disabled]="!configs.badge"
-              name="badge_text" [(ngModel)]="configs.badge_text" />
-          </div>
-        </div>
-      </app-form-group>
-      <app-form-group [title]="'webSite'" [description]="'webSite_desc'">
-        <input class="form-control form-control-sm" [placeholder]="'webSite' | translate" name="webSite"
-          [(ngModel)]="configs.webSite" content />
-      </app-form-group>
-      <app-form-group [title]="'welcomeMsg'" [description]="'welcomeMsg_desc'">
-        <textarea content class="form-control form-control-sm" [placeholder]="'welcomeMsg' | translate" rows="15"
-          name="welcomeMsg" [(ngModel)]="configs.welcomeMsg">{{ configs.welcomeMsg }}</textarea>
-      </app-form-group>
-      <app-form-group [title]="'fbThumb'" [description]="'fbThumb_desc'">
-        <span class="mb-3 d-block" additionalText>
-          <strong>{{ 'warning' | translate }}!</strong> {{ 'fbThumb_warning' | translate }}
-          <code>data/input_data/images</code>
-        </span>
-        <input class="form-control form-control-sm" [placeholder]="'fbImage' | translate" name="fb_thumb"
-          [(ngModel)]="configs.fb_thumb" content />
-      </app-form-group>
+      <app-main-info-config></app-main-info-config>
     </div>
   </app-card>
 </ng-template>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EvtConfigService } from 'src/app/services/evt-config.service';
 import { map, tap, first } from 'rxjs/operators';
 import { EditionMainData } from 'src/app/evt-config.models';
