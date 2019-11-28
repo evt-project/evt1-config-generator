@@ -1,0 +1,9 @@
+<ng-container *ngIf="configs$ | async as configs">
+   <app-form-group [title]="'imagesExtension'" [description]="'imagesExtension_desc'">
+      <span class="mb-3 d-block" additionalText>
+         <strong>{{ 'warning' | translate }}!</strong> {{ 'imagesExtension_warning' | translate }}
+      </span>
+      <input class="form-control form-control-sm" [placeholder]="'imagesExtension' | translate" name="imageExt"
+         [(ngModel)]="configs.imageExt" content />
+   </app-form-group>
+</ng-container>

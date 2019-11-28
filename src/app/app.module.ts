@@ -26,6 +26,7 @@ import { ViscollConfigComponent } from './components/viscoll-config/viscoll-conf
 import { EditionLevelsConfigComponent } from './components/edition-levels-config/edition-levels-config.component';
 import { MainInfoConfigComponent } from './components/main-info-config/main-info-config.component';
 import { TranslationConfigComponent } from './components/translation-config/translation-config.component';
+import { DataFormatConfigComponent } from './components/data-format-config/data-format-config.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -47,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditionLevelsConfigComponent,
     MainInfoConfigComponent,
     TranslationConfigComponent,
+    DataFormatConfigComponent,
   ],
   imports: [
     BrowserModule,
