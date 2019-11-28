@@ -25,6 +25,7 @@ import { ListsConfigComponent } from './components/lists-config/lists-config.com
 import { ViscollConfigComponent } from './components/viscoll-config/viscoll-config.component';
 import { EditionLevelsConfigComponent } from './components/edition-levels-config/edition-levels-config.component';
 import { MainInfoConfigComponent } from './components/main-info-config/main-info-config.component';
+import { TranslationConfigComponent } from './components/translation-config/translation-config.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,6 +46,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ViscollConfigComponent,
     EditionLevelsConfigComponent,
     MainInfoConfigComponent,
+    TranslationConfigComponent,
   ],
   imports: [
     BrowserModule,

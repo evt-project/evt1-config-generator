@@ -1,0 +1,13 @@
+<ng-container *ngIf="configs$ | async as configs">
+  <app-form-group [title]="'translation'">
+    <span class="mb-3 d-block" additionalText>
+      <strong>{{ 'warning' | translate }}!</strong> {{ 'translation_warning' | translate }}
+    </span>
+    <div class="form-check pl-0" content>
+      <input class="inline-label" type="checkbox" id="translation" name="translation" [checked]="configs.translation"
+        [(ngModel)]="configs.translation" />
+      <label class="col-form-label-sm form-check-label ml-3"
+        for="translation">{{'enableTranslation' | translate }}</label>
+    </div>
+  </app-form-group>
+</ng-container>

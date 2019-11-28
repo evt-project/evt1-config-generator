@@ -3,11 +3,11 @@ import { map } from 'rxjs/operators';
 import { EvtConfigService } from 'src/app/services/evt-config.service';
 
 @Component({
-  selector: 'app-main-info-config',
-  templateUrl: './main-info-config.component.html',
-  styleUrls: ['./main-info-config.component.scss']
+  selector: 'app-translation-config',
+  templateUrl: './translation-config.component.html',
+  styleUrls: ['./translation-config.component.scss']
 })
-export class MainInfoConfigComponent {
+export class TranslationConfigComponent {
   configs$ = this.evtConfigService.configs$.pipe(
     map(c => c.mainData)
   );
