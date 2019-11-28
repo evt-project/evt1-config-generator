@@ -29,6 +29,7 @@ import { TranslationConfigComponent } from './components/translation-config/tran
 import { DataFormatConfigComponent } from './components/data-format-config/data-format-config.component';
 import { ImageToolsConfigComponent } from './components/image-tools-config/image-tools-config.component';
 import { NavigationConfigComponent } from './components/navigation-config/navigation-config.component';
+import { ViewsConfigComponent } from './components/views-config/views-config.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -53,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DataFormatConfigComponent,
     ImageToolsConfigComponent,
     NavigationConfigComponent,
+    ViewsConfigComponent,
   ],
   imports: [
     BrowserModule,

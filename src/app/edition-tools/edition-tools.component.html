@@ -5,63 +5,15 @@
   <app-card [title]="'navigation'" class="mb-3 d-block">
     <app-navigation-config content></app-navigation-config>
   </app-card>
-  <ng-container *ngTemplateOutlet="navigation;context:{configs:configs}"></ng-container>
-  <ng-container *ngTemplateOutlet="views;context:{configs:configs}"></ng-container>
+  <app-card [title]="'views'" class="mb-3 d-block">
+    <app-views-config content></app-views-config>
+  </app-card>
   <ng-container *ngTemplateOutlet="prefatoryMatter;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="search;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="viscoll;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="poetry;context:{configs:configs}"></ng-container>
   <ng-container *ngTemplateOutlet="listsNE;context:{configs:configs}"></ng-container>
 </ng-container>
-
-<ng-template #views let-configs="configs">
-  <app-card [title]="'views'" class="mb-3 d-block">
-    <div content>
-      <app-form-group [description]="'viewsDesc'">
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="image_frame" [checked]="configs.image_frame"
-            [(ngModel)]="configs.image_frame" name="image_frame" />
-          <label class="col-form-label-sm form-check-label ml-3" for="image_frame">{{'imageFrame' | translate }}</label>
-        </div>
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="double_view" [checked]="configs.double_view"
-            [(ngModel)]="configs.double_view" name="double_view" />
-          <label class="col-form-label-sm form-check-label ml-3" for="double_view">{{'bookReader' | translate }}</label>
-        </div>
-      </app-form-group>
-      <app-form-group [description]="'defaultLeftFrameDesc'">
-        <div class="form-check pl-0" content>
-          <div class="btn-group btn-group-toggle" ngbRadioGroup name="left_frame_default_content"
-            [(ngModel)]="configs.left_frame_default_content">
-            <label ngbButtonLabel class="btn-sm btn-primary">
-              <input ngbButton type="radio" value="image">
-              {{'image' | translate}}
-            </label>
-            <label ngbButtonLabel class="btn-sm btn-primary">
-              <input ngbButton type="radio" value="info">
-              {{'manuscriptInfo' | translate}}
-            </label>
-          </div>
-        </div>
-      </app-form-group>
-      <app-form-group [description]="'defaultRightFrameDesc'">
-        <div class="form-check pl-0" content>
-          <div class="btn-group btn-group-toggle" ngbRadioGroup name="right_frame_default_content"
-            [(ngModel)]="configs.right_frame_default_content">
-            <label ngbButtonLabel class="btn-sm btn-primary">
-              <input ngbButton type="radio" value="text">
-              {{'editionText' | translate}}
-            </label>
-            <label ngbButtonLabel class="btn-sm btn-primary">
-              <input ngbButton type="radio" value="info">
-              {{'frontInfo' | translate}}
-            </label>
-          </div>
-        </div>
-      </app-form-group>
-    </div>
-  </app-card>
-</ng-template>
 
 <ng-template #prefatoryMatter let-configs="configs">
   <app-card [title]="'prefatoryMatter'" class="mb-3 d-block">
