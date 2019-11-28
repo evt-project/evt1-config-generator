@@ -1,8 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { ListConfig, ListItemConfig } from 'src/app/evt-config.models';
+import { Component } from '@angular/core';
+import { ListItemConfig } from 'src/app/evt-config.models';
 import { EvtConfigService } from 'src/app/services/evt-config.service';
-import { Subscription } from 'rxjs';
-import { map, tap, shareReplay } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-entities-lists-config',

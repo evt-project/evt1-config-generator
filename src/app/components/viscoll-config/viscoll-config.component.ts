@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EvtConfigService } from 'src/app/services/evt-config.service';
 import { map } from 'rxjs/operators';
 
