@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { EditionMainData, EditionTools, AdvancedConfigs, EVT1Config } from '../evt-config.models';
+import { EditionMainData, EditionTools, AdvancedConfigs, EVT1Config, ListConfig } from '../evt-config.models';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { first, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -90,7 +91,6 @@ export class EvtConfigService {
         }
       }
       this.configs$.next({ ...newConfig });
-      // this.uploadedConfig.emit(this.configs$);
     } catch (e) {
       console.log(e);
       // this.dialog.open(ErrorMessageDialogComponent, {
@@ -117,48 +117,6 @@ export class EvtConfigService {
       i--;
     }
     return value;
-  }
-
-  getConfigData() {
-    return this.configs$;
-  }
-
-  getProperty(propertyName: string, sectionName?: string) {
-  }
-
-  setValue(propertyName: string, value: any, sectionName?: string) {
-  }
-
-  getSupportProperty(propertyName: string) {
-    return this.supportConfigs[propertyName];
-  }
-
-  setSupportValue(propertyName: string, value: any) {
-    this.supportConfigs[propertyName] = value;
-  }
-
-  updateEditionLevelVisibility(editionLevelToEdit: string, visibility: boolean) {
-    // for (const edition of this.configs.mainData.edition_array) {
-    //   if (edition.value === editionLevelToEdit) {
-    //     edition.visible = visibility;
-    //   }
-    // }
-  }
-
-  updateEditionLevelLabel(editionLevelToEdit: string, label: string) {
-    // for (const edition of this.configs.mainData.edition_array) {
-    //   if (edition.value === editionLevelToEdit) {
-    //     edition.label = label;
-    //   }
-    // }
-  }
-
-  updateEditionLevelPrefix(editionLevelToEdit: string, prefix: string) {
-    // for (const edition of this.configs.mainData.edition_array) {
-    //   if (edition.value === editionLevelToEdit) {
-    //     edition.prefix = prefix;
-    //   }
-    // }
   }
 
   findPropertySection(propertyName: string) {
