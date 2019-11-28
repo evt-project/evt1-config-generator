@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { EvtConfigService } from '../services/evt-config.service';
-import { map, tap, first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-edition-tools',
@@ -9,12 +7,4 @@ import { map, tap, first } from 'rxjs/operators';
 })
 export class EditionToolsComponent {
 
-  configs$ = this.evtConfigService.configs$.pipe(
-    map(configs => configs ? configs.tools : undefined),
-  );
-
-  constructor(
-    private evtConfigService: EvtConfigService,
-  ) {
-  }
 }

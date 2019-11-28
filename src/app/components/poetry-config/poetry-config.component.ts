@@ -3,11 +3,11 @@ import { EvtConfigService } from 'src/app/services/evt-config.service';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-search-config',
-  templateUrl: './search-config.component.html',
-  styleUrls: ['./search-config.component.scss']
+  selector: 'app-poetry-config',
+  templateUrl: './poetry-config.component.html',
+  styleUrls: ['./poetry-config.component.scss']
 })
-export class SearchConfigComponent {
+export class PoetryConfigComponent {
   public configs$ = this.evtConfigService.configs$.pipe(
     map(c => c.tools)
   );

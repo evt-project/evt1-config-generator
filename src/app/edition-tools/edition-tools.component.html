@@ -1,53 +1,25 @@
-<ng-container *ngIf="configs$ | async as configs">
-  <app-card [title]="'imageTools'" class="mb-3 d-block">
-    <app-image-tools-config content></app-image-tools-config>
-  </app-card>
-  <app-card [title]="'navigation'" class="mb-3 d-block">
-    <app-navigation-config content></app-navigation-config>
-  </app-card>
-  <app-card [title]="'views'" class="mb-3 d-block">
-    <app-views-config content></app-views-config>
-  </app-card>
-  <app-card [title]="'prefatoryMatter'" class="mb-3 d-block">
-    <app-prefatory-matter-config content></app-prefatory-matter-config>
-  </app-card>
-  <app-card [title]="'search'" class="mb-3 d-block">
-    <app-search-config content></app-search-config>
-  </app-card>
-  <ng-container *ngTemplateOutlet="viscoll;context:{configs:configs}"></ng-container>
-  <ng-container *ngTemplateOutlet="poetry;context:{configs:configs}"></ng-container>
-  <ng-container *ngTemplateOutlet="listsNE;context:{configs:configs}"></ng-container>
-</ng-container>
-
-<ng-template #viscoll let-configs="configs">
-  <app-card [title]="'viscoll'" class="mb-3 d-block">
-    <div content>
-      <app-viscoll-config></app-viscoll-config>
-    </div>
-  </app-card>
-</ng-template>
-
-<ng-template #poetry let-configs="configs">
-  <app-card [title]="'poetry'" class="mb-3 d-block">
-    <div content>
-      <app-form-group [description]="'poetryDesc'">
-        <div class="form-check pl-0" content>
-          <input class="inline-label" type="checkbox" id="prose_verses_toggler" [checked]="configs.prose_verses_toggler"
-            [(ngModel)]="configs.prose_verses_toggler" name="prose_verses_toggler" />
-          <label class="col-form-label-sm form-check-label ml-3"
-            for="prose_verses_toggler">{{'proseVersesToggler' | translate }}</label>
-        </div>
-      </app-form-group>
-    </div>
-  </app-card>
-</ng-template>
-
-
-<ng-template #listsNE let-configs="configs">
-  <app-card [title]="'listsNE'" class="mb-3 d-block">
-    <div content>
-      <app-lists-config></app-lists-config>
-      <app-entities-lists-config></app-entities-lists-config>
-    </div>
-  </app-card>
-</ng-template>
+<app-card [title]="'imageTools'" class="mb-3 d-block">
+  <app-image-tools-config content></app-image-tools-config>
+</app-card>
+<app-card [title]="'navigation'" class="mb-3 d-block">
+  <app-navigation-config content></app-navigation-config>
+</app-card>
+<app-card [title]="'views'" class="mb-3 d-block">
+  <app-views-config content></app-views-config>
+</app-card>
+<app-card [title]="'prefatoryMatter'" class="mb-3 d-block">
+  <app-prefatory-matter-config content></app-prefatory-matter-config>
+</app-card>
+<app-card [title]="'search'" class="mb-3 d-block">
+  <app-search-config content></app-search-config>
+</app-card>
+<app-card [title]="'viscoll'" class="mb-3 d-block">
+  <app-viscoll-config content></app-viscoll-config>
+</app-card>
+<app-card [title]="'poetry'" class="mb-3 d-block">
+  <app-poetry-config content></app-poetry-config>
+</app-card>
+<app-card [title]="'listsNE'" class="mb-3 d-block">
+  <app-lists-config content></app-lists-config>
+  <app-entities-lists-config content></app-entities-lists-config>
+</app-card>

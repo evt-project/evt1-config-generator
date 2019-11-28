@@ -1,0 +1,10 @@
+<ng-container *ngIf="configs$ | async as configs">
+  <app-form-group [description]="'poetryDesc'">
+    <div class="form-check pl-0" content>
+      <input class="inline-label" type="checkbox" id="prose_verses_toggler" [checked]="configs.prose_verses_toggler"
+        [(ngModel)]="configs.prose_verses_toggler" name="prose_verses_toggler" />
+      <label class="col-form-label-sm form-check-label ml-3"
+        for="prose_verses_toggler">{{'proseVersesToggler' | translate }}</label>
+    </div>
+  </app-form-group>
+</ng-container>
