@@ -12,7 +12,7 @@
                 }" ngbPanelToggle>
                 <fa-icon [icon]="opened ? 'caret-down' : 'caret-right'"></fa-icon>
                 <span class="ml-2">
-                  <a href="#{{section.name}}" (click)="$event.stopPropagation(); activateSection(section.name, section.items[0].name)">
+                  <a href="#{{section.items[0].name}}" (click)="$event.stopPropagation(); activateSection(section.name, section.items[0].name)">
                     {{section.name | translate}}</a>
                 </span>
               </button>
@@ -31,11 +31,11 @@
       </div>
     </nav>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-4 pt-4">
-      <a #mainData></a>
+      <a #mainData id="mainData"></a>
       <app-edition-main-data (sectionInit)="setMainDataSectionsOffset($event)"></app-edition-main-data>
-      <a #tools></a>
+      <a #tools id="tools"></a>
       <app-edition-tools (sectionInit)="setEditionToolsSectionOffset($event)"></app-edition-tools>
-      <a #advanced></a>
+      <a #advanced id="advanced"></a>
       <app-advanced-configs (sectionInit)="setAdvancedSectionOffset($event)"></app-advanced-configs>
     </main>
   </div>
