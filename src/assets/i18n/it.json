@@ -28,6 +28,7 @@
     "editionTitle": "Titolo dell'edizione",
     "editionTitle_desc": "Scegli un titolo per la tua edizione. Lasciando il campo bianco, verrà mostrato il titolo di default 'EVT Viewer'.",
     "badge": "Badge",
+    "activateBadge": "Abilita badge",
     "badge_desc": "Puoi anche aggiungere un badge a seguito del titolo della tua edizione (es.. \"beta\").",
     "webSite": "Sito web esterno",
     "webSite_desc": "Se specifichi un sito web esterno, nell'edizione verrà aggiunto un link come puntatore ad esso.",

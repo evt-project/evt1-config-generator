@@ -1,15 +1,38 @@
-@import "node_modules/bootstrap/scss/bootstrap";
 @import './assets/scss/variables';
+@import "node_modules/bootstrap/scss/bootstrap";
 @import './assets/scss/mixins';
+
 body {
   height: 100%;
   overflow: hidden;
 }
+
+.bg-primary-dark {
+  background: $primary-dark;
+}
+
+.btn-group-toggle {
+  .btn-primary.active {
+    box-shadow: 0 0 0 0.2rem rgba(144, 128, 115, 0.5);
+  }
+}
+
+.input-group-text {
+  background: rgba($secondary, .3);
+}
+
+input[type="checkbox"] {
+  filter: sepia(100%);
+  -webkit-filter: sepia(100%);
+  -moz-filter: sepia(100%);
+}
+
 .input-group {
   .btn-light[disabled] {
     border-color: #dae0e5;
   }
 }
+
 .ng-select {
   position: relative;
   display: inline-flex !important;

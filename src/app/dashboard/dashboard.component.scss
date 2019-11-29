@@ -8,6 +8,9 @@
   position: fixed;
 }
 
+main {
+  background: rgba($primary-light, .2);
+}
 .sidebar {
   position: fixed;
   top: 48px;
@@ -18,7 +21,8 @@
   overflow-y: auto;
   overflow-x: hidden;
   @include set('box-shadow', 'inset -1px 0 0 rgba(0, 0, 0, .1)');
-
+  background: rgba($primary-light, .9);
+  
   .btn-transparent {
     border-radius: 0;
     color: #000;
@@ -51,8 +55,12 @@
     }
 
     .card {
-      border-bottom: 0;
-      border-top: 0;
+      border: 0;
+      background: transparent;
+      border-radius: 0;
+      .tab {
+        border-radius: 0;
+      }
     }
 
     .card-header {
@@ -61,6 +69,10 @@
       &:focus {
         outline: none;
       }
+    }
+    .active, .active a {
+      background: #61544d;
+      color: $yiq-text-light !important;
     }
   }
 }

@@ -1,6 +1,8 @@
+@import '../../../assets/scss/variables';
+
 .disabled {
-    background: #ddd;
-    color: #666;
+    background: rgba($secondary, .3);
+    color: $primary-dark;
 }
 
 .list-toggler {
@@ -28,6 +30,14 @@
 
     .list-header.disabled.opened {
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .disabled {
+        input[type="checkbox"] {
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+        }
     }
 }
 

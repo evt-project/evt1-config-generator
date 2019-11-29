@@ -28,6 +28,7 @@
     "editionTitle": "Edition title",
     "editionTitle_desc": "Choose a title for your edition. If you left it blank the default 'EVT Viewer' will be shown.",
     "badge": "Badge",
+    "activateBadge": "Activate badge",
     "badge_desc": "You can also add a badge after your edition title (f.i. \"beta\").",
     "webSite": "External Web Site",
     "webSite_desc": "If you specify an external web site there will be a link pointing to it.",
