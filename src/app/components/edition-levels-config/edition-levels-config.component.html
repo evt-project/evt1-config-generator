@@ -1,6 +1,6 @@
 <ng-container *ngIf="configs$ | async as configs">
   <app-form-group [description]="'editionLevels_desc'">
-    <span class="mb-3 d-block" additionalText>
+    <span class="mb-3 d-block text-muted alert alert-warning p-1" additionalText>
       <strong>{{ 'warning' | translate }}!</strong> {{ 'editionLevels_warning' | translate }}
     </span>
     <div content>
@@ -28,7 +28,7 @@
     </div>
   </app-form-group>
   <div class="mb-3">
-    <small class="w-100 d-block">
+    <small class="w-100 d-block text-muted">
       {{ 'newEditionInstructions' | translate }}
       <code>modules/evt_builder-main.xsl</code>,
       {{ 'underThe' | translate }} <code>&lt;xsl:if test="$edition_array[2]!=''"&gt;</code>.

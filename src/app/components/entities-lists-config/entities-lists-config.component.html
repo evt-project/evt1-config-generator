@@ -1,5 +1,5 @@
 <app-form-group [title]="'entitiesSelector'" [description]="'entitiesSelectorDesc'">
-  <div class="mb-3 d-block text-muted" additionalText>
+  <div class="mb-3 d-block text-muted alert alert-warning p-1" additionalText>
     <strong>{{ 'warning' | translate }}!</strong> {{ 'entitiesSelector_warning' | translate }}
   </div>
   <div class="form-check pl-0" content *ngIf="lists$ | async as lists">

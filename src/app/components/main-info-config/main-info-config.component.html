@@ -27,7 +27,7 @@
       name="welcomeMsg" [(ngModel)]="configs.welcomeMsg">{{ configs.welcomeMsg }}</textarea>
   </app-form-group>
   <app-form-group [title]="'fbThumb'" [description]="'fbThumb_desc'">
-    <span class="mb-3 d-block" additionalText>
+    <span class="mb-3 d-block text-muted alert alert-warning p-1" additionalText>
       <strong>{{ 'warning' | translate }}!</strong> {{ 'fbThumb_warning' | translate }}
       <code>data/input_data/images</code>
     </span>

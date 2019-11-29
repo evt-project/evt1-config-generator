@@ -1,6 +1,6 @@
 <ng-container *ngIf="configs$ | async as configs">
-  <app-form-group [title]="'textLabel'">
-    <span class="mb-3 d-block" additionalText>
+  <app-form-group [title]="'textLabel'" [description]="'textLabelDesc'">
+    <span class="mb-3 d-block text-muted alert alert-warning p-1" additionalText>
       <strong>{{ 'warning' | translate }}!</strong> 
       <span class="ml-1" [innerHTML]="'textLabel_warning' | translate:{fileName: 'modules/elements/evt_builder-generate-text_label.xsl'}"></span>
     </span>

@@ -1,6 +1,6 @@
 <ng-container *ngIf="configs$ | async as configs">
   <app-form-group [title]="'translation'">
-    <span class="mb-3 d-block" additionalText>
+    <span class="mb-3 d-block text-muted alert alert-warning p-1" additionalText>
       <strong>{{ 'warning' | translate }}!</strong> {{ 'translation_warning' | translate }}
     </span>
     <div class="form-check pl-0" content>
