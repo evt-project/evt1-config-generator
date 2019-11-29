@@ -1,7 +1,7 @@
 <nav class="navbar bg-primary-dark fixed-top flex-md-nowrap pt-1 pb-1 pl-2 pr-2 shadow justify-content-between">
   <a class="navbar-brand text-light">
-    <img src="../../assets/images/logo.png" height="30" class="d-inline-block align-top" alt="">
-    <span>{{ 'appTitle' | translate }}</span>
+    <span class="d-none d-md-block">{{ 'appTitle' | translate }}</span>
+    <span class="d-block d-md-none">EVT 1</span>
   </a>
   <div>
     <button type="button" class="btn btn-sm btn-light mr-2" (click)="upload()">
@@ -24,5 +24,5 @@
   </div>
 </nav>
 <app-dashboard></app-dashboard>
-<input id="uploadXSL" type="file" class="hidden" accept="application/xsl" (change)="uploadSelectedXSL()"/>
+<input id="uploadXSL" type="file" class="hidden" accept="application/xsl" (change)="uploadSelectedXSL()" />
 <a id="downloadXSL" class="hidden" download="evt_builder-config.xsl">config.json</a>
