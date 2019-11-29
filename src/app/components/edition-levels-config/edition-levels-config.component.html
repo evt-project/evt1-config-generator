@@ -1,0 +1,54 @@
+<ng-container *ngIf="configs$ | async as configs">
+  <app-form-group [description]="'editionLevels_desc'">
+    <span class="mb-3 d-block text-muted alert alert-warning p-1" additionalText>
+      <strong>{{ 'warning' | translate }}!</strong> {{ 'editionLevels_warning' | translate }}
+    </span>
+    <div content>
+      <div class="input-group input-group-sm mb-2" *ngFor="let editionLevel of configs.edition_array; let i = index"
+        [class.disabled]="!editionLevel.visible">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input type="checkbox" [checked]="editionLevel.visible" [(ngModel)]="editionLevel.visible"
+              [title]="editionLevel.visible ? 'disable': 'enable' | translate">
+          </div>
+        </div>
+        <label class="form-control bg-light" [ngClass]="{
+            'bg-light': !editionLevel.visible,
+            'text-muted': !editionLevel.visible }">{{editionLevel.value | translate }}</label>
+        <input class="form-control" [placeholder]="'customLabel' | translate" name="edLevelName_{{i}}"
+          [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.label" />
+        <input class="form-control" [placeholder]="'customPrefix' | translate" name="edLevelPrefix_{{i}}"
+          [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.prefix" />
+        <div class="input-group-append">
+          <button class="btn btn-danger" type="button" [class.hidden]="editionLevel.value !== 'Custom'"
+            [disabled]="!editionLevel.visible" (click)="onRemoveEditionLevel(i)">
+            <fa-icon [icon]="'trash'"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </app-form-group>
+  <div class="mb-3">
+    <small class="w-100 d-block text-muted">
+      {{ 'newEditionInstructions' | translate }}
+      <code>modules/evt_builder-main.xsl</code>,
+      {{ 'underThe' | translate }} <code>&lt;xsl:if test="$edition_array[2]!=''"&gt;</code>.
+    </small>
+    <button class="btn btn-sm btn-light" (click)="onAddEditionLevel()">
+      {{ 'addNewEdition' | translate }}
+    </button>
+  </div>
+  <app-form-group [title]="'editionLevelSelector'" [description]="'editionLevelSelector_desc'">
+    <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.edition_level_selector" content>
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" [checked]="configs.edition_level_selector" [(ngModel)]="configs.edition_level_selector"
+            [title]="configs.edition_level_selector ? 'disable': 'enable' | translate">
+        </div>
+      </div>
+      <label class="form-control bg-light" [ngClass]="{
+        'bg-light': !configs.edition_level_selector,
+        'text-muted': !configs.edition_level_selector }">{{'showEditionLevelSelector' | translate }}</label>
+    </div>
+  </app-form-group>
+</ng-container>

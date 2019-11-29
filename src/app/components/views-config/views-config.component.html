@@ -1,0 +1,59 @@
+<ng-container *ngIf="configs$ | async as configs">
+  <app-form-group [description]="'viewsDesc'">
+    <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.image_frame" content>
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" [checked]="configs.image_frame" [(ngModel)]="configs.image_frame"
+            [title]="configs.image_frame ? 'disable': 'enable' | translate">
+        </div>
+      </div>
+      <label class="form-control" [ngClass]="{
+                                    'bg-light': !configs.image_frame,
+                                    'text-muted': !configs.image_frame }">
+        {{'imageFrame' | translate }}</label>
+    </div>
+
+    <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.double_view" content>
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" [checked]="configs.double_view" [(ngModel)]="configs.double_view"
+            [title]="configs.double_view ? 'disable': 'enable' | translate">
+        </div>
+      </div>
+      <label class="form-control" [ngClass]="{
+                                      'bg-light': !configs.double_view,
+                                      'text-muted': !configs.double_view }">
+        {{'bookReader' | translate }}</label>
+    </div>
+  </app-form-group>
+  <app-form-group [description]="'defaultLeftFrameDesc'">
+    <div class="form-check pl-0" content>
+      <div class="btn-group btn-group-toggle" ngbRadioGroup name="left_frame_default_content"
+        [(ngModel)]="configs.left_frame_default_content">
+        <label ngbButtonLabel class="btn-sm btn-primary">
+          <input ngbButton type="radio" value="image">
+          {{'image' | translate}}
+        </label>
+        <label ngbButtonLabel class="btn-sm btn-primary">
+          <input ngbButton type="radio" value="info">
+          {{'manuscriptInfo' | translate}}
+        </label>
+      </div>
+    </div>
+  </app-form-group>
+  <app-form-group [description]="'defaultRightFrameDesc'">
+    <div class="form-check pl-0" content>
+      <div class="btn-group btn-group-toggle" ngbRadioGroup name="right_frame_default_content"
+        [(ngModel)]="configs.right_frame_default_content">
+        <label ngbButtonLabel class="btn-sm btn-primary">
+          <input ngbButton type="radio" value="text">
+          {{'editionText' | translate}}
+        </label>
+        <label ngbButtonLabel class="btn-sm btn-primary">
+          <input ngbButton type="radio" value="info">
+          {{'frontInfo' | translate}}
+        </label>
+      </div>
+    </div>
+  </app-form-group>
+</ng-container>

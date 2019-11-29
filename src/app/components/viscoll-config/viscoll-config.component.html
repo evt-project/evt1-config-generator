@@ -1,0 +1,30 @@
+<ng-container *ngIf="configs$ | async as configs">
+  <app-form-group [description]="'viscollDesc'">
+    <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.viscoll_button" content>
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" [checked]="configs.viscoll_button" [(ngModel)]="configs.viscoll_button"
+            [title]="configs.viscoll_button ? 'disable': 'enable' | translate">
+        </div>
+      </div>
+      <label class="form-control" [ngClass]="{
+              'bg-light': !configs.viscoll_button,
+              'text-muted': !configs.viscoll_button }">{{'viscollEnabled' | translate }}</label>
+    </div>
+
+    <div content *ngIf="configs.viscoll_button">
+      <small class="form-text text-muted"><strong>{{'warning' | translate}}!</strong></small>
+      <small class="form-text text-muted mb-2"
+        [innerHTML]="'viscollInstructions' | translate:{link: 'https://github.com/leoba/VisColl', collationLink: 'http://138.197.87.173:8080/xproc-z/visualize-collation/'}"></small>
+    </div>
+  </app-form-group>
+  <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollSchemePath'" [description]="'viscollSchemePathDesc'">
+    <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate" name="viscoll_scheme_path"
+      [(ngModel)]="configs.viscoll_scheme_path" content>
+  </app-form-group>
+  <app-form-group *ngIf="configs.viscoll_button" [title]="'viscollImageListPath'"
+    [description]="'viscollImageListPathDesc'">
+    <input class="form-control form-control-sm" [placeholder]="'insertPathHere' | translate"
+      name="viscoll_image_list_path" [(ngModel)]="configs.viscoll_image_list_path" content>
+  </app-form-group>
+</ng-container>

@@ -1,0 +1,41 @@
+<div class="dashboard-main container-fluid" #mainContainer (scroll)="updateSidebar($event)">
+  <div class="row">
+    <nav class="col-md-3 d-none d-md-block sidebar">
+      <div class="sidebar-sticky">
+        <ngb-accordion #sectionsSidebar="ngbAccordion" [activeIds]="[sections[0].name, sections[1].name]">
+          <ngb-panel [id]="section.name" *ngFor="let section of sections">
+            <ng-template ngbPanelHeader let-opened="opened">
+              <button class="btn w-100 text-left border-0 rounded-0 section-header-btn" [ngClass]="{
+                  active: currentActive === section.name,
+                  'btn-transparent': currentActive !== section.name
+                }" ngbPanelToggle>
+                <fa-icon [icon]="opened ? 'caret-down' : 'caret-right'"></fa-icon>
+                <span class="ml-2">
+                  <a href="#{{section.items[0].name}}" (click)="$event.stopPropagation(); activateSection(section.name, section.items[0].name)">
+                    {{section.name | translate}}</a>
+                </span>
+              </button>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <ul class="flex-column list-group list-group-flush ml-3 border-left">
+                <li class="list-group-item p-0 border-0" *ngFor="let item of section.items">
+                  <a  href="#{{item.name}}" (click)="activateSection(section.name, item.name)" 
+                  [ngClass]="{
+                    active: currentSubSectionActive === item.name
+                  }" class="nav-link p-1 pl-2">{{item.name | translate}}</a></li>
+              </ul>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-4 pt-4">
+      <a #mainData id="mainData"></a>
+      <app-edition-main-data (sectionInit)="setMainDataSectionsOffset($event)"></app-edition-main-data>
+      <a #tools id="tools"></a>
+      <app-edition-tools (sectionInit)="setEditionToolsSectionOffset($event)"></app-edition-tools>
+      <a #advanced id="advanced"></a>
+      <app-advanced-configs (sectionInit)="setAdvancedSectionOffset($event)"></app-advanced-configs>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+// Set calculated property
+@mixin calc($property, $expression, $important:"") {
+    #{$property}: -moz-calc(#{$expression}) #{$important};
+    #{$property}: -o-calc(#{$expression}) #{$important};
+    #{$property}: -webkit-calc(#{$expression}) #{$important};
+    #{$property}: calc(#{$expression}) #{$important};
+}
+
+// Set CSS3 property for each different browser
+@mixin set($property, $value, $important:"") {
+    -moz-#{$property}: #{$value} #{$important};
+    -o-#{$property}: #{$value} #{$important};
+    -webkit-#{$property}: #{$value} #{$important};
+    -khtml-#{$property}: #{$value} #{$important};
+    -ms-#{$property}: #{$value} #{$important};
+    #{$property}: #{$value} #{$important};
+}

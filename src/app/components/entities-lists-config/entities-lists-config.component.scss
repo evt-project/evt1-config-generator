@@ -1,0 +1,50 @@
+@import '../../../assets/scss/variables';
+
+.disabled {
+    background: rgba($secondary, .3);
+    color: $primary-dark;
+}
+
+.list-toggler {
+    min-width: 31px;
+}
+
+.list-detail {
+    padding-left: 31px;
+}
+
+.list-detail-attribute {
+    padding-left: 62px;
+}
+
+::ng-deep .listsConfigs {
+    .card {
+        margin-bottom: 0.2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+    }
+
+    .card-header,
+    .card-body {
+        padding: 0 !important;
+    }
+
+    .list-header.disabled.opened {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .disabled {
+        input[type="checkbox"] {
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+        }
+    }
+}
+
+.list-details-container {
+    padding: 1.25rem;
+}
+
+.list-header {
+    padding: 0.75rem 1.25rem;
+}

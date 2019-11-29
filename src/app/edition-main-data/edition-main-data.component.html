@@ -1,0 +1,17 @@
+<h2>{{'mainData' | translate }}</h2>
+<a #editionMainInfo id="editionMainInfo"></a>
+<app-card [title]="'editionMainInfo'" class="mb-3 d-block">
+  <app-main-info-config content></app-main-info-config>
+</app-card>
+<a #editionLevels id="editionLevels"></a>
+<app-card class="mb-3 d-block" [title]="'editionLevels'">
+  <app-edition-levels-config content></app-edition-levels-config>
+</app-card>
+<a #additionalContent id="additionalContent"></a>
+<app-card class="mb-3 d-block" [title]="'additionalContent'">
+  <app-translation-config content></app-translation-config>
+</app-card>
+<a #dataFormat id="dataFormat"></a>
+<app-card class="mb-3 d-block" [title]="'dataFormat'">
+  <app-data-format-config content></app-data-format-config>
+</app-card>
