@@ -13,7 +13,7 @@ body {
 
 .btn-group-toggle {
   .btn-primary.active {
-    box-shadow: 0 0 0 0.2rem rgba(144, 128, 115, 0.5);
+    background: $primary-dark !important;
   }
 }
 
@@ -26,7 +26,9 @@ input[type="checkbox"] {
   -webkit-filter: sepia(100%);
   -moz-filter: sepia(100%);
 }
-
+.form-control:disabled {
+  color: #6c757d !important;
+}
 .input-group {
   .btn-light[disabled] {
     border-color: #dae0e5;

@@ -12,10 +12,11 @@
               name="badge" [title]="configs.badge ? 'disable': 'enable' | translate" />
           </div>
         </div>
-        <input class="form-control bg-light" readonly [disabled]="!configs.badge"
-          [value]="'activateBadge' | translate" />
-        <input class="form-control" [placeholder]="'badge' | translate" [disabled]="!configs.badge"
-          name="badge_text" [(ngModel)]="configs.badge_text" />
+        <label class="form-control bg-light" [ngClass]="{
+            'bg-light': !configs.badge,
+            'text-muted': !configs.badge }" for="edLevelSelector">{{'activateBadge' | translate }}</label>
+        <input class="form-control" [placeholder]="'badge' | translate" [disabled]="!configs.badge" name="badge_text"
+          [(ngModel)]="configs.badge_text" />
       </div>
     </div>
   </app-form-group>
