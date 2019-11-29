@@ -14,7 +14,7 @@
         </div>
         <label class="form-control bg-light" [ngClass]="{
             'bg-light': !configs.badge,
-            'text-muted': !configs.badge }" for="edLevelSelector">{{'activateBadge' | translate }}</label>
+            'text-muted': !configs.badge }">{{'activateBadge' | translate }}</label>
         <input class="form-control" [placeholder]="'badge' | translate" [disabled]="!configs.badge" name="badge_text"
           [(ngModel)]="configs.badge_text" />
       </div>

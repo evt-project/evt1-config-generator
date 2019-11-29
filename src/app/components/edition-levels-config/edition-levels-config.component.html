@@ -14,7 +14,7 @@
         </div>
         <label class="form-control bg-light" [ngClass]="{
             'bg-light': !editionLevel.visible,
-            'text-muted': !editionLevel.visible }" for="edLevelSelector">{{editionLevel.value | translate }}</label>
+            'text-muted': !editionLevel.visible }">{{editionLevel.value | translate }}</label>
         <input class="form-control" [placeholder]="'customLabel' | translate" name="edLevelName_{{i}}"
           [disabled]="!editionLevel.visible" [(ngModel)]="editionLevel.label" />
         <input class="form-control" [placeholder]="'customPrefix' | translate" name="edLevelPrefix_{{i}}"
@@ -48,8 +48,7 @@
       </div>
       <label class="form-control bg-light" [ngClass]="{
         'bg-light': !configs.edition_level_selector,
-        'text-muted': !configs.edition_level_selector }"
-        for="edLevelSelector">{{'showEditionLevelSelector' | translate }}</label>
+        'text-muted': !configs.edition_level_selector }">{{'showEditionLevelSelector' | translate }}</label>
     </div>
   </app-form-group>
 </ng-container>

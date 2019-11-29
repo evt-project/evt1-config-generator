@@ -1,32 +1,73 @@
 <app-form-group [title]="'namedEntitiesLists'" [description]="'listsNEDesc'" *ngIf="configs$ | async as configs">
-  <div class="form-check pl-0" content>
-    <input class="inline-label" type="checkbox" id="list_person" [checked]="configs.list_person"
-      [(ngModel)]="configs.list_person" name="list_person" />
-    <label class="col-form-label-sm form-check-label ml-3" for="list_person">{{'listPerson' | translate }}</label>
+  <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.list_person" content>
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="checkbox" [checked]="configs.list_person" [(ngModel)]="configs.list_person"
+          [title]="configs.list_person ? 'disable': 'enable' | translate">
+      </div>
+    </div>
+    <label class="form-control" [ngClass]="{
+                  'bg-light': !configs.list_person,
+                  'text-muted': !configs.list_person }">{{'listPerson' | translate }}</label>
   </div>
-  <div class="form-check pl-0" content>
-    <input class="inline-label" type="checkbox" id="list_place" [checked]="configs.list_place"
-      [(ngModel)]="configs.list_place" name="list_place" />
-    <label class="col-form-label-sm form-check-label ml-3" for="list_place">{{'listPlace' | translate }}</label>
+
+  <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.list_place" content>
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="checkbox" [checked]="configs.list_place" [(ngModel)]="configs.list_place"
+          [title]="configs.list_place ? 'disable': 'enable' | translate">
+      </div>
+    </div>
+    <label class="form-control" [ngClass]="{
+                    'bg-light': !configs.list_place,
+                    'text-muted': !configs.list_place }">{{'listPlace' | translate }}</label>
   </div>
-  <div class="form-check pl-0" content>
-    <input class="inline-label" type="checkbox" id="list_org" [checked]="configs.list_org"
-      [(ngModel)]="configs.list_org" name="list_org" />
-    <label class="col-form-label-sm form-check-label ml-3" for="list_org">{{'listOrg' | translate }}</label>
+
+  <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.list_org" content>
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="checkbox" [checked]="configs.list_org" [(ngModel)]="configs.list_org"
+          [title]="configs.list_org ? 'disable': 'enable' | translate">
+      </div>
+    </div>
+    <label class="form-control" [ngClass]="{
+                      'bg-light': !configs.list_org,
+                      'text-muted': !configs.list_org }">{{'listOrg' | translate }}</label>
   </div>
-  <div class="form-check pl-0" content>
-    <input class="inline-label" type="checkbox" id="list_doc" [checked]="configs.list_doc"
-      [(ngModel)]="configs.list_doc" name="list_doc" />
-    <label class="col-form-label-sm form-check-label ml-3" for="list_doc">{{'listDoc' | translate }}</label>
+
+  <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.list_doc" content>
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="checkbox" [checked]="configs.list_doc" [(ngModel)]="configs.list_doc"
+          [title]="configs.list_doc ? 'disable': 'enable' | translate">
+      </div>
+    </div>
+    <label class="form-control" [ngClass]="{
+                        'bg-light': !configs.list_doc,
+                        'text-muted': !configs.list_doc }">{{'listDoc' | translate }}</label>
   </div>
-  <div class="form-check pl-0" content>
-    <input class="inline-label" type="checkbox" id="list_term" [checked]="configs.list_term"
-      [(ngModel)]="configs.list_term" name="list_term" />
-    <label class="col-form-label-sm form-check-label ml-3" for="list_term">{{'listTerm' | translate }}</label>
+
+  <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.list_term" content>
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="checkbox" [checked]="configs.list_term" [(ngModel)]="configs.list_term"
+          [title]="configs.list_term ? 'disable': 'enable' | translate">
+      </div>
+    </div>
+    <label class="form-control" [ngClass]="{
+                          'bg-light': !configs.list_term,
+                          'text-muted': !configs.list_term }">{{'listTerm' | translate }}</label>
   </div>
-  <div class="form-check pl-0" content>
-    <input class="inline-label" type="checkbox" id="list_gloss" [checked]="configs.list_gloss"
-      [(ngModel)]="configs.list_gloss" name="list_gloss" />
-    <label class="col-form-label-sm form-check-label ml-3" for="list_gloss">{{'listGloss' | translate }}</label>
+
+  <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.list_gloss" content>
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="checkbox" [checked]="configs.list_gloss" [(ngModel)]="configs.list_gloss"
+          [title]="configs.list_gloss ? 'disable': 'enable' | translate">
+      </div>
+    </div>
+    <label class="form-control" [ngClass]="{
+                            'bg-light': !configs.list_gloss,
+                            'text-muted': !configs.list_gloss }">{{'listGloss' | translate }}</label>
   </div>
 </app-form-group>

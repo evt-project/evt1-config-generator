@@ -335,7 +335,7 @@ export class EvtConfigService {
         viscoll_image_list_path: '',
         // BOTTOM BAR
         bottom_navbar: false,
-        bottom_navbar_initial_status: 'closed',
+        bottom_navbar_initial_status: 'collapsed',
         // POETRY
         prose_verses_toggler: false,
         lang_tooltip: false,

@@ -1,14 +1,23 @@
 <ng-container *ngIf="configs$ | async as configs">
   <app-form-group [title]="'textLabel'" [description]="'textLabelDesc'">
-    <span class="mb-3 d-block text-muted alert alert-warning p-1" additionalText>
-      <strong>{{ 'warning' | translate }}!</strong> 
-      <span class="ml-1" [innerHTML]="'textLabel_warning' | translate:{fileName: 'modules/elements/evt_builder-generate-text_label.xsl'}"></span>
-    </span>
-    <div class="form-check pl-0" content>
-      <input class="inline-label" type="checkbox" id="defaulTextLabel" name="defaulTextLabel" [checked]="configs.defaulTextLabel"
-        [(ngModel)]="configs.defaulTextLabel" />
-      <label class="col-form-label-sm form-check-label ml-3"
-        for="defaulTextLabel">{{'enableDefaulTextLabel' | translate }}</label>
+    <div content>
+      <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.defaulTextLabel">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input type="checkbox" [checked]="configs.defaulTextLabel" [(ngModel)]="configs.defaulTextLabel"
+              [title]="configs.defaulTextLabel ? 'disable': 'enable' | translate">
+          </div>
+        </div>
+        <label class="form-control" [ngClass]="{
+                                  'bg-light': !configs.defaulTextLabel,
+                                  'text-muted': !configs.defaulTextLabel }">
+          {{'enableDefaulTextLabel' | translate }}</label>
+      </div>
+      <small class="d-block text-muted alert alert-warning p-1" *ngIf="!configs.defaulTextLabel">
+        <strong>{{ 'warning' | translate }}!</strong>
+        <span class="ml-1"
+          [innerHTML]="'textLabel_warning' | translate:{fileName: 'modules/elements/evt_builder-generate-text_label.xsl'}"></span>
+      </small>
     </div>
   </app-form-group>
 </ng-container>

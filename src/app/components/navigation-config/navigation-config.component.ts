@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { EvtConfigService } from 'src/app/services/evt-config.service';
 
 @Component({
@@ -9,7 +9,12 @@ import { EvtConfigService } from 'src/app/services/evt-config.service';
 })
 export class NavigationConfigComponent {
   public configs$ = this.evtConfigService.configs$.pipe(
-    map(c => c.tools)
+    map(c => c.tools),
+    tap(c => {
+      if (c.bottom_navbar && !c.bottom_navbar_initial_status) {
+        c.bottom_navbar_initial_status = this.evtConfigService.defaultConfigs.tools.bottom_navbar_initial_status;
+      }
+    })
   );
 
   constructor(
