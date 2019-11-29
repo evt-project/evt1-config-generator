@@ -1,18 +1,20 @@
 <ng-container *ngIf="configs$ | async as configs">
   <app-form-group [title]="'translation'">
-    <span class="mb-3 d-block text-muted alert alert-warning p-1" additionalText>
-      <strong>{{ 'warning' | translate }}!</strong> {{ 'translation_warning' | translate }}
-    </span>
-    <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.translation" content>
-      <div class="input-group-prepend">
-        <div class="input-group-text">
-          <input type="checkbox" [checked]="configs.translation" [(ngModel)]="configs.translation"
-            [title]="configs.translation ? 'disable': 'enable' | translate">
+    <div content>
+      <div class="input-group input-group-sm mb-2" [class.disabled]="!configs.translation">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input type="checkbox" [checked]="configs.translation" [(ngModel)]="configs.translation"
+              [title]="configs.translation ? 'disable': 'enable' | translate">
+          </div>
         </div>
+        <label class="form-control bg-light" [ngClass]="{
+            'bg-light': !configs.translation,
+            'text-muted': !configs.translation }">{{'enableTranslation' | translate }}</label>
       </div>
-      <label class="form-control bg-light" [ngClass]="{
-          'bg-light': !configs.translation,
-          'text-muted': !configs.translation }">{{'enableTranslation' | translate }}</label>
+      <small class="mb-3 d-block text-muted alert alert-warning p-1" *ngIf="configs.translation">
+        <strong>{{ 'warning' | translate }}!</strong> {{ 'translation_warning' | translate }}
+      </small>
     </div>
   </app-form-group>
 </ng-container>
