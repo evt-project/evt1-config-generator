@@ -3,67 +3,83 @@
     <strong>{{ 'warning' | translate }}!</strong> {{ 'entitiesSelector_warning' | translate }}
   </div>
   <div class="form-check pl-0" content *ngIf="lists$ | async as lists">
-      <ng-container *ngTemplateOutlet="listsAccordion;context:{lists:lists}"></ng-container>
-  </div>
-</app-form-group>
-
-<ng-template #listsAccordion let-lists="lists">
-  <ngb-accordion #a="ngbAccordion" class="listsConfigs" activeIds="list_0">
-    <ngb-panel id="list_{{index}}" *ngFor="let list of lists; let index = index" class="mb-3">
-      <ng-template ngbPanelHeader let-opened="opened">
-        <div class="input-group input-group-sm list-header" [class.disabled]="!list.active" [class.opened]="opened">
-          <div class="input-group-prepend">
-            <button class="btn btn-primary list-toggler" type="button" ngbPanelToggle
-              [class.btn-secondary]="!list.active">
-              <fa-icon [icon]="opened ? 'caret-down' : 'caret-right'"></fa-icon>
-            </button>
-            <div class="input-group-text">
-              <input type="checkbox" [checked]="list.active" [(ngModel)]="list.active"
-                [title]="list.active ? 'disable': 'enable' | translate">
+    <ngb-accordion #listsAccordion="ngbAccordion" class="listsConfigs" activeIds="list_0">
+      <ngb-panel id="list_{{index}}" *ngFor="let list of lists; let index = index" class="mb-3">
+        <ng-template ngbPanelHeader let-opened="opened">
+          <div class="input-group input-group-sm list-header" [class.disabled]="!list.active" [class.opened]="opened">
+            <div class="input-group-prepend">
+              <button class="btn btn-primary list-toggler" type="button" ngbPanelToggle
+                [class.btn-secondary]="!list.active">
+                <fa-icon [icon]="opened ? 'caret-down' : 'caret-right'"></fa-icon>
+              </button>
+              <div class="input-group-text">
+                <input type="checkbox" [checked]="list.active" [(ngModel)]="list.active"
+                  [title]="list.active ? 'disable': 'enable' | translate">
+              </div>
+            </div>
+            <input class="form-control" [placeholder]="'insertGroupLabelHere' | translate" [disabled]="!list.active"
+              [(ngModel)]="list.groupLabel">
+            <div class="input-group-append">
+              <button class="btn btn-danger" type="button" (click)="removeGroup(index)">
+                <fa-icon [icon]="'trash'"></fa-icon>
+              </button>
             </div>
           </div>
-          <input class="form-control" [placeholder]="'insertGroupLabelHere' | translate" [disabled]="!list.active"
-            [(ngModel)]="list.groupLabel">
-        </div>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        <div class="list-details-container" [class.disabled]="!list.active">
-          <ng-container *ngFor="let item of list.items">
-            <div class="input-group input-group-sm mb-2 list-detail">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <input type="checkbox" [checked]="item.active" [disabled]="!list.active" [(ngModel)]="item.active"
-                    [title]="item.active ? 'disable': 'enable' | translate">
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="list-details-container" [class.disabled]="!list.active">
+            <ng-container *ngFor="let item of list.items; let indexItem = index">
+              <div class="input-group input-group-sm mb-2 list-detail">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" [checked]="item.active" [disabled]="!list.active" [(ngModel)]="item.active"
+                      [title]="item.active ? 'disable': 'enable' | translate">
+                  </div>
+                </div>
+                <input type="text" class="form-control" [placeholder]="'insertTagNameHere' | translate"
+                  [(ngModel)]="item.tag" [disabled]="!item.active || !list.active">
+                <input type="text" class="form-control" [placeholder]="'insertLabelHere' | translate"
+                  [(ngModel)]="item.label" [disabled]="!item.active || !list.active">
+                <div class="input-group-append">
+                  <button class="btn btn-light border" type="button" [disabled]="!item.active || !list.active"
+                    (click)="addAttribute(item)">
+                    <fa-icon [icon]="'plus'" class="mr-2"></fa-icon>{{'addAttribute' | translate}}
+                  </button>
+                  <button class="btn btn-danger" type="button" (click)="removeItem(list, indexItem)">
+                    <fa-icon [icon]="'trash'"></fa-icon>
+                  </button>
                 </div>
               </div>
-              <input type="text" class="form-control" [placeholder]="'insertTagNameHere' | translate"
-                [(ngModel)]="item.tag" [disabled]="!item.active || !list.active">
-              <input type="text" class="form-control" [placeholder]="'insertLabelHere' | translate"
-                [(ngModel)]="item.label" [disabled]="!item.active || !list.active">
-              <div class="input-group-append">
-                <button class="btn btn-light" type="button" [disabled]="!item.active || !list.active"
-                  (click)="addAttribute(item)">
-                  <fa-icon [icon]="'plus'" class="mr-2"></fa-icon>{{'addAttribute' | translate}}
-                </button>
+              <div class="input-group input-group-sm mb-2 list-detail-attribute"
+                *ngFor="let attr of item.attributes; let indexAttr = index">
+                <div class="input-group-prepend">
+                  <div class="input-group-text text-muted">@</div>
+                </div>
+                <input type="text" class="form-control" [(ngModel)]="attr.key"
+                  [disabled]="!item.active || !list.active">
+                <input type="text" class="form-control" [(ngModel)]="attr.value"
+                  [disabled]="!item.active || !list.active">
+                <div class="input-group-append">
+                  <button class="btn btn-danger" type="button" [disabled]="!item.active || !list.active"
+                    (click)="removeAttribute(item, indexAttr)">
+                    <fa-icon [icon]="'trash'"></fa-icon>
+                  </button>
+                </div>
               </div>
+            </ng-container>
+            <div class="text-center mt-3">
+              <button class="btn btn-sm btn-light border" type="button" (click)="addItem(list)">
+                <fa-icon [icon]="'plus'" class="mr-2"></fa-icon>{{'addItemInList' | translate}}
+              </button>
             </div>
-            <div class="input-group input-group-sm mb-2 list-detail-attribute"
-              *ngFor="let attr of item.attributes; let indexAttr = index">
-              <div class="input-group-prepend">
-                <div class="input-group-text text-muted">@</div>
-              </div>
-              <input type="text" class="form-control" [(ngModel)]="attr.key" [disabled]="!item.active || !list.active">
-              <input type="text" class="form-control" [(ngModel)]="attr.value" [disabled]="!item.active || !list.active">
-              <div class="input-group-append">
-                <button class="btn btn-danger" type="button" [disabled]="!item.active || !list.active"
-                  (click)="removeAttribute(item, indexAttr)">
-                  <fa-icon [icon]="'trash'"></fa-icon>
-                </button>
-              </div>
-            </div>
-          </ng-container>
-        </div>
-      </ng-template>
-    </ngb-panel>
-  </ngb-accordion>
-</ng-template>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <div class="text-center mt-4">
+      <button class="btn btn-sm btn-light border" type="button" (click)="addGroup()">
+        <fa-icon [icon]="'plus'" class="mr-2"></fa-icon>{{'addGroup' | translate}}
+      </button>
+    </div>
+  </div>
+</app-form-group>
