@@ -41,7 +41,7 @@
                 <input type="text" class="form-control" [placeholder]="'insertLabelHere' | translate"
                   [(ngModel)]="item.label" [disabled]="!item.active || !list.active">
                 <div class="input-group-append">
-                  <button class="btn btn-light" type="button" [disabled]="!item.active || !list.active"
+                  <button class="btn btn-light border" type="button" [disabled]="!item.active || !list.active"
                     (click)="addAttribute(item)">
                     <fa-icon [icon]="'plus'" class="mr-2"></fa-icon>{{'addAttribute' | translate}}
                   </button>
@@ -68,7 +68,7 @@
               </div>
             </ng-container>
             <div class="text-center">
-              <button class="btn btn-sm btn-light" type="button" (click)="addItem(list)">
+              <button class="btn btn-sm btn-light border" type="button" (click)="addItem(list)">
                 <fa-icon [icon]="'plus'" class="mr-2"></fa-icon>{{'addItemInList' | translate}}
               </button>
             </div>
@@ -77,7 +77,7 @@
       </ngb-panel>
     </ngb-accordion>
     <div class="text-center">
-      <button class="btn btn-sm btn-light" type="button" (click)="addGroup()">
+      <button class="btn btn-sm btn-light border" type="button" (click)="addGroup()">
         <fa-icon [icon]="'plus'" class="mr-2"></fa-icon>{{'addGroup' | translate}}
       </button>
     </div>
