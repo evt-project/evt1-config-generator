@@ -136,5 +136,7 @@
     "startSplit_desc": "Starting point for the split of elements containing <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> and <code>&lt;cb&gt;</code>",
     "startSplitDepth": "Start split depth",
     "startSplitDepth_desc": "Indicate the maximum depth of <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> and <code>&lt;cb&gt;</code> with relatively to the element stated in the field \"Start Split\"",
-    "maxDepth": "Pro"
+    "addGroup": "Add group of entities",
+    "insertGroupLabelHere": "Insert group label here",
+    "addItemInList": "Add entity type"
 }
