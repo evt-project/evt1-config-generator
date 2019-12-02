@@ -134,5 +134,8 @@
     "startSplit": "Punto di partenza per la divisione",
     "startSplit_desc": "Punto di partenza per la divisione degli elementi contententi elementi <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> e <code>&lt;cb&gt;</code>",
     "startSplitDepth": "Profondità massima elementi milestone",
-    "startSplitDepth_desc": "Indica la profondità massima dei <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> e <code>&lt;cb&gt;</code> rispetto all'elemento inserito nel campo \"Punto di partenza per la divisione\""
+    "startSplitDepth_desc": "Indica la profondità massima dei <code>&lt;pb&gt;</code>, <code>&lt;lb&gt;</code> e <code>&lt;cb&gt;</code> rispetto all'elemento inserito nel campo \"Punto di partenza per la divisione\"",
+    "addGroup": "Aggiungi gruppo di entità",
+    "insertGroupLabelHere": "Inserisci qui il nome del gruppo",
+    "addItemInList": "Aggiungi tipologia di entità"
 }
